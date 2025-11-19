@@ -9,6 +9,7 @@ import Screen4 from './components/Screen4';
 import Screen5 from './components/Screen5';
 import Screen6 from './components/Screen6';
 import Screen7 from './components/Screen7';
+import Screen8 from './components/Screen8';
 import { cn } from '@/lib/utils';
 
 export default function Home() {
@@ -43,6 +44,8 @@ export default function Home() {
         setActiveScreen('screen6');
       } else if (event.key === '7') {
         setActiveScreen('screen7');
+      } else if (event.key === '8') {
+        setActiveScreen('screen8');
       }
     };
 
@@ -122,6 +125,14 @@ export default function Home() {
             activeScreen === 'screen7' ? "opacity-100 relative z-10 h-full" : "opacity-0 absolute inset-0 z-0 pointer-events-none overflow-hidden"
           )}>
             <Screen7 />
+          </div>
+
+          {/* Screen 8 */}
+          <div className={cn(
+            "transition-opacity duration-300",
+            activeScreen === 'screen8' ? "opacity-100 relative z-10" : "opacity-0 absolute inset-0 z-0 pointer-events-none overflow-hidden"
+          )}>
+            <Screen8 />
           </div>
         </div>
       </main>
