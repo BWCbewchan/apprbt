@@ -1,7 +1,11 @@
+/**
+ * © Bản quyền thuộc về khu vực HCM1 & 4 bởi Trần Chí Bảo
+ */
+
 'use client';
 
 import { cn } from "@/lib/utils";
-import { QrCode, Search, ClipboardList, X, MessageSquare, BookOpen, Link as LinkIcon, Mail, FileText } from "lucide-react";
+import { BookOpen, ClipboardList, FileText, Link as LinkIcon, Mail, MessageSquare, QrCode, Search, X } from "lucide-react";
 
 interface SidebarProps {
   activeScreen: string;
@@ -37,7 +41,7 @@ export default function Sidebar({ activeScreen, onScreenChange, isCollapsed, onT
           )}>
             {!isCollapsed ? (
               <>
-                <h2 className="text-lg font-semibold gradient-text">Approbotics</h2>
+                <h2 className="text-lg font-semibold gradient-text">AppRBT HCM1&4</h2>
                 <button
                   onClick={onToggle}
                   className="flex h-8 w-8 items-center justify-center rounded-lg text-[#cbd5e1] hover:bg-[rgba(30,41,59,0.6)] hover:text-white transition-colors"
@@ -103,6 +107,15 @@ export default function Sidebar({ activeScreen, onScreenChange, isCollapsed, onT
               );
             })}
           </nav>
+          {!isCollapsed && (
+            <div className="p-4 border-t border-white/10 mt-auto">
+              <p className="text-xs text-center text-[#94a3b8] leading-relaxed">
+                © Bản quyền thuộc về<br />
+                <span className="text-[#a5b4fc] font-semibold">HCM1 & 4</span><br />
+                bởi <span className="text-[#a5b4fc] font-semibold">Trần Chí Bảo</span>
+              </p>
+            </div>
+          )}
         </div>
       </aside>
       {!isCollapsed && (

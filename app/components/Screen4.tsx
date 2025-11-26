@@ -1,10 +1,14 @@
+/**
+ * © Bản quyền thuộc về khu vực HCM1 & 4 bởi Trần Chí Bảo
+ */
+
 'use client';
 
-import { useState, useEffect } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { Button } from "./ui/button";
-import { Loader2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Loader2 } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Button } from "./ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
 // Google Sheets configuration
 const COMMENTS_SHEET_ID = '1CBLWOrdRIfuCvdemnoW3qYyzdl8OImv2sat9YsMXMdU';

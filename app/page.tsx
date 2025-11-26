@@ -1,7 +1,11 @@
+/**
+ * © Bản quyền thuộc về khu vực HCM1 & 4 bởi Trần Chí Bảo
+ */
+
 'use client';
 
-import { useState, useEffect } from 'react';
-import Sidebar from './components/Sidebar';
+import { cn } from '@/lib/utils';
+import { useEffect, useState } from 'react';
 import Screen1 from './components/Screen1';
 import Screen2 from './components/Screen2';
 import Screen3 from './components/Screen3';
@@ -10,7 +14,7 @@ import Screen5 from './components/Screen5';
 import Screen6 from './components/Screen6';
 import Screen7 from './components/Screen7';
 import Screen8 from './components/Screen8';
-import { cn } from '@/lib/utils';
+import Sidebar from './components/Sidebar';
 
 export default function Home() {
   const [activeScreen, setActiveScreen] = useState('screen1');

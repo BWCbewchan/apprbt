@@ -1,24 +1,28 @@
+/**
+ * © Bản quyền thuộc về khu vực HCM1 & 4 bởi Trần Chí Bảo
+ */
+
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import { cn } from '@/lib/utils';
+import {
+    ArcElement,
+    CategoryScale,
+    Chart as ChartJS,
+    Legend,
+    LinearScale,
+    LineElement,
+    PointElement,
+    Title,
+    Tooltip,
+} from 'chart.js';
+import { Check, Copy, Loader2, MessageSquare, Printer, Settings, Sparkles, Users, X } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { Doughnut, Line } from 'react-chartjs-2';
 import { Button } from "./ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Input } from "./ui/input";
 import { Select } from "./ui/select";
-import { MessageSquare, Users, Loader2, Copy, Check, Sparkles, Settings, X, Printer } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { Line, Doughnut } from 'react-chartjs-2';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  ArcElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
 
 // Register Chart.js components
 ChartJS.register(

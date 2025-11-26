@@ -1,3 +1,7 @@
+/**
+ * © Bản quyền thuộc về khu vực HCM1 & 4 bởi Trần Chí Bảo
+ */
+
 import * as React from "react";
 import { cn } from "@/lib/utils";
 

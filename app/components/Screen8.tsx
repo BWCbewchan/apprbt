@@ -1,9 +1,13 @@
+/**
+ * © Bản quyền thuộc về khu vực HCM1 & 4 bởi Trần Chí Bảo
+ */
+
 'use client';
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
-import { Button } from "./ui/button";
-import { ExternalLink, BookOpen, GraduationCap, Rocket, FileText } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { BookOpen, ExternalLink, FileText, GraduationCap, Rocket } from 'lucide-react';
+import { Button } from "./ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 
 interface HomeworkCategory {
   id: string;

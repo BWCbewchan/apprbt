@@ -1,12 +1,16 @@
+/**
+ * © Bản quyền thuộc về khu vực HCM1 & 4 bởi Trần Chí Bảo
+ */
+
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { Clipboard, Download, X, Loader2, Check, Link2, FileText, Settings } from 'lucide-react';
-import QRCode from 'qrcode';
 import { cn } from '@/lib/utils';
+import { Check, Clipboard, Download, FileText, Link2, Loader2, Settings, X } from 'lucide-react';
+import QRCode from 'qrcode';
+import { useEffect, useRef, useState } from 'react';
+import { Button } from "./ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
+import { Input } from "./ui/input";
 
 interface Lesson {
   bai: string;

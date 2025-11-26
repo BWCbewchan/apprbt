@@ -245,3 +245,111 @@
     box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
   }
 }
+
+/* Christmas Snowflakes */
+@keyframes snowfall {
+  0% {
+    top: -10%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 110%;
+    opacity: 0;
+  }
+}
+
+@keyframes sway {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(20px);
+  }
+}
+
+.snowflake {
+  position: fixed;
+  top: -10%;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1em;
+  pointer-events: none;
+  z-index: 9999;
+  user-select: none;
+  animation: snowfall linear infinite, sway ease-in-out infinite;
+  will-change: transform, top, opacity;
+}
+
+/* Santa Claus Animation */
+@keyframes santaFly {
+  0% {
+    right: -300px;
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-15px) scale(1.03);
+  }
+  100% {
+    right: calc(100% + 300px);
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes flagWave {
+  0%, 100% {
+    transform: skewY(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: skewY(2deg) rotateY(5deg);
+  }
+  75% {
+    transform: skewY(-2deg) rotateY(-5deg);
+  }
+}
+
+.santa-container {
+  position: fixed;
+  top: 12%;
+  right: -300px;
+  z-index: 10000;
+  pointer-events: none;
+  animation: santaFly 15s ease-in-out 0.5s 1 forwards;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  will-change: transform, right;
+}
+
+.santa-container img {
+  width: 180px;
+  height: auto;
+  display: block;
+}
+
+.santa-message {
+  position: fixed;
+  top: 12%;
+  right: -700px;
+  z-index: 9999;
+  pointer-events: none;
+  animation: santaFly 15s ease-in-out 0.5s 1 forwards, flagWave 0.8s ease-in-out infinite;
+  font-family: var(--font-space-grotesk);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.8),
+    0 0 10px rgba(255, 215, 0, 0.8);
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 50%, #b91c1c 100%);
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: 2px solid #fbbf24;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  white-space: nowrap;
+  will-change: transform, right;
+  margin-left: 220px;
+  transform-style: preserve-3d;
+}

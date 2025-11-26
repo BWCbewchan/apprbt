@@ -1,9 +1,13 @@
+/**
+ * © Bản quyền thuộc về khu vực HCM1 & 4 bởi Trần Chí Bảo
+ */
+
 'use client';
 
-import { useState, useEffect } from 'react';
-import { Button } from "./ui/button";
-import { X, Link as LinkIcon, Calendar, Building2, DollarSign, FileText } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Building2, Calendar, DollarSign, FileText, Link as LinkIcon, X } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Button } from "./ui/button";
 
 interface NavItem {
   url: string;
