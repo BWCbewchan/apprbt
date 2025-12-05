@@ -14,6 +14,7 @@ import Screen5 from './components/Screen5';
 import Screen6 from './components/Screen6';
 import Screen7 from './components/Screen7';
 import Screen8 from './components/Screen8';
+import Screen9 from './components/Screen9';
 import Sidebar from './components/Sidebar';
 
 export default function Home() {
@@ -50,6 +51,8 @@ export default function Home() {
         setActiveScreen('screen7');
       } else if (event.key === '8') {
         setActiveScreen('screen8');
+      } else if (event.key === '9') {
+        setActiveScreen('screen9');
       }
     };
 
@@ -73,7 +76,7 @@ export default function Home() {
       )}>
         <div className={cn(
           "relative h-full",
-          activeScreen === 'screen5' || activeScreen === 'screen6' || activeScreen === 'screen7' ? "p-0 h-screen" : "p-4 md:p-8"
+          activeScreen === 'screen5' || activeScreen === 'screen6' || activeScreen === 'screen7' || activeScreen === 'screen9' ? "p-0 h-screen" : "p-4 md:p-8"
         )}>
           {/* Screen 1 - Luôn được mount, chỉ ẩn/hiện bằng CSS */}
           <div className={cn(
@@ -137,6 +140,14 @@ export default function Home() {
             activeScreen === 'screen8' ? "opacity-100 relative z-10" : "opacity-0 absolute inset-0 z-0 pointer-events-none overflow-hidden"
           )}>
             <Screen8 />
+          </div>
+
+          {/* Screen 9 - Đánh giá năng lực học viên */}
+          <div className={cn(
+            "transition-opacity duration-300",
+            activeScreen === 'screen9' ? "opacity-100 relative z-10 h-full" : "opacity-0 absolute inset-0 z-0 pointer-events-none overflow-hidden"
+          )}>
+            <Screen9 />
           </div>
         </div>
       </main>

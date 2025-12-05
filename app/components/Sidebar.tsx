@@ -5,7 +5,7 @@
 'use client';
 
 import { cn } from "@/lib/utils";
-import { BookOpen, ClipboardList, FileText, Link as LinkIcon, Mail, MessageSquare, QrCode, Search, X } from "lucide-react";
+import { BookOpen, ClipboardList, FileText, Link as LinkIcon, Mail, MessageSquare, QrCode, Search, Star, X } from "lucide-react";
 
 interface SidebarProps {
   activeScreen: string;
@@ -23,6 +23,7 @@ const menuItems = [
   { id: 'screen6', label: 'Link Mentor', icon: LinkIcon, shortcut: '6' },
   { id: 'screen7', label: 'Nhận mail chỉ số', icon: Mail, shortcut: '7' },
   { id: 'screen8', label: 'Bài tập về nhà', icon: FileText, shortcut: '8' },
+  { id: 'screen9', label: 'Đánh giá năng lực', icon: Star, shortcut: '9' },
 ];
 
 export default function Sidebar({ activeScreen, onScreenChange, isCollapsed, onToggle }: SidebarProps) {
