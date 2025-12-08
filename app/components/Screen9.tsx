@@ -4,14 +4,14 @@
 
 'use client';
 
+import { memo } from 'react';
+
 // Google Sheets configuration - Đánh giá năng lực học viên
 const SHEET_ID = '1zBNoySRfy8K3lVXGLJT2CUIEWIpv_EXXNSBY13Zc0E8';
 const SHEET_GID = '1542423559';
+const embeddedUrl = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/edit?gid=${SHEET_GID}#gid=${SHEET_GID}`;
 
-export default function Screen9() {
-  // Use the direct edit URL - this should work if sheet is accessible
-  const embeddedUrl = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/edit?gid=${SHEET_GID}#gid=${SHEET_GID}`;
-
+function Screen9() {
   return (
     <div 
       className="absolute inset-0 w-full h-full overflow-hidden" 
@@ -31,6 +31,7 @@ export default function Screen9() {
         src={embeddedUrl}
         className="w-full h-full border-none"
         title="Đánh giá năng lực học viên"
+        loading="lazy"
         allow="clipboard-read; clipboard-write; fullscreen"
         style={{ 
           width: '100%',
@@ -43,10 +44,9 @@ export default function Screen9() {
           right: 0,
           bottom: 0
         }}
-        onError={(e) => {
-          console.error('Iframe load error:', e);
-        }}
       />
     </div>
   );
 }
+
+export default memo(Screen9);

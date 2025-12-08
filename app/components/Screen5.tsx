@@ -4,14 +4,14 @@
 
 'use client';
 
+import { memo } from 'react';
+
 // Google Sheets configuration
 const SHEET_ID = '1zBNoySRfy8K3lVXGLJT2CUIEWIpv_EXXNSBY13Zc0E8';
 const SHEET_GID = '401640686';
+const embeddedUrl = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/edit?gid=${SHEET_GID}#gid=${SHEET_GID}`;
 
-export default function Screen5() {
-  // Use the direct edit URL - this should work if sheet is accessible
-  const embeddedUrl = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/edit?gid=${SHEET_GID}#gid=${SHEET_GID}`;
-
+function Screen5() {
   return (
     <div 
       className="absolute inset-0 w-full h-full overflow-hidden" 
@@ -31,6 +31,7 @@ export default function Screen5() {
         src={embeddedUrl}
         className="w-full h-full border-none"
         title="Teaching Robotics Sheet"
+        loading="lazy"
         allow="clipboard-read; clipboard-write; fullscreen"
         style={{ 
           width: '100%',
@@ -43,11 +44,10 @@ export default function Screen5() {
           right: 0,
           bottom: 0
         }}
-        onError={(e) => {
-          console.error('Iframe load error:', e);
-        }}
       />
     </div>
   );
 }
+
+export default memo(Screen5);
 
