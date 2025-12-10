@@ -7,6 +7,57 @@
 
 ---
 
+## 🖥️ HỆ THỐNG ĐỀ XUẤT CẤU HÌNH
+
+### **Tóm Tắt Executive:**
+
+**Hiện Tại (Phase 0):**
+```
+Platform: Vercel Free (Serverless)
+Stack: Next.js 16 + React 19 + TypeScript
+Users: 45 giáo viên
+```
+
+**Đề Xuất Triển Khai (Q1 2026):**
+
+#### **Option 1: Cloud Hosting (Recommended)**
+```yaml
+Frontend: Vercel (Free tier)
+Backend: Railway/Render Starter
+  - Node.js 20 + Express/Fastify
+  - 2GB RAM, 1 vCPU
+  - Auto-scaling
+Database: MongoDB Atlas (Free tier)
+  - 512MB storage
+  - Shared cluster
+Cache: Upstash Redis (Free tier)
+Storage: Cloudflare R2 (PDFs/Images)
+```
+
+#### **Option 2: Self-Hosted (Cost-Optimized)**
+```yaml
+Server: VPS (Contabo/Hetzner)
+  - 4GB RAM, 2 vCPU
+  - 100GB SSD
+  - Docker + Nginx
+Services: Self-managed
+  - PostgreSQL 15
+  - Redis 7
+  - Node.js 20
+```
+
+#### **Tại Sao Không Cần AWS/GCP "Xịn":**
+```
+✅ Thực tế: 45 users, peak 8-12 concurrent
+✅ Traffic: ~10-20 requests/second
+✅ Storage: <500MB sau 1 năm
+✅ Railway/Render đủ cho 100-200 users
+```
+
+**→ Chi tiết đầy đủ xem [Section 1: Cấu Hình Server](#1-cấu-hình-server)**
+
+---
+
 ## 📋 MỤC LỤC
 
 1. [Cấu Hình Server](#1-cấu-hình-server)
@@ -65,9 +116,9 @@ Hiện tại AppRBT là **frontend-only** (Next.js SSR/SSG). Để phát triển
                         ▼
 ┌──────────────────────────────────────────────────────┐
 │                   DATABASE                           │
-│              PostgreSQL / MongoDB                    │
+│                   MongoDB                            │
 │                                                      │
-│  Tables/Collections:                                 │
+│  Collections:                                        │
 │  - teachers                                          │
 │  - classes                                           │
 │  - students                                          │
@@ -88,7 +139,580 @@ Hiện tại AppRBT là **frontend-only** (Next.js SSR/SSG). Để phát triển
 └──────────────────────────────────────────────────────┘
 ```
 
-[Chi tiết cấu hình server đầy đủ xem ở phần cuối tài liệu]
+---
+
+### 1.3. Stack Công Nghệ Đầy Đủ
+
+#### **Option 1: Node.js Stack (Recommended)**
+
+**Backend:**
+```javascript
+- Runtime: Node.js 20 LTS
+- Framework: Express.js 4.x hoặc Fastify 4.x
+- Language: TypeScript
+- ODM: Mongoose 8.x (MongoDB)
+- Authentication: NextAuth.js / Passport.js
+- Validation: Zod / Joi
+- API Documentation: Swagger / OpenAPI
+```
+
+**Database:**
+```
+- Primary: MongoDB 7+ (Document-based NoSQL)
+  - Collections: Teachers, Classes, Students, Comments
+  - Flexible schema, embedded documents
+- Cache: Redis 7+ (Session, Cache)
+- Storage: MongoDB GridFS / Cloudflare R2 (PDFs, Images)
+```
+
+**Services:**
+```
+- Google APIs: googleapis npm package
+- AI: @google/generative-ai (Gemini)
+- Email: nodemailer / SendGrid
+- PDF: puppeteer / pdfkit
+- Scheduler: node-cron / Bull Queue
+- Charts: Chart.js server-side rendering
+```
+
+---
+
+#### **Option 2: Python Stack (Alternative)**
+
+**Backend:**
+```python
+- Runtime: Python 3.11+
+- Framework: FastAPI 0.100+
+- ODM: Motor (async) / PyMongo
+- Authentication: FastAPI-Users / Auth0
+- Validation: Pydantic
+- API Documentation: Auto-generated (FastAPI)
+```
+
+**Database:** MongoDB 7+ (same as Option 1)
+
+**Services:**
+```python
+- Google APIs: google-api-python-client
+- AI: google-generativeai
+- Email: python-sendgrid
+- PDF: reportlab / weasyprint
+- Scheduler: APScheduler / Celery
+- Charts: matplotlib / plotly
+```
+
+---
+
+### 1.4. Cấu Hình Server Chi Tiết
+
+#### **A. Development Environment**
+
+**Local Machine:**
+```yaml
+CPU: 4 cores
+RAM: 8GB
+Storage: 50GB SSD
+OS: Windows/macOS/Linux
+```
+
+**Docker Compose Setup:**
+```yaml
+version: '3.8'
+
+services:
+  # Frontend
+  frontend:
+    build: ./
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://backend:4000
+    depends_on:
+      - backend
+    
+  # Backend API
+  backend:
+    build: ./server
+    ports:
+      - "4000:4000"
+    environment:
+      - MONGODB_URI=mongodb://db:27017/apprbt
+      - REDIS_URL=redis://redis:6379
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - GOOGLE_SHEETS_CREDENTIALS=${GOOGLE_CREDENTIALS}
+    depends_on:
+      - db
+      - redis
+    
+  # Database
+  db:
+    image: mongo:7-jammy
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_DATABASE=apprbt
+    volumes:
+      - mongodb_data:/data/db
+    
+  # Cache
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+volumes:
+  mongodb_data:
+  redis_data:
+```
+
+---
+
+#### **B. Database Schema**
+
+**MongoDB Collections (Mongoose Schemas):**
+
+```javascript
+// Teachers Collection
+const teacherSchema = new Schema({
+  email: { type: String, required: true, unique: true, index: true },
+  name: { type: String, required: true },
+  avatar_url: String,
+  region: String, // HCM1, HCM4
+  subject: String, // Robotics
+  start_date: Date,
+  status: { type: String, default: 'active' }, // active, inactive
+  created_at: { type: Date, default: Date.now },
+  updated_at: { type: Date, default: Date.now }
+});
+
+// Classes Collection
+const classSchema = new Schema({
+  teacher_id: { type: Schema.Types.ObjectId, ref: 'Teacher', index: true },
+  name: { type: String, required: true },
+  code: { type: String, unique: true },
+  course: String, // Basic Y1, Advance Y2
+  start_date: Date,
+  end_date: Date,
+  total_students: Number,
+  completed_students: Number,
+  dropout_students: Number,
+  status: String, // ongoing, completed
+  created_at: { type: Date, default: Date.now }
+});
+
+// Students Collection
+const studentSchema = new Schema({
+  name: { type: String, required: true },
+  class_id: { type: Schema.Types.ObjectId, ref: 'Class' },
+  status: String, // enrolled, completed, dropout
+  created_at: { type: Date, default: Date.now }
+});
+
+// Comments Collection (Nhận xét)
+const commentSchema = new Schema({
+  teacher_id: { type: Schema.Types.ObjectId, ref: 'Teacher', index: true },
+  student_id: { type: Schema.Types.ObjectId, ref: 'Student' },
+  class_id: { type: Schema.Types.ObjectId, ref: 'Class' },
+  session_number: Number,
+  scores: {
+    attitudeFocus: Number,
+    askingQuestions: Number,
+    assemblySpeed: Number,
+    assemblyAccuracy: Number,
+    assemblyCreativity: Number,
+    rememberOldKnowledge: Number,
+    learnNewKnowledge: Number,
+    programmingCreativity: Number,
+    teamwork: Number
+  },
+  comment_text: String,
+  word_count: Number,
+  response_time_hours: Number,
+  created_at: { type: Date, default: Date.now, index: -1 }
+});
+
+// Parent Feedback Collection
+const feedbackSchema = new Schema({
+  teacher_id: { type: Schema.Types.ObjectId, ref: 'Teacher' },
+  class_id: { type: Schema.Types.ObjectId, ref: 'Class' },
+  rating: { type: Number, min: 1, max: 5 },
+  comment: String,
+  created_at: { type: Date, default: Date.now }
+});
+
+// Teacher Performance Collection (Cached metrics)
+const performanceSchema = new Schema({
+  teacher_id: { type: Schema.Types.ObjectId, ref: 'Teacher', index: true },
+  period: { type: String, index: true }, // 2026-Q1, 2026-01
+  completion_rate: Number,
+  avg_student_score: Number,
+  avg_response_time: Number,
+  engagement_score: Number,
+  overall_score: Number,
+  ranking: Number,
+  tier: String, // Platinum, Gold, Silver, Bronze
+  calculated_at: { type: Date, default: Date.now }
+});
+
+// Achievements Collection
+const achievementSchema = new Schema({
+  code: { type: String, unique: true }, // COMPLETION_MASTER, SPEED_DEMON
+  name: String,
+  description: String,
+  badge_icon: String,
+  criteria: {
+    type: String, // completion, speed, quality
+    threshold: Number
+  }
+});
+
+// Teacher Achievements Collection (Embedded in Teacher or separate)
+const teacherAchievementSchema = new Schema({
+  teacher_id: { type: Schema.Types.ObjectId, ref: 'Teacher' },
+  achievement_id: { type: Schema.Types.ObjectId, ref: 'Achievement' },
+  unlocked_at: { type: Date, default: Date.now }
+});
+
+// Scheduled Reports Collection
+const scheduledReportSchema = new Schema({
+  teacher_id: { type: Schema.Types.ObjectId, ref: 'Teacher' },
+  report_type: String, // monthly, quarterly
+  last_sent_at: Date,
+  next_send_at: Date
+});
+
+// Compound Indexes
+teacherAchievementSchema.index({ teacher_id: 1, achievement_id: 1 }, { unique: true });
+performanceSchema.index({ teacher_id: 1, period: 1 });
+```
+
+---
+
+#### **C. API Endpoints**
+
+**Authentication:**
+```
+POST   /api/auth/login          - Login with Google
+POST   /api/auth/logout         - Logout
+GET    /api/auth/me             - Get current user
+```
+
+**Teachers:**
+```
+GET    /api/teachers            - List all teachers (Admin)
+GET    /api/teachers/:id        - Get teacher profile
+GET    /api/teachers/:id/stats  - Get teacher statistics
+GET    /api/teachers/:id/performance - Get performance metrics
+```
+
+**Dashboard:**
+```
+GET    /api/dashboard/kpi       - Get KPI for current teacher
+GET    /api/dashboard/ranking   - Get ranking leaderboard
+GET    /api/dashboard/schedule  - Get weekly schedule
+```
+
+**Classes:**
+```
+GET    /api/classes             - List classes (for current teacher)
+GET    /api/classes/:id         - Get class details
+GET    /api/classes/:id/students - Get students in class
+GET    /api/classes/:id/completion - Get completion metrics
+```
+
+**Comments:**
+```
+GET    /api/comments            - List comments (with filters)
+POST   /api/comments            - Create comment (AI-assisted)
+GET    /api/comments/:id        - Get comment details
+```
+
+**Analytics:**
+```
+GET    /api/analytics/trends    - Get trend analysis
+GET    /api/analytics/compare   - Compare with average
+GET    /api/analytics/predict   - AI predictions
+```
+
+**Reports:**
+```
+GET    /api/reports/monthly     - Generate monthly report
+GET    /api/reports/export/pdf  - Export PDF report
+```
+
+**Hall of Fame:**
+```
+GET    /api/hall-of-fame        - Get current month winners
+GET    /api/achievements        - List all achievements
+GET    /api/achievements/mine   - Get my achievements
+```
+
+**Admin:**
+```
+GET    /api/admin/teachers      - Manage teachers
+GET    /api/admin/team-stats    - Team statistics
+POST   /api/admin/sync-sheets   - Manual sync with Google Sheets
+```
+
+---
+
+#### **D. Cron Jobs**
+
+**Scheduled Tasks:**
+
+```javascript
+// Daily tasks (00:00 UTC+7)
+- Sync Google Sheets data
+- Calculate daily metrics
+- Check deadlines
+
+// Weekly tasks (Sunday 18:00)
+- Send reminder emails (nhắc viết nhận xét)
+- Generate weekly summaries
+
+// Monthly tasks (Last day of month 23:00)
+- Calculate performance scores
+- Update rankings
+- Generate monthly reports
+- Send awards notifications
+- Archive old data
+
+// Quarterly tasks
+- Hall of Fame selection
+- Tier adjustments
+- Generate quarterly reports
+```
+
+**Implementation (Node-cron):**
+```javascript
+const cron = require('node-cron');
+
+// Daily sync at 00:00
+cron.schedule('0 0 * * *', async () => {
+  await syncGoogleSheets();
+  await calculateDailyMetrics();
+});
+
+// Monthly reports (last day of month, 23:00)
+cron.schedule('0 23 L * *', async () => {
+  await calculateMonthlyPerformance();
+  await updateRankings();
+  await generateReports();
+  await sendAwardNotifications();
+});
+```
+
+---
+
+#### **E. Environment Variables**
+
+```bash
+# Server
+NODE_ENV=production
+PORT=4000
+API_URL=https://api.apprbt.mindx.edu.vn
+
+# Database
+MONGODB_URI=mongodb+srv://user:pass@cluster.mongodb.net/apprbt
+REDIS_URL=redis://redis-host:6379
+
+# Google Services
+GOOGLE_SHEETS_API_KEY=xxx
+GOOGLE_SHEETS_CREDENTIALS={"type": "service_account", ...}
+GOOGLE_OAUTH_CLIENT_ID=xxx
+GOOGLE_OAUTH_CLIENT_SECRET=xxx
+
+# AI
+GEMINI_API_KEY=xxx
+
+# Email
+SENDGRID_API_KEY=xxx
+SMTP_HOST=smtp.sendgrid.net
+SMTP_PORT=587
+FROM_EMAIL=noreply@mindx.edu.vn
+
+# Storage
+AWS_ACCESS_KEY_ID=xxx
+AWS_SECRET_ACCESS_KEY=xxx
+AWS_S3_BUCKET=apprbt-reports
+
+# Security
+JWT_SECRET=xxx
+SESSION_SECRET=xxx
+CORS_ORIGIN=https://apprbt.mindx.edu.vn
+
+# Monitoring
+SENTRY_DSN=xxx
+```
+
+---
+
+#### **F. Deployment**
+
+**Option 1: Docker + Nginx (Recommended)**
+
+```bash
+# Docker Compose Production
+docker-compose -f docker-compose.prod.yml up -d
+
+# Nginx Reverse Proxy
+server {
+  listen 443 ssl http2;
+  server_name apprbt.mindx.edu.vn;
+
+  ssl_certificate /etc/letsencrypt/live/apprbt.mindx.edu.vn/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/apprbt.mindx.edu.vn/privkey.pem;
+
+  # Frontend
+  location / {
+    proxy_pass http://localhost:3000;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection 'upgrade';
+    proxy_set_header Host $host;
+    proxy_cache_bypass $http_upgrade;
+  }
+
+  # Backend API
+  location /api {
+    proxy_pass http://localhost:4000;
+    proxy_http_version 1.1;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  }
+}
+```
+
+**Option 2: Vercel (Frontend) + Railway/Render (Backend)**
+
+```bash
+# Frontend: Deploy to Vercel
+vercel --prod
+
+# Backend: Deploy to Railway
+railway up
+
+# Database: MongoDB Atlas (Free tier) or Railway MongoDB
+```
+
+---
+
+#### **G. Monitoring & Logging**
+
+**Tools:**
+```yaml
+Monitoring:
+  - Application: New Relic / Datadog
+  - Infrastructure: AWS CloudWatch / Prometheus
+  - Uptime: UptimeRobot / Pingdom
+
+Logging:
+  - Centralized: Elasticsearch + Kibana (ELK)
+  - Simple: Winston (Node.js) → CloudWatch Logs
+
+Error Tracking:
+  - Sentry (Frontend + Backend)
+
+Performance:
+  - Lighthouse CI
+  - Web Vitals tracking
+```
+
+---
+
+#### **H. Security**
+
+**Checklist:**
+```
+✅ HTTPS only (SSL/TLS)
+✅ CORS properly configured
+✅ Rate limiting (express-rate-limit)
+✅ SQL injection prevention (ORM parameterized queries)
+✅ XSS protection (helmet.js)
+✅ CSRF tokens
+✅ Environment variables (never commit .env)
+✅ Input validation (Zod/Joi)
+✅ Authentication (JWT + HttpOnly cookies)
+✅ Authorization (Role-based access control)
+✅ Database backups (daily)
+✅ Secrets management (AWS Secrets Manager)
+```
+
+---
+
+### 1.5. Data Sync Strategy
+
+**Google Sheets → Database:**
+
+```javascript
+// Cron job runs daily at 00:00
+async function syncGoogleSheets() {
+  // 1. Fetch data from Google Sheets
+  const sheets = [
+    'Teacher Info',
+    'Class Schedule',
+    'Class Completion',
+    'Comments History',
+    'Parent Feedback'
+  ];
+
+  for (const sheet of sheets) {
+    const data = await fetchSheetData(sheet);
+    
+    // 2. Parse and validate
+    const validated = validateData(data);
+    
+    // 3. Upsert to database
+    await upsertToDatabase(sheet, validated);
+  }
+
+  // 4. Calculate derived metrics
+  await calculatePerformanceMetrics();
+  await updateRankings();
+  
+  console.log('Sync completed at', new Date());
+}
+```
+
+**Real-time Updates (Optional):**
+- Webhook từ Google Sheets → Backend API
+- Hoặc polling mỗi 5-10 phút cho data quan trọng
+
+---
+
+### 1.6. Migration Plan
+
+**Phase 1: Setup (Week 1-2)**
+- Setup server infrastructure
+- Configure database
+- Implement authentication
+
+**Phase 2: Data Migration (Week 3-4)**
+- Write sync scripts
+- Import historical data
+- Validate data integrity
+
+**Phase 3: API Development (Week 5-8)**
+- Build core API endpoints
+- Implement business logic
+- Write tests
+
+**Phase 4: Frontend Integration (Week 9-10)**
+- Connect frontend to new API
+- Update existing screens
+- Add new screens (Profile, Dashboard)
+
+**Phase 5: Testing (Week 11-12)**
+- End-to-end testing
+- Load testing
+- Security audit
+
+**Phase 6: Deployment (Week 13)**
+- Deploy to production
+- Monitor closely
+- Gather feedback
 
 ---
 
@@ -631,678 +1255,7 @@ Hiện tại AppRBT là **frontend-only** (Next.js SSR/SSG). Để phát triển
 
 ---
 
-## 9. CHI TIẾT CẤU HÌNH SERVER
-
-### 9.1. Stack Công Nghệ Đầy Đủ
-
-```
-┌──────────────────────────────────────────────────────┐
-│                    FRONTEND                          │
-│              Next.js 16 (App Router)                 │
-│                                                      │
-│  - UI/UX Layer                                       │
-│  - Client-side interactions                          │
-│  - SSR for SEO                                       │
-└──────────────────────────────────────────────────────┘
-                        │
-                        │ REST API / GraphQL
-                        ▼
-┌──────────────────────────────────────────────────────┐
-│                  BACKEND API                         │
-│              Node.js / Python                        │
-│                                                      │
-│  ┌────────────────────────────────────────────────┐ │
-│  │  API Layer (Express / FastAPI)                 │ │
-│  │  - Authentication & Authorization              │ │
-│  │  - Business Logic                              │ │
-│  │  - Data Aggregation                            │ │
-│  └────────────────────────────────────────────────┘ │
-│                                                      │
-│  ┌────────────────────────────────────────────────┐ │
-│  │  Services Layer                                │ │
-│  │  - Google Sheets Service (Read)                │ │
-│  │  - Gemini AI Service                           │ │
-│  │  - Email Service (SendGrid/Nodemailer)        │ │
-│  │  - PDF Generation (Puppeteer/PDFKit)          │ │
-│  │  - Cron Jobs (Scheduled tasks)                │ │
-│  └────────────────────────────────────────────────┘ │
-└──────────────────────────────────────────────────────┘
-                        │
-                        │ Database Queries
-                        ▼
-┌──────────────────────────────────────────────────────┐
-│                   DATABASE                           │
-│              PostgreSQL / MongoDB                    │
-│                                                      │
-│  Tables/Collections:                                 │
-│  - teachers                                          │
-│  - classes                                           │
-│  - students                                          │
-│  - comments                                          │
-│  - feedback                                          │
-│  - achievements                                      │
-│  - performance_metrics                               │
-└──────────────────────────────────────────────────────┘
-                        │
-                        │ Scheduled Sync
-                        ▼
-┌──────────────────────────────────────────────────────┐
-│              EXTERNAL SERVICES                       │
-│                                                      │
-│  - Google Sheets API (Data source)                  │
-│  - Gemini AI API (Comment generation)               │
-│  - SendGrid (Email notifications)                   │
-└──────────────────────────────────────────────────────┘
-```
-
----
-
-### 9.2. Option 1: Node.js Stack (Recommended)
-
-**Backend:**
-```javascript
-- Runtime: Node.js 20 LTS
-- Framework: Express.js 4.x hoặc Fastify 4.x
-- Language: TypeScript
-- ORM: Prisma (PostgreSQL) hoặc Mongoose (MongoDB)
-- Authentication: NextAuth.js / Passport.js
-- Validation: Zod / Joi
-- API Documentation: Swagger / OpenAPI
-```
-
-**Database:**
-```
-- Primary: PostgreSQL 15+ (Relational data)
-  - Teachers, Classes, Students, Comments
-- Cache: Redis 7+ (Session, Cache)
-- Storage: AWS S3 / Google Cloud Storage (PDFs, Images)
-```
-
-**Services:**
-```
-- Google APIs: googleapis npm package
-- AI: @google/generative-ai (Gemini)
-- Email: nodemailer / SendGrid
-- PDF: puppeteer / pdfkit
-- Scheduler: node-cron / Bull Queue
-- Charts: Chart.js server-side rendering
-```
-
----
-
-#### **Option 2: Python Stack (Alternative)**
-
-**Backend:**
-```python
-- Runtime: Python 3.11+
-- Framework: FastAPI 0.100+
-- ORM: SQLAlchemy 2.0 / Prisma Python
-- Authentication: FastAPI-Users / Auth0
-- Validation: Pydantic
-- API Documentation: Auto-generated (FastAPI)
-```
-
-**Database:** Same as Option 1
-
-**Services:**
-```python
-- Google APIs: google-api-python-client
-- AI: google-generativeai
-- Email: python-sendgrid
-- PDF: reportlab / weasyprint
-- Scheduler: APScheduler / Celery
-- Charts: matplotlib / plotly
-```
-
----
-
-### 9.3. Cấu Hình Server Chi Tiết
-
-#### **A. Development Environment**
-
-**Local Machine:**
-```yaml
-CPU: 4 cores
-RAM: 8GB
-Storage: 50GB SSD
-OS: Windows/macOS/Linux
-```
-
-**Docker Compose Setup:**
-```yaml
-version: '3.8'
-
-services:
-  # Frontend
-  frontend:
-    build: ./
-    ports:
-      - "3000:3000"
-    environment:
-      - NEXT_PUBLIC_API_URL=http://backend:4000
-    depends_on:
-      - backend
-    
-  # Backend API
-  backend:
-    build: ./server
-    ports:
-      - "4000:4000"
-    environment:
-      - DATABASE_URL=postgresql://user:pass@db:5432/apprbt
-      - REDIS_URL=redis://redis:6379
-      - GEMINI_API_KEY=${GEMINI_API_KEY}
-      - GOOGLE_SHEETS_CREDENTIALS=${GOOGLE_CREDENTIALS}
-    depends_on:
-      - db
-      - redis
-    
-  # Database
-  db:
-    image: postgres:15-alpine
-    ports:
-      - "5432:5432"
-    environment:
-      - POSTGRES_USER=user
-      - POSTGRES_PASSWORD=pass
-      - POSTGRES_DB=apprbt
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    
-  # Cache
-  redis:
-    image: redis:7-alpine
-    ports:
-      - "6379:6379"
-    volumes:
-      - redis_data:/data
-
-volumes:
-  postgres_data:
-  redis_data:
-```
-
----
-
-
-#### **C. Database Schema**
-
-**PostgreSQL Tables:**
-
-```sql
--- Teachers
-CREATE TABLE teachers (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  email VARCHAR(255) UNIQUE NOT NULL,
-  name VARCHAR(255) NOT NULL,
-  avatar_url TEXT,
-  region VARCHAR(50), -- HCM1, HCM4
-  subject VARCHAR(100), -- Robotics
-  start_date DATE,
-  status VARCHAR(20) DEFAULT 'active', -- active, inactive
-  created_at TIMESTAMP DEFAULT NOW(),
-  updated_at TIMESTAMP DEFAULT NOW()
-);
-
--- Classes
-CREATE TABLE classes (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  teacher_id UUID REFERENCES teachers(id),
-  name VARCHAR(255) NOT NULL,
-  code VARCHAR(50) UNIQUE,
-  course VARCHAR(100), -- Basic Y1, Advance Y2
-  start_date DATE,
-  end_date DATE,
-  total_students INT,
-  completed_students INT,
-  dropout_students INT,
-  status VARCHAR(20), -- ongoing, completed
-  created_at TIMESTAMP DEFAULT NOW()
-);
-
--- Students
-CREATE TABLE students (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  name VARCHAR(255) NOT NULL,
-  class_id UUID REFERENCES classes(id),
-  status VARCHAR(20), -- enrolled, completed, dropout
-  created_at TIMESTAMP DEFAULT NOW()
-);
-
--- Comments (Nhận xét)
-CREATE TABLE comments (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  teacher_id UUID REFERENCES teachers(id),
-  student_id UUID REFERENCES students(id),
-  class_id UUID REFERENCES classes(id),
-  session_number INT,
-  scores JSONB, -- {attitudeFocus: 8, assemblySpeed: 7, ...}
-  comment_text TEXT,
-  word_count INT,
-  created_at TIMESTAMP DEFAULT NOW(),
-  response_time_hours DECIMAL -- Time from class end to comment
-);
-
--- Parent Feedback
-CREATE TABLE parent_feedback (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  teacher_id UUID REFERENCES teachers(id),
-  class_id UUID REFERENCES classes(id),
-  rating INT CHECK (rating >= 1 AND rating <= 5),
-  comment TEXT,
-  created_at TIMESTAMP DEFAULT NOW()
-);
-
--- Teacher Performance (Cached metrics)
-CREATE TABLE teacher_performance (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  teacher_id UUID REFERENCES teachers(id),
-  period VARCHAR(20), -- 2026-Q1, 2026-01
-  completion_rate DECIMAL,
-  avg_student_score DECIMAL,
-  avg_response_time DECIMAL,
-  engagement_score DECIMAL,
-  overall_score DECIMAL,
-  ranking INT,
-  tier VARCHAR(20), -- Platinum, Gold, Silver, Bronze
-  calculated_at TIMESTAMP DEFAULT NOW()
-);
-
--- Achievements
-CREATE TABLE achievements (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  code VARCHAR(50) UNIQUE, -- COMPLETION_MASTER, SPEED_DEMON
-  name VARCHAR(255),
-  description TEXT,
-  badge_icon VARCHAR(50),
-  criteria JSONB -- {type: 'completion', threshold: 10}
-);
-
--- Teacher Achievements (Junction table)
-CREATE TABLE teacher_achievements (
-  teacher_id UUID REFERENCES teachers(id),
-  achievement_id UUID REFERENCES achievements(id),
-  unlocked_at TIMESTAMP DEFAULT NOW(),
-  PRIMARY KEY (teacher_id, achievement_id)
-);
-
--- Scheduled Reports
-CREATE TABLE scheduled_reports (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  teacher_id UUID REFERENCES teachers(id),
-  report_type VARCHAR(50), -- monthly, quarterly
-  last_sent_at TIMESTAMP,
-  next_send_at TIMESTAMP
-);
-
--- Indexes
-CREATE INDEX idx_teachers_email ON teachers(email);
-CREATE INDEX idx_classes_teacher ON classes(teacher_id);
-CREATE INDEX idx_comments_teacher ON comments(teacher_id);
-CREATE INDEX idx_comments_created ON comments(created_at DESC);
-CREATE INDEX idx_performance_teacher_period ON teacher_performance(teacher_id, period);
-```
-
----
-
-#### **D. API Endpoints**
-
-**Authentication:**
-```
-POST   /api/auth/login          - Login with Google
-POST   /api/auth/logout         - Logout
-GET    /api/auth/me             - Get current user
-```
-
-**Teachers:**
-```
-GET    /api/teachers            - List all teachers (Admin)
-GET    /api/teachers/:id        - Get teacher profile
-GET    /api/teachers/:id/stats  - Get teacher statistics
-GET    /api/teachers/:id/performance - Get performance metrics
-```
-
-**Dashboard:**
-```
-GET    /api/dashboard/kpi       - Get KPI for current teacher
-GET    /api/dashboard/ranking   - Get ranking leaderboard
-GET    /api/dashboard/schedule  - Get weekly schedule
-```
-
-**Classes:**
-```
-GET    /api/classes             - List classes (for current teacher)
-GET    /api/classes/:id         - Get class details
-GET    /api/classes/:id/students - Get students in class
-GET    /api/classes/:id/completion - Get completion metrics
-```
-
-**Comments:**
-```
-GET    /api/comments            - List comments (with filters)
-POST   /api/comments            - Create comment (AI-assisted)
-GET    /api/comments/:id        - Get comment details
-```
-
-**Analytics:**
-```
-GET    /api/analytics/trends    - Get trend analysis
-GET    /api/analytics/compare   - Compare with average
-GET    /api/analytics/predict   - AI predictions
-```
-
-**Reports:**
-```
-GET    /api/reports/monthly     - Generate monthly report
-GET    /api/reports/export/pdf  - Export PDF report
-```
-
-**Hall of Fame:**
-```
-GET    /api/hall-of-fame        - Get current month winners
-GET    /api/achievements        - List all achievements
-GET    /api/achievements/mine   - Get my achievements
-```
-
-**Admin:**
-```
-GET    /api/admin/teachers      - Manage teachers
-GET    /api/admin/team-stats    - Team statistics
-POST   /api/admin/sync-sheets   - Manual sync with Google Sheets
-```
-
----
-
-#### **E. Cron Jobs**
-
-**Scheduled Tasks:**
-
-```javascript
-// Daily tasks (00:00 UTC+7)
-- Sync Google Sheets data
-- Calculate daily metrics
-- Check deadlines
-
-// Weekly tasks (Sunday 18:00)
-- Send reminder emails (nhắc viết nhận xét)
-- Generate weekly summaries
-
-// Monthly tasks (Last day of month 23:00)
-- Calculate performance scores
-- Update rankings
-- Generate monthly reports
-- Send awards notifications
-- Archive old data
-
-// Quarterly tasks
-- Hall of Fame selection
-- Tier adjustments
-- Generate quarterly reports
-```
-
-**Implementation (Node-cron):**
-```javascript
-const cron = require('node-cron');
-
-// Daily sync at 00:00
-cron.schedule('0 0 * * *', async () => {
-  await syncGoogleSheets();
-  await calculateDailyMetrics();
-});
-
-// Monthly reports (last day of month, 23:00)
-cron.schedule('0 23 L * *', async () => {
-  await calculateMonthlyPerformance();
-  await updateRankings();
-  await generateReports();
-  await sendAwardNotifications();
-});
-```
-
----
-
-#### **F. Environment Variables**
-
-```bash
-# Server
-NODE_ENV=production
-PORT=4000
-API_URL=https://api.apprbt.mindx.edu.vn
-
-# Database
-DATABASE_URL=postgresql://user:pass@db-host:5432/apprbt
-REDIS_URL=redis://redis-host:6379
-
-# Google Services
-GOOGLE_SHEETS_API_KEY=xxx
-GOOGLE_SHEETS_CREDENTIALS={"type": "service_account", ...}
-GOOGLE_OAUTH_CLIENT_ID=xxx
-GOOGLE_OAUTH_CLIENT_SECRET=xxx
-
-# AI
-GEMINI_API_KEY=xxx
-
-# Email
-SENDGRID_API_KEY=xxx
-SMTP_HOST=smtp.sendgrid.net
-SMTP_PORT=587
-FROM_EMAIL=noreply@mindx.edu.vn
-
-# Storage
-AWS_ACCESS_KEY_ID=xxx
-AWS_SECRET_ACCESS_KEY=xxx
-AWS_S3_BUCKET=apprbt-reports
-
-# Security
-JWT_SECRET=xxx
-SESSION_SECRET=xxx
-CORS_ORIGIN=https://apprbt.mindx.edu.vn
-
-# Monitoring
-SENTRY_DSN=xxx
-```
-
----
-
-#### **G. Deployment**
-
-**Option 1: Docker + Nginx (Recommended)**
-
-```bash
-# Docker Compose Production
-docker-compose -f docker-compose.prod.yml up -d
-
-# Nginx Reverse Proxy
-server {
-  listen 443 ssl http2;
-  server_name apprbt.mindx.edu.vn;
-
-  ssl_certificate /etc/letsencrypt/live/apprbt.mindx.edu.vn/fullchain.pem;
-  ssl_certificate_key /etc/letsencrypt/live/apprbt.mindx.edu.vn/privkey.pem;
-
-  # Frontend
-  location / {
-    proxy_pass http://localhost:3000;
-    proxy_http_version 1.1;
-    proxy_set_header Upgrade $http_upgrade;
-    proxy_set_header Connection 'upgrade';
-    proxy_set_header Host $host;
-    proxy_cache_bypass $http_upgrade;
-  }
-
-  # Backend API
-  location /api {
-    proxy_pass http://localhost:4000;
-    proxy_http_version 1.1;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-  }
-}
-```
-
-**Option 2: Vercel (Frontend) + Railway/Render (Backend)**
-
-```bash
-# Frontend: Deploy to Vercel
-vercel --prod
-
-# Backend: Deploy to Railway
-railway up
-
-# Database: Railway Postgres or AWS RDS
-```
-
----
-
-#### **H. Monitoring & Logging**
-
-**Tools:**
-```yaml
-Monitoring:
-  - Application: New Relic / Datadog
-  - Infrastructure: AWS CloudWatch / Prometheus
-  - Uptime: UptimeRobot / Pingdom
-
-Logging:
-  - Centralized: Elasticsearch + Kibana (ELK)
-  - Simple: Winston (Node.js) → CloudWatch Logs
-
-Error Tracking:
-  - Sentry (Frontend + Backend)
-
-Performance:
-  - Lighthouse CI
-  - Web Vitals tracking
-```
-
----
-
-#### **I. Security**
-
-**Checklist:**
-```
-✅ HTTPS only (SSL/TLS)
-✅ CORS properly configured
-✅ Rate limiting (express-rate-limit)
-✅ SQL injection prevention (ORM parameterized queries)
-✅ XSS protection (helmet.js)
-✅ CSRF tokens
-✅ Environment variables (never commit .env)
-✅ Input validation (Zod/Joi)
-✅ Authentication (JWT + HttpOnly cookies)
-✅ Authorization (Role-based access control)
-✅ Database backups (daily)
-✅ Secrets management (AWS Secrets Manager)
-```
-
----
-
-#### **J. Cost Estimation**
-
-**Monthly Cost (Initial - 50 users):**
-
-```
-AWS EC2 t3.medium:         $30
-RDS PostgreSQL db.t3.micro: $15
-ElastiCache Redis (optional): $15
-S3 Storage (10GB):         $1
-CloudFront CDN:            $5
-SSL Certificate:           $0 (Let's Encrypt)
-Domain:                    $1
------------------------------------
-TOTAL:                     ~$67/month
-```
-
-**Monthly Cost (Scaled - 500 users):**
-
-```
-AWS EC2 t3.large x2 (Load Balanced): $120
-RDS PostgreSQL db.t3.medium:         $60
-ElastiCache Redis:                   $30
-S3 Storage (100GB):                  $5
-CloudFront CDN:                      $20
-Monitoring (New Relic):              $99
------------------------------------
-TOTAL:                               ~$334/month
-```
-
----
-
-### 9.4. Data Sync Strategy
-
-**Google Sheets → Database:**
-
-```javascript
-// Cron job runs daily at 00:00
-async function syncGoogleSheets() {
-  // 1. Fetch data from Google Sheets
-  const sheets = [
-    'Teacher Info',
-    'Class Schedule',
-    'Class Completion',
-    'Comments History',
-    'Parent Feedback'
-  ];
-
-  for (const sheet of sheets) {
-    const data = await fetchSheetData(sheet);
-    
-    // 2. Parse and validate
-    const validated = validateData(data);
-    
-    // 3. Upsert to database
-    await upsertToDatabase(sheet, validated);
-  }
-
-  // 4. Calculate derived metrics
-  await calculatePerformanceMetrics();
-  await updateRankings();
-  
-  console.log('Sync completed at', new Date());
-}
-```
-
-**Real-time Updates (Optional):**
-- Webhook từ Google Sheets → Backend API
-- Hoặc polling mỗi 5-10 phút cho data quan trọng
-
----
-
-### 9.5. Migration Plan
-
-**Phase 1: Setup (Week 1-2)**
-- Setup server infrastructure
-- Configure database
-- Implement authentication
-
-**Phase 2: Data Migration (Week 3-4)**
-- Write sync scripts
-- Import historical data
-- Validate data integrity
-
-**Phase 3: API Development (Week 5-8)**
-- Build core API endpoints
-- Implement business logic
-- Write tests
-
-**Phase 4: Frontend Integration (Week 9-10)**
-- Connect frontend to new API
-- Update existing screens
-- Add new screens (Profile, Dashboard)
-
-**Phase 5: Testing (Week 11-12)**
-- End-to-end testing
-- Load testing
-- Security audit
-
-**Phase 6: Deployment (Week 13)**
-- Deploy to production
-- Monitor closely
-- Gather feedback
-
----
-
-## 10. KẾT LUẬN
+## 9. KẾT LUẬN
 
 ### 10.1. Tóm Tắt
 
