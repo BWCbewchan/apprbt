@@ -824,45 +824,6 @@ volumes:
 
 ---
 
-#### **B. Production Environment**
-
-**Cloud Provider: AWS / Google Cloud / Azure**
-
-**Server Specs (Initial):**
-```yaml
-Instance Type: 
-  - AWS: t3.medium (2 vCPU, 4GB RAM)
-  - GCP: e2-medium (2 vCPU, 4GB RAM)
-  - Azure: B2s (2 vCPU, 4GB RAM)
-
-Storage: 50GB SSD
-
-OS: Ubuntu 22.04 LTS
-
-Network:
-  - Public IP
-  - SSL Certificate (Let's Encrypt)
-  - CDN: CloudFlare
-```
-
-**Scaling (6-12 months):**
-```yaml
-When user > 100:
-  - Upgrade to t3.large (2 vCPU, 8GB RAM)
-  
-When user > 500:
-  - Load Balancer + 2x t3.medium
-  - Separate DB server (db.t3.medium)
-  - Redis Cluster
-  
-When user > 1000:
-  - Auto-scaling group (2-5 instances)
-  - RDS PostgreSQL (Multi-AZ)
-  - ElastiCache Redis
-  - S3 for static assets
-```
-
----
 
 #### **C. Database Schema**
 
