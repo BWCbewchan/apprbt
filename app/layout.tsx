@@ -5,6 +5,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Outfit, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import VisitorsBadge from "./components/VisitorsBadge";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -55,6 +56,7 @@ export default function RootLayout({
         style={{ fontFamily: 'var(--font-outfit)' }}
       >
         {children}
+        <VisitorsBadge />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -64,8 +66,10 @@ export default function RootLayout({
                   const santa = document.createElement('div');
                   santa.classList.add('santa-container');
                   const img = document.createElement('img');
-                  img.src = 'https://img.pikbest.com/png-images/20191113/santa-gives-gifts-gif_2515372.png!bw700';
-                  img.alt = 'Santa Claus';
+                  // Use local image served from /public/img
+                  // Place file at: public/img/santa-sleigh.png
+                  img.src = 'https://www.animatedimages.org/data/media/359/animated-santa-claus-image-0420.gif';
+                  img.alt = 'Christmas reindeer sleigh';
                   santa.appendChild(img);
                   document.body.appendChild(santa);
                   

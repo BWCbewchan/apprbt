@@ -16,6 +16,11 @@ import Screen7 from './components/Screen7';
 import Screen8 from './components/Screen8';
 import Screen9 from './components/Screen9';
 import Sidebar from './components/Sidebar';
+import FeedbackButton from './components/FeedbackButton';
+import StatisticsButton from './components/StatisticsButton';
+import TeacherCodeModal from './components/TeacherCodeModal';
+import { usePageTracking } from './hooks/usePageTracking';
+import { getTeacherCode, setTeacherCode } from '@/lib/appscript';
 
 // Keyboard mapping - định nghĩa ngoài component để không tạo lại mỗi render
 const KEY_TO_SCREEN: Record<string, string> = {
@@ -47,6 +52,31 @@ const visibleStyle: React.CSSProperties = {
 export default function Home() {
   const [activeScreen, setActiveScreen] = useState('screen1');
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+  const [showTeacherModal, setShowTeacherModal] = useState(false);
+
+  // Check if teacher code exists
+  useEffect(() => {
+    const teacherCode = getTeacherCode();
+    console.log('🔍 Checking teacher code:', teacherCode);
+    if (!teacherCode) {
+      setShowTeacherModal(true);
+    }
+  }, []);
+
+  // Handle teacher code submission
+  const handleTeacherCodeSubmit = (code: string) => {
+    console.log('✅ Setting teacher code:', code);
+    setTeacherCode(code);
+    setShowTeacherModal(false);
+    // Trigger a re-render to start tracking with new teacher code
+    // Force screen to re-track by changing state
+    const currentScreen = activeScreen;
+    setActiveScreen('');
+    setTimeout(() => setActiveScreen(currentScreen), 0);
+  };
+
+  // Track page views
+  usePageTracking(activeScreen);
 
   const toggleSidebar = useCallback(() => {
     setIsSidebarCollapsed(prev => !prev);
@@ -75,8 +105,14 @@ export default function Home() {
   const isFullscreen = FULLSCREEN_SCREENS.includes(activeScreen);
 
   return (
-    <div className="flex min-h-screen bg-gradient-to-br from-[#0f172a] to-[#1e293b]">
-      <Sidebar 
+    <>
+      {/* Teacher Code Modal */}
+      {showTeacherModal && (
+        <TeacherCodeModal onSubmit={handleTeacherCodeSubmit} />
+      )}
+
+      <div className="flex min-h-screen bg-gradient-to-br from-[#0f172a] to-[#1e293b]">
+        <Sidebar 
         activeScreen={activeScreen} 
         onScreenChange={handleScreenChange}
         isCollapsed={isSidebarCollapsed}
@@ -135,9 +171,12 @@ export default function Home() {
             <Screen9 />
           </div>
         </div>
+
+        {/* Action Buttons - Always visible */}
+        <StatisticsButton />
+        <FeedbackButton currentScreen={activeScreen} />
       </main>
-    </div>
-  );
-}
+      </div>
+    </>
   );
 }

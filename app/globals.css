@@ -323,8 +323,9 @@
 }
 
 .santa-container img {
-  width: 180px;
-  height: auto;
+  padding-top: 50px;
+  height: 100px;
+  width: auto;
   display: block;
 }
 
@@ -349,6 +350,6 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   white-space: nowrap;
   will-change: transform, right;
-  margin-left: 220px;
+  margin-left: 160px;
   transform-style: preserve-3d;
 }
