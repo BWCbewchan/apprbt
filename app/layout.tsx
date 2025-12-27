@@ -85,7 +85,9 @@ export default function RootLayout({
                   }, 16000);
                 }
                 
-                // Snowflakes with optimization
+                // Snowflakes with optimization (can be toggled off)
+                const enableSnow = false; // Set to true to re-enable snowfall
+
                 function createSnowflake() {
                   const snowflake = document.createElement('div');
                   snowflake.classList.add('snowflake');
@@ -113,12 +115,15 @@ export default function RootLayout({
                 function startChristmas() {
                   // Start Santa once on load
                   createSanta();
-                  
-                  // Start snowfall with less snowflakes
-                  for (let i = 0; i < 15; i++) {
-                    setTimeout(() => createSnowflake(), i * 600);
+
+                  // Snow only when enabled
+                  if (enableSnow) {
+                    // Start snowfall with less snowflakes
+                    for (let i = 0; i < 15; i++) {
+                      setTimeout(() => createSnowflake(), i * 600);
+                    }
+                    setInterval(() => createSnowflake(), 1200);
                   }
-                  setInterval(() => createSnowflake(), 1200);
                 }
                 
                 if (document.readyState === 'loading') {

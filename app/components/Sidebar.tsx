@@ -4,8 +4,10 @@
 
 'use client';
 
+import React, { useEffect, useState } from 'react';
 import { cn } from "@/lib/utils";
 import { BookOpen, ClipboardList, FileText, Link as LinkIcon, Mail, MessageSquare, QrCode, Search, Star, X, ExternalLink } from "lucide-react";
+import { trackPageView, trackLocalPageView, getUserId, getSessionId, getUserAgent, isAppsScriptConfigured } from '@/lib/appscript';
 
 interface SidebarProps {
   activeScreen: string;
@@ -28,6 +30,55 @@ const menuItems = [
 ];
 
 export default function Sidebar({ activeScreen, onScreenChange, isCollapsed, onToggle }: SidebarProps) {
+  const [dealClicks, setDealClicks] = useState<number>(() => {
+    try {
+      const v = localStorage.getItem('deal_click_count');
+      return v ? parseInt(v, 10) : 0;
+    } catch {
+      return 0;
+    }
+  });
+
+  useEffect(() => {
+    try {
+      const v = localStorage.getItem('deal_click_count');
+      if (v) setDealClicks(parseInt(v, 10));
+    } catch {}
+  }, []);
+
+  function handleDealClick() {
+    try {
+      const next = dealClicks + 1;
+      localStorage.setItem('deal_click_count', String(next));
+      setDealClicks(next);
+
+      // Local tracking for UI statistics
+      try {
+        trackLocalPageView('deal');
+      } catch (e) {
+        console.warn('Local tracking failed for deal click', e);
+      }
+
+      // Remote tracking to Apps Script (async, no-cors)
+      (async () => {
+        try {
+          if (isAppsScriptConfigured()) {
+            const userId = getUserId();
+            const sessionId = getSessionId();
+            const userAgent = getUserAgent();
+            const success = await trackPageView({ screen: 'deal', userId, sessionId, userAgent });
+            console.log('Deal click tracked to Apps Script:', success);
+          } else {
+            console.warn('Apps Script not configured; skipping remote tracking for deal click');
+          }
+        } catch (err) {
+          console.error('Error tracking deal click to Apps Script:', err);
+        }
+      })();
+
+    } catch {}
+  }
+
   return (
     <>
       <aside
@@ -83,6 +134,9 @@ export default function Sidebar({ activeScreen, onScreenChange, isCollapsed, onT
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => {
+                      // Ghi nhận lượt bấm nếu là mục deal
+                      if (item.id === 'deal') handleDealClick();
+
                       // Đóng sidebar trên mobile sau khi chọn menu
                       if (window.innerWidth < 768 && isCollapsed) {
                         onToggle();
@@ -103,6 +157,13 @@ export default function Sidebar({ activeScreen, onScreenChange, isCollapsed, onT
                         )}>
                           {item.shortcut}
                         </span>
+
+                        {item.id === 'deal' && dealClicks > 0 && (
+                          <span className="ml-2 inline-flex items-center justify-center px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-600 text-white">
+                            Đã bấm
+                          </span>
+                        )}
+
                       </>
                     )}
                   </a>
