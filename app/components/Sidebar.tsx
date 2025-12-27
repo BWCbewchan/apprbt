@@ -5,7 +5,7 @@
 'use client';
 
 import { cn } from "@/lib/utils";
-import { BookOpen, ClipboardList, FileText, Link as LinkIcon, Mail, MessageSquare, QrCode, Search, Star, X } from "lucide-react";
+import { BookOpen, ClipboardList, FileText, Link as LinkIcon, Mail, MessageSquare, QrCode, Search, Star, X, ExternalLink } from "lucide-react";
 
 interface SidebarProps {
   activeScreen: string;
@@ -24,6 +24,7 @@ const menuItems = [
   { id: 'screen7', label: 'Nhận mail chỉ số', icon: Mail, shortcut: '7' },
   { id: 'screen8', label: 'Bài tập về nhà', icon: FileText, shortcut: '8' },
   { id: 'screen9', label: 'Đánh giá năng lực', icon: Star, shortcut: '9' },
+  { id: 'deal', label: 'chỉ số deal lương', icon: ExternalLink, shortcut: 'D', href: 'https://tmsmindx.vercel.app/' },
 ];
 
 export default function Sidebar({ activeScreen, onScreenChange, isCollapsed, onToggle }: SidebarProps) {
@@ -65,6 +66,49 @@ export default function Sidebar({ activeScreen, onScreenChange, isCollapsed, onT
             {menuItems.map((item) => {
               const Icon = item.icon;
               const isActive = activeScreen === item.id;
+              const commonClass = cn(
+                "w-full flex items-center rounded-lg text-sm font-medium transition-colors relative",
+                isCollapsed ? "justify-center px-0 py-2.5" : "gap-3 px-3 py-2.5",
+                isActive
+                  ? "bg-gradient-to-r from-indigo-500 to-indigo-600 text-white shadow-lg"
+                  : "text-[#cbd5e1] hover:bg-[rgba(30,41,59,0.6)] hover:text-[#a5b4fc]"
+              );
+              const title = isCollapsed ? `${item.label} (Phím ${item.shortcut})` : undefined;
+
+              if (item.href) {
+                return (
+                  <a
+                    key={item.id}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => {
+                      // Đóng sidebar trên mobile sau khi chọn menu
+                      if (window.innerWidth < 768 && isCollapsed) {
+                        onToggle();
+                      }
+                    }}
+                    className={commonClass}
+                    title={title}
+                  >
+                    <Icon className="h-5 w-5 flex-shrink-0" />
+                    {!isCollapsed && (
+                      <>
+                        <span className="truncate flex-1">{item.label}</span>
+                        <span className={cn(
+                          "flex items-center justify-center w-6 h-6 rounded text-xs font-semibold",
+                          isActive
+                            ? "bg-white/20 text-white"
+                            : "bg-[rgba(30,41,59,0.6)] text-[#a5b4fc]"
+                        )}>
+                          {item.shortcut}
+                        </span>
+                      </>
+                    )}
+                  </a>
+                );
+              }
+
               return (
                 <button
                   key={item.id}
@@ -75,20 +119,14 @@ export default function Sidebar({ activeScreen, onScreenChange, isCollapsed, onT
                       onToggle();
                     }
                   }}
-                  className={cn(
-                    "w-full flex items-center rounded-lg text-sm font-medium transition-colors relative",
-                    isCollapsed ? "justify-center px-0 py-2.5" : "gap-3 px-3 py-2.5",
-                    isActive
-                      ? "bg-gradient-to-r from-indigo-500 to-indigo-600 text-white shadow-lg"
-                      : "text-[#cbd5e1] hover:bg-[rgba(30,41,59,0.6)] hover:text-[#a5b4fc]"
-                  )}
+                  className={commonClass}
                   style={item.id === 'screen5' && !isActive ? {
                     animation: 'borderPulse 2s ease-in-out infinite',
                     border: '2px solid',
                     borderColor: 'rgba(99, 102, 241, 0.6)',
                     boxShadow: '0 0 10px rgba(99, 102, 241, 0.3)'
                   } : undefined}
-                  title={isCollapsed ? `${item.label} (Phím ${item.shortcut})` : undefined}
+                  title={title}
                 >
                   <Icon className="h-5 w-5 flex-shrink-0" />
                   {!isCollapsed && (
