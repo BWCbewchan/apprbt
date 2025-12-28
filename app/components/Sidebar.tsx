@@ -26,6 +26,7 @@ const menuItems = [
   { id: 'screen7', label: 'Nhận mail chỉ số', icon: Mail, shortcut: '7' },
   { id: 'screen8', label: 'Bài tập về nhà', icon: FileText, shortcut: '8' },
   { id: 'screen9', label: 'Đánh giá năng lực', icon: Star, shortcut: '9' },
+  { id: 'screen10', label: 'Đào tạo nâng cao', icon: ExternalLink, shortcut: '0' },
   { id: 'deal', label: 'chỉ số deal lương', icon: ExternalLink, shortcut: 'D', href: 'https://tmsmindx.vercel.app/' },
 ];
 

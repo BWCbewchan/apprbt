@@ -15,6 +15,7 @@ import Screen6 from './components/Screen6';
 import Screen7 from './components/Screen7';
 import Screen8 from './components/Screen8';
 import Screen9 from './components/Screen9';
+import Screen10 from './components/Screen10';
 import Sidebar from './components/Sidebar';
 import FeedbackButton from './components/FeedbackButton';
 import StatisticsButton from './components/StatisticsButton';
@@ -26,11 +27,11 @@ import { getTeacherCode, setTeacherCode } from '@/lib/appscript';
 const KEY_TO_SCREEN: Record<string, string> = {
   '1': 'screen1', '2': 'screen2', '3': 'screen3',
   '4': 'screen4', '5': 'screen5', '6': 'screen6',
-  '7': 'screen7', '8': 'screen8', '9': 'screen9',
+  '7': 'screen7', '8': 'screen8', '9': 'screen9', '0': 'screen10',
 };
 
 // Screens cần full height
-const FULLSCREEN_SCREENS = ['screen5', 'screen6', 'screen7', 'screen9'];
+const FULLSCREEN_SCREENS = ['screen5', 'screen6', 'screen7', 'screen9', 'screen10'];
 
 // Style cho screen ẩn - dùng visibility để browser skip rendering
 const hiddenStyle: React.CSSProperties = {
@@ -169,6 +170,11 @@ export default function Home() {
           {/* Screen 9 */}
           <div style={activeScreen === 'screen9' ? {...visibleStyle, height: '100%'} : hiddenStyle}>
             <Screen9 />
+          </div>
+
+          {/* Screen 10 */}
+          <div style={activeScreen === 'screen10' ? {...visibleStyle, height: '100%'} : hiddenStyle}>
+            <Screen10 />
           </div>
         </div>
 
