@@ -91,10 +91,11 @@ export default function Screen1() {
         if (values.length >= 4) {
           const [bai, nam, khoa, link1, link2 = '', slide = ''] = values;
 
-          if (bai && bai.trim() && nam && khoa) {
+          if (bai && bai.trim() && nam !== undefined && nam !== null && khoa) {
+            const parsedYear = parseInt(nam.trim());
             lessonsData.push({
               bai: bai.trim(),
-              nam: parseInt(nam.trim()) || 1,
+              nam: isNaN(parsedYear) ? 1 : parsedYear,
               khoa: khoa.trim().toLowerCase(),
               link1: link1 ? link1.trim() : '',
               link2: link2 ? link2.trim() : '',
@@ -442,7 +443,7 @@ export default function Screen1() {
         <CardContent className="space-y-6">
           {/* Year Toggle */}
           <div className="flex gap-2 justify-center flex-wrap">
-            {[1, 2, 3].map((year) => (
+            {[0, 1, 2, 3].map((year) => (
               <Button
                 key={year}
                 variant={currentYear === year ? 'default' : 'outline'}

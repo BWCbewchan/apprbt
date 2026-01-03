@@ -85,9 +85,10 @@ export default function Screen4() {
         if (values.length >= 3) {
           const [nam, khoa, linknhung] = values;
 
-          if (nam && khoa) {
+          if (nam !== undefined && nam !== null && khoa) {
+            const parsedYear = parseInt(nam.trim());
             comments.push({
-              nam: parseInt(nam.trim()) || 1,
+              nam: isNaN(parsedYear) ? 1 : parsedYear,
               khoa: khoa.trim().toLowerCase(),
               linknhung: linknhung ? linknhung.trim() : ''
             });
@@ -197,7 +198,7 @@ export default function Screen4() {
         <CardContent className="pt-0">
           {/* Year Tabs */}
           <div className="flex gap-2">
-            {[1, 2, 3].map(year => (
+            {[0, 1, 2, 3].map(year => (
               <button
                 key={year}
                 onClick={() => switchYear(year)}

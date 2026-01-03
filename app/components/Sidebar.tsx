@@ -31,16 +31,11 @@ const menuItems = [
 ];
 
 export default function Sidebar({ activeScreen, onScreenChange, isCollapsed, onToggle }: SidebarProps) {
-  const [dealClicks, setDealClicks] = useState<number>(() => {
-    try {
-      const v = localStorage.getItem('deal_click_count');
-      return v ? parseInt(v, 10) : 0;
-    } catch {
-      return 0;
-    }
-  });
+  const [dealClicks, setDealClicks] = useState<number>(0);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
     try {
       const v = localStorage.getItem('deal_click_count');
       if (v) setDealClicks(parseInt(v, 10));
@@ -159,7 +154,7 @@ export default function Sidebar({ activeScreen, onScreenChange, isCollapsed, onT
                           {item.shortcut}
                         </span>
 
-                        {item.id === 'deal' && dealClicks > 0 && (
+                        {isMounted && item.id === 'deal' && dealClicks > 0 && (
                           <span className="ml-2 inline-flex items-center justify-center px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-600 text-white">
                             Đã bấm
                           </span>
