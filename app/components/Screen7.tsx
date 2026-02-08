@@ -52,6 +52,7 @@ export default function Screen7() {
   const [activeUrl, setActiveUrl] = useState<string | null>(null);
   const [activeTitle, setActiveTitle] = useState<string>('');
   const [showIframe, setShowIframe] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   // Optimize URL for Google Sheets/Forms
   const getOptimizedUrl = useCallback((url: string) => {
@@ -75,6 +76,7 @@ export default function Screen7() {
   }, []);
 
   const openLink = useCallback((url: string, title: string) => {
+    setIsLoaded(false);
     const optimizedUrl = getOptimizedUrl(url);
     setActiveUrl(optimizedUrl);
     setActiveTitle(title);
@@ -93,6 +95,7 @@ export default function Screen7() {
     setShowIframe(false);
     setActiveUrl(null);
     setActiveTitle('');
+    setIsLoaded(false);
   };
 
   return (
@@ -191,6 +194,14 @@ export default function Screen7() {
 
             {/* Iframe Container */}
             <div className="flex-1 relative overflow-hidden bg-white" style={{ height: 'calc(100vh - 48px)' }}>
+              {!isLoaded && (
+                <div className="absolute inset-0 flex items-center justify-center bg-slate-900/50 z-10">
+                  <div className="text-center">
+                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500 mx-auto mb-2" />
+                    <p className="text-sm text-slate-400">Đang tải {activeTitle}...</p>
+                  </div>
+                </div>
+              )}
               {activeUrl && (
                 <iframe
                   key={activeUrl}
@@ -198,6 +209,7 @@ export default function Screen7() {
                   className="border-none"
                   title={activeTitle}
                   allow="clipboard-read; clipboard-write; fullscreen"
+                  onLoad={() => setIsLoaded(true)}
                   style={{ 
                     width: '100%',
                     height: '100%',
@@ -207,7 +219,9 @@ export default function Screen7() {
                     top: 0,
                     left: 0,
                     right: 0,
-                    bottom: 0
+                    bottom: 0,
+                    opacity: isLoaded ? 1 : 0,
+                    transition: 'opacity 0.3s ease'
                   }}
                 />
               )}

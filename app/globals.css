@@ -245,111 +245,110 @@
   }
 }
 
-/* Christmas Snowflakes */
-@keyframes snowfall {
-  0% {
-    top: -10%;
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    top: 110%;
-    opacity: 0;
-  }
+/* Tết Việt Nam celebration - Simple lanterns */
+.tet-decor {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 40;
 }
 
-@keyframes sway {
+/* Lanterns - adjusted for sidebar */
+.tet-lantern-group {
+  position: fixed;
+  top: -6px;
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  animation: lanternSway 8s ease-in-out infinite;
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.35));
+  will-change: transform;
+}
+
+.tet-lantern-left {
+  left: 280px; /* Moved right to avoid sidebar collision */
+}
+
+.tet-lantern-right {
+  right: 14px;
+  animation-delay: 2s;
+}
+
+.tet-lantern {
+  width: 44px;
+  height: 60px;
+  background: radial-gradient(circle at 50% 38%, #fca5a5 0%, #ef4444 45%, #991b1b 95%);
+  border: 2px solid rgba(252, 211, 77, 0.9);
+  border-radius: 16px;
+  position: relative;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+  margin-bottom: 8px;
+}
+
+.tet-lantern::before {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  width: 2px;
+  height: 16px;
+  background: rgba(252, 211, 77, 0.9);
+  transform: translateX(-50%);
+}
+
+.tet-lantern::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 8px;
+  height: 10px;
+  background: linear-gradient(180deg, #fcd34d 0%, #f59e0b 100%);
+  border-radius: 4px;
+  transform: translateX(-50%);
+}
+
+@keyframes lanternSway {
   0%, 100% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0) rotate(-2deg);
   }
   50% {
-    transform: translateX(20px);
+    transform: translate3d(4px, 6px, 0) rotate(2deg);
   }
 }
 
-.snowflake {
-  position: fixed;
-  top: -10%;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 1em;
-  pointer-events: none;
-  z-index: 9999;
-  user-select: none;
-  animation: snowfall linear infinite, sway ease-in-out infinite;
-  will-change: transform, top, opacity;
-}
-
-/* Santa Claus Animation */
-@keyframes santaFly {
-  0% {
-    right: -300px;
-    transform: translateY(0) scale(1);
+@media (max-width: 768px) {
+  .tet-lantern-left {
+    left: 100px; /* Adjusted for mobile sidebar */
   }
-  50% {
-    transform: translateY(-15px) scale(1.03);
-  }
-  100% {
-    right: calc(100% + 300px);
-    transform: translateY(0) scale(1);
+  
+  .tet-lantern-right {
+    top: 6px;
   }
 }
 
-@keyframes flagWave {
-  0%, 100% {
-    transform: skewY(0deg) rotateY(0deg);
-  }
-  25% {
-    transform: skewY(2deg) rotateY(5deg);
-  }
-  75% {
-    transform: skewY(-2deg) rotateY(-5deg);
+@media (prefers-reduced-motion: reduce) {
+  .tet-lantern-group {
+    animation: none;
   }
 }
-
-.santa-container {
-  position: fixed;
-  top: 12%;
-  right: -300px;
-  z-index: 10000;
-  pointer-events: none;
-  animation: santaFly 15s ease-in-out 0.5s 1 forwards;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-  will-change: transform, right;
+/* Performance optimizations */
+iframe {
+  will-change: auto;
+  transform: translateZ(0);
+  contain: layout style paint;
 }
 
-.santa-container img {
-  padding-top: 50px;
-  height: 100px;
-  width: auto;
-  display: block;
+/* Reduce layout thrashing */
+.screen-container {
+  contain: layout style paint;
+  will-change: transform;
 }
 
-.santa-message {
-  position: fixed;
-  top: 12%;
-  right: -700px;
-  z-index: 9999;
-  pointer-events: none;
-  animation: santaFly 15s ease-in-out 0.5s 1 forwards, flagWave 0.8s ease-in-out infinite;
-  font-family: var(--font-space-grotesk);
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #fff;
-  text-shadow: 
-    2px 2px 4px rgba(0, 0, 0, 0.8),
-    0 0 10px rgba(255, 215, 0, 0.8);
-  background: linear-gradient(135deg, #ef4444 0%, #dc2626 50%, #b91c1c 100%);
-  padding: 10px 20px;
-  border-radius: 50px;
-  border: 2px solid #fbbf24;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  white-space: nowrap;
-  will-change: transform, right;
-  margin-left: 160px;
-  transform-style: preserve-3d;
+/* GPU optimization for transforms */
+.transform-gpu {
+  transform: translateZ(0);
+  will-change: transform;
 }

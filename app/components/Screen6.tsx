@@ -77,27 +77,7 @@ export default function Screen6() {
   const [activeUrl, setActiveUrl] = useState<string | null>(null);
   const [activeTitle, setActiveTitle] = useState<string>('');
   const [showIframe, setShowIframe] = useState(false);
-
-  // Auto-open first item on mount
-  useEffect(() => {
-    const firstItem = navSections[0]?.items[0];
-    if (firstItem) {
-      openLink(firstItem.url, firstItem.title);
-    }
-  }, []);
-
-  const openLink = (url: string, title: string) => {
-    const optimizedUrl = getOptimizedUrl(url);
-    setActiveUrl(optimizedUrl);
-    setActiveTitle(title);
-    setShowIframe(true);
-  };
-
-  const closeIframe = () => {
-    setShowIframe(false);
-    setActiveUrl(null);
-    setActiveTitle('');
-  };
+  const [isLoaded, setIsLoaded] = useState(false);
 
   // Optimize URL for Google Sheets/Forms - same as Screen5
   const getOptimizedUrl = (url: string) => {
@@ -118,6 +98,30 @@ export default function Screen6() {
     }
     // For Google Forms and other URLs, return as is
     return url;
+  };
+
+  // Auto-open first item on mount
+  useEffect(() => {
+    const firstItem = navSections[0]?.items[0];
+    if (firstItem) {
+      openLink(firstItem.url, firstItem.title);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const openLink = (url: string, title: string) => {
+    setIsLoaded(false);
+    const optimizedUrl = getOptimizedUrl(url);
+    setActiveUrl(optimizedUrl);
+    setActiveTitle(title);
+    setShowIframe(true);
+  };
+
+  const closeIframe = () => {
+    setShowIframe(false);
+    setActiveUrl(null);
+    setActiveTitle('');
+    setIsLoaded(false);
   };
 
   return (

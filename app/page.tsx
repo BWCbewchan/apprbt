@@ -4,9 +4,12 @@
 
 'use client';
 
+import { getTeacherCode, setTeacherCode } from '@/lib/appscript';
 import { cn } from '@/lib/utils';
-import { memo, useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import FeedbackButton from './components/FeedbackButton';
 import Screen1 from './components/Screen1';
+import Screen10 from './components/Screen10';
 import Screen2 from './components/Screen2';
 import Screen3 from './components/Screen3';
 import Screen4 from './components/Screen4';
@@ -15,13 +18,10 @@ import Screen6 from './components/Screen6';
 import Screen7 from './components/Screen7';
 import Screen8 from './components/Screen8';
 import Screen9 from './components/Screen9';
-import Screen10 from './components/Screen10';
 import Sidebar from './components/Sidebar';
-import FeedbackButton from './components/FeedbackButton';
 import StatisticsButton from './components/StatisticsButton';
 import TeacherCodeModal from './components/TeacherCodeModal';
 import { usePageTracking } from './hooks/usePageTracking';
-import { getTeacherCode, setTeacherCode } from '@/lib/appscript';
 
 // Keyboard mapping - định nghĩa ngoài component để không tạo lại mỗi render
 const KEY_TO_SCREEN: Record<string, string> = {
@@ -40,6 +40,7 @@ const hiddenStyle: React.CSSProperties = {
   visibility: 'hidden',
   pointerEvents: 'none',
   contentVisibility: 'hidden',
+  contain: 'layout style paint',
 };
 
 // Style cho screen hiện
@@ -48,12 +49,14 @@ const visibleStyle: React.CSSProperties = {
   zIndex: 10,
   visibility: 'visible',
   transform: 'translateZ(0)', // Force GPU layer
+  contain: 'layout style paint',
 };
 
 export default function Home() {
   const [activeScreen, setActiveScreen] = useState('screen1');
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const [showTeacherModal, setShowTeacherModal] = useState(false);
+  const [loadedScreens, setLoadedScreens] = useState<Set<string>>(() => new Set(['screen1']));
 
   // Check if teacher code exists
   useEffect(() => {
@@ -85,6 +88,12 @@ export default function Home() {
 
   const handleScreenChange = useCallback((screen: string) => {
     setActiveScreen(screen);
+    setLoadedScreens(prev => {
+      if (prev.has(screen)) return prev;
+      const next = new Set(prev);
+      next.add(screen);
+      return next;
+    });
   }, []);
 
   // Keyboard shortcuts - optimized
@@ -95,12 +104,12 @@ export default function Home() {
         return;
       }
       const screen = KEY_TO_SCREEN[event.key];
-      if (screen) setActiveScreen(screen);
+      if (screen) handleScreenChange(screen);
     };
 
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
-  }, []);
+  }, [handleScreenChange]);
 
   // Memoize container class
   const isFullscreen = FULLSCREEN_SCREENS.includes(activeScreen);
@@ -128,54 +137,74 @@ export default function Home() {
       >
         <div className={cn("relative h-full", isFullscreen ? "p-0 h-screen" : "p-4 md:p-8")}>
           {/* Screen 1 */}
-          <div style={activeScreen === 'screen1' ? visibleStyle : hiddenStyle}>
-            <Screen1 />
-          </div>
+          {loadedScreens.has('screen1') && (
+            <div style={activeScreen === 'screen1' ? visibleStyle : hiddenStyle}>
+              <Screen1 />
+            </div>
+          )}
           
           {/* Screen 2 */}
-          <div style={activeScreen === 'screen2' ? visibleStyle : hiddenStyle}>
-            <Screen2 />
-          </div>
+          {loadedScreens.has('screen2') && (
+            <div style={activeScreen === 'screen2' ? visibleStyle : hiddenStyle}>
+              <Screen2 />
+            </div>
+          )}
           
           {/* Screen 3 */}
-          <div style={activeScreen === 'screen3' ? visibleStyle : hiddenStyle}>
-            <Screen3 />
-          </div>
+          {loadedScreens.has('screen3') && (
+            <div style={activeScreen === 'screen3' ? visibleStyle : hiddenStyle}>
+              <Screen3 />
+            </div>
+          )}
 
           {/* Screen 4 */}
-          <div style={activeScreen === 'screen4' ? visibleStyle : hiddenStyle}>
-            <Screen4 />
-          </div>
+          {loadedScreens.has('screen4') && (
+            <div style={activeScreen === 'screen4' ? visibleStyle : hiddenStyle}>
+              <Screen4 />
+            </div>
+          )}
 
           {/* Screen 5 */}
-          <div style={activeScreen === 'screen5' ? {...visibleStyle, height: '100%'} : hiddenStyle}>
-            <Screen5 />
-          </div>
+          {loadedScreens.has('screen5') && (
+            <div style={activeScreen === 'screen5' ? {...visibleStyle, height: '100%'} : hiddenStyle}>
+              <Screen5 />
+            </div>
+          )}
 
           {/* Screen 6 */}
-          <div style={activeScreen === 'screen6' ? {...visibleStyle, height: '100%'} : hiddenStyle}>
-            <Screen6 />
-          </div>
+          {loadedScreens.has('screen6') && (
+            <div style={activeScreen === 'screen6' ? {...visibleStyle, height: '100%'} : hiddenStyle}>
+              <Screen6 />
+            </div>
+          )}
 
           {/* Screen 7 */}
-          <div style={activeScreen === 'screen7' ? {...visibleStyle, height: '100%'} : hiddenStyle}>
-            <Screen7 />
-          </div>
+          {loadedScreens.has('screen7') && (
+            <div style={activeScreen === 'screen7' ? {...visibleStyle, height: '100%'} : hiddenStyle}>
+              <Screen7 />
+            </div>
+          )}
 
           {/* Screen 8 */}
-          <div style={activeScreen === 'screen8' ? visibleStyle : hiddenStyle}>
-            <Screen8 />
-          </div>
+          {loadedScreens.has('screen8') && (
+            <div style={activeScreen === 'screen8' ? visibleStyle : hiddenStyle}>
+              <Screen8 />
+            </div>
+          )}
 
           {/* Screen 9 */}
-          <div style={activeScreen === 'screen9' ? {...visibleStyle, height: '100%'} : hiddenStyle}>
-            <Screen9 />
-          </div>
+          {loadedScreens.has('screen9') && (
+            <div style={activeScreen === 'screen9' ? {...visibleStyle, height: '100%'} : hiddenStyle}>
+              <Screen9 />
+            </div>
+          )}
 
           {/* Screen 10 */}
-          <div style={activeScreen === 'screen10' ? {...visibleStyle, height: '100%'} : hiddenStyle}>
-            <Screen10 />
-          </div>
+          {loadedScreens.has('screen10') && (
+            <div style={activeScreen === 'screen10' ? {...visibleStyle, height: '100%'} : hiddenStyle}>
+              <Screen10 />
+            </div>
+          )}
         </div>
 
         {/* Action Buttons - Always visible */}

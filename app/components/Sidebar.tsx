@@ -4,10 +4,10 @@
 
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import { getSessionId, getUserAgent, getUserId, isAppsScriptConfigured, trackLocalPageView, trackPageView } from '@/lib/appscript';
 import { cn } from "@/lib/utils";
-import { BookOpen, ClipboardList, FileText, Link as LinkIcon, Mail, MessageSquare, QrCode, Search, Star, X, ExternalLink } from "lucide-react";
-import { trackPageView, trackLocalPageView, getUserId, getSessionId, getUserAgent, isAppsScriptConfigured } from '@/lib/appscript';
+import { BookOpen, ClipboardList, ExternalLink, FileText, Link as LinkIcon, Mail, MessageSquare, QrCode, Search, Star, X } from "lucide-react";
+import { useEffect, useState } from 'react';
 
 interface SidebarProps {
   activeScreen: string;
