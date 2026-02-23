@@ -300,7 +300,7 @@ export default function Screen11({ onNavigate }: { onNavigate?: (screen: string)
                                 <ul className="space-y-2">
                                     <li className="flex items-start gap-2.5 text-sm text-slate-300">
                                         <CheckCircle2 className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" />
-                                        <span>Khi đến lớp, chủ động thông báo: <em className="text-white">"Hôm nay em có buổi quan sát"</em> với GV phụ trách.</span>
+                                        <span>Khi đến lớp, chủ động giới thiệu với GV phụ trách.</span>
                                     </li>
                                     <li className="flex items-start gap-2.5 text-sm text-slate-300">
                                         <CheckCircle2 className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" />
