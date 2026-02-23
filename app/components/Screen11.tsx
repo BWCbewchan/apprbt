@@ -4,7 +4,9 @@ import {
     BookOpen,
     Calendar,
     CheckCircle2,
-    ChevronDown, ChevronUp,
+    ChevronDown,
+    ChevronRight,
+    ChevronUp,
     ClipboardCheck,
     DollarSign,
     ExternalLink, FileText,
@@ -166,58 +168,58 @@ function RubricTable({ groupLabel, color, rows }: { groupLabel: string; color: s
 
 // ─── Rubric Data ─────────────────────────────────────────────────────────────
 const RUBRIC_10: RubricRow[] = [
-    { criterion: 'Tác phong', s5: 'Chỉnh chu, sư phạm, tự tin, ngôn ngữ cơ thể tốt', s4: 'Chỉnh chu, tự tin truyền đạt', s3: 'Nghiêm túc nhưng còn lúng túng', s2: 'Tác phong tạm, chưa lưu loát', s1: 'Luộm thuộm, thiếu tự tin' },
-    { criterion: 'Chuyên môn', s5: 'Nắm đầu ra tất cả lộ trình, yếu tố cốt lõi từng môn', s4: 'Linh hoạt, bổ sung kịch bản, nắm đầu ra tổng quan', s3: 'Nắm cơ bản, giải thích được khi HS hỏi', s2: 'Dạy theo kịch bản, chưa giải thích thêm', s1: 'Chưa nắm kiến thức chuyên môn' },
-    { criterion: 'Kế hoạch giảng', s5: 'Xuất sắc, sáng tạo, linh hoạt theo nhu cầu HS', s4: 'Chuẩn bị kỹ, bổ sung yếu tố mới', s3: 'Chạy theo giáo án, chưa mở rộng', s2: 'Xem qua kịch bản nhưng chưa nhớ bài', s1: 'Chưa chuẩn bị gì' },
-    { criterion: 'Quản lý thời gian', s5: 'Hiệu quả, linh hoạt ứng biến tình huống', s4: 'Phân bổ hợp lý, điều chỉnh được', s3: 'Phân bổ cơ bản, khó điều chỉnh', s2: 'Cố gắng nhưng bị lệch kế hoạch', s1: 'Không phân bổ được' },
-    { criterion: 'Hoạt động giảng', s5: 'Sáng tạo, HS tích cực tham gia', s4: 'Phù hợp nội dung & độ tuổi, không khí sôi nổi', s3: 'Cơ bản, chưa tạo tương tác tốt', s2: 'Áp dụng nhưng không phù hợp', s1: 'Không tạo được không khí học tập' },
-    { criterion: 'Đặt câu hỏi', s5: 'Linh hoạt, dẫn dắt HS suy nghĩ sâu', s4: 'Dùng tốt câu hỏi đóng & mở', s3: 'Cơ bản, HS chưa hiểu rõ mục đích', s2: 'Ít câu hỏi, chủ yếu câu đóng', s1: 'Không dùng hoặc không liên quan' },
-    { criterion: 'Công cụ & thiết bị', s5: 'Linh hoạt nhiều công cụ, kết hợp tốt', s4: 'Thành thạo, thao tác nhanh', s3: 'Dùng được cơ bản, chưa nhanh', s2: 'Dùng chậm, gặp khó khăn', s1: 'Không sử dụng được' },
-    { criterion: 'Giao tiếp', s5: 'Linh hoạt, chuyên nghiệp với cả PH', s4: 'Hiệu quả, tương tác tốt', s3: 'Giao tiếp được nhưng chưa sâu', s2: 'Đơn điệu, một chiều', s1: 'Lắp bắp, thiếu tự tin' },
-    { criterion: 'Định hướng học tập', s5: 'Chi tiết, linh hoạt theo từng cá nhân & PH', s4: 'Rõ ràng, phù hợp độ tuổi và nhu cầu HS', s3: 'Định hướng được nhưng chưa linh hoạt', s2: 'Chung chung, chưa bám độ tuổi', s1: 'Không định hướng, chưa nắm độ tuổi' },
-    { criterion: 'Xử lý tình huống', s5: 'Khéo léo, biến tình huống thành cơ hội', s4: 'Xử lý tốt, không gián đoạn lớp', s3: 'Xử lý được nhưng chưa thuyết phục', s2: 'Lúng túng, gây gián đoạn', s1: 'Mất kiểm soát, không xử lý được' },
+    { criterion: 'Tác phong sư phạm', s5: 'Chuẩn mực, tự tin, ngôn ngữ cơ thể linh hoạt, truyền cảm hứng', s4: 'Chỉn chu, phong thái tự tin, truyền đạt rõ ràng', s3: 'Nghiêm túc nhưng đôi lúc còn lúng túng trong thể hiện', s2: 'Tác phong chưa ổn định, thiếu sự lưu loát', s1: 'Thiếu chỉn chu, biểu hiện thiếu tự tin khi đứng lớp' },
+    { criterion: 'Phát triển chuyên môn', s5: 'Nắm vững chuẩn đầu ra lộ trình, khai thác sâu kiến thức cốt lõi', s4: 'Nắm chắc chuẩn đầu ra, linh hoạt điều chỉnh kịch bản phù hợp', s3: 'Hiểu kiến thức nền tảng, giải đáp được thắc mắc cơ bản', s2: 'Phụ thuộc kịch bản, chưa có khả năng mở rộng vấn đề', s1: 'Chưa nắm vững nền tảng chuyên môn yêu cầu' },
+    { criterion: 'Kế hoạch bài dạy', s5: 'Thiết kế sáng tạo, cá nhân hóa theo từng nhóm năng lực học sinh', s4: 'Chuẩn bị chu đáo, có sự điều chỉnh và bổ sung phù hợp', s3: 'Tuân thủ giáo án mẫu, chưa có nội dung mở rộng', s2: 'Nắm qua cấu trúc bài nhưng chưa làm chủ kịch bản', s1: 'Thiếu sự chuẩn bị cho tiết học' },
+    { criterion: 'Quản lý thời lượng', s5: 'Tối ưu phân bổ, xử lý linh hoạt thời gian trước các tình huống', s4: 'Phân bổ hợp lý, chủ động điểu chỉnh nhịp độ lớp học', s3: 'Theo sát dự kiến nhưng thiếu linh hoạt khi cần điều chỉnh', s2: 'Cố gắng bám sát nhưng thường xuyên quá thời gian', s1: 'Mất kiểm soát trong việc quản lý thời lượng bài học' },
+    { criterion: 'Tổ chức hoạt động', s5: 'Hoạt động sáng tạo, kích thích 100% học sinh tham gia tích cực', s4: 'Format phù hợp độ tuổi, duy trì không khí lớp học sôi nổi', s3: 'Đảm bảo yêu cầu cơ bản, mức độ tương tác chưa cao', s2: 'Có triển khai hoạt động nhưng chưa phù hợp đối tượng', s1: 'Lớp học thụ động, thiếu không khí giáo dục tích cực' },
+    { criterion: 'Kỹ năng đặt câu hỏi', s5: 'Vận dụng thuần thục câu hỏi gợi mở, kích thích tư duy phản biện', s4: 'Phối hợp tốt câu hỏi đóng - mở trong quá trình dẫn dắt', s3: 'Biết cách đặt câu hỏi nhưng định hướng chưa thực sự rõ ràng', s2: 'Sử dụng đơn điệu, chủ yếu là câu hỏi đóng (Có/Không)', s1: 'Ít tương tác hỏi đáp hoặc câu hỏi đi chệch trọng tâm' },
+    { criterion: 'Sử dụng thiết bị', s5: 'Làm chủ công nghệ, vận dụng linh hoạt nhiều học liệu điện tử', s4: 'Thao tác thành thạo, đáp ứng tốt yêu cầu bài giảng', s3: 'Sử dụng đúng cách nhưng thao tác đôi lúc còn chậm', s2: 'Gặp lúng túng khi điều khiển thiết bị/công cụ dạy học', s1: 'Chưa có kỹ năng sử dụng công cụ/thiết bị hỗ trợ' },
+    { criterion: 'Kỹ năng giao tiếp', s5: 'Ngôn từ chuyên nghiệp, linh hoạt trong tương tác đa chiều', s4: 'Truyền đạt mạch lạc, kết nối tốt với học sinh/phụ huynh', s3: 'Giao tiếp rõ ràng nhưng thiếu điểm nhấn, chưa sâu sắc', s2: 'Cách nói chuyện rập khuôn, tương tác chỉ mang tính một chiều', s1: 'Diễn đạt ấp úng, thiếu khả năng duy trì cuộc hội thoại' },
+    { criterion: 'Định hướng học tập', s5: 'Lộ trình chi tiết, đề xuất giải pháp cá nhân hóa cho từng học sinh', s4: 'Định hướng rõ, sát với năng lực biểu hiện của cá nhân học sinh', s3: 'Có mục tiêu chung nhưng chưa linh hoạt theo từng nhóm đối tượng', s2: 'Đưa ra lời khuyên chung chung, thiếu tính thực tiễn', s1: 'Chưa có khả năng tư vấn hướng phát triển cho học sinh' },
+    { criterion: 'Xử lý tình huống', s5: 'Tuyệt đối bản lĩnh, biến khó khăn thành tình huống giáo dục', s4: 'Giải quyết ổn thỏa, duy trì nhịp độ ổn định của tiết học', s3: 'Xử lý xong vấn đề nhưng còn khiên cưỡng, thiếu tự nhiên', s2: 'Bị động trước tình huống, gây ảnh hưởng tiến trình dạy', s1: 'Mất bình tĩnh, không kiểm soát được vấn đề phát sinh' },
 ];
 
 const RUBRIC_A: RubricRow[] = [
-    { criterion: '1. Kế hoạch giảng dạy', s5: 'Xuất sắc, sáng tạo, linh hoạt điều chỉnh theo HS', s4: 'Chuẩn bị kỹ, bổ sung yếu tố mới', s3: 'Chạy theo giáo án, không mở rộng', s2: 'Xem qua kịch bản nhưng chưa nhớ bài', s1: 'Chưa chuẩn bị, chưa đọc kịch bản' },
-    { criterion: '2. Mục tiêu bài giảng', s5: 'Cụ thể, đo lường được, HS đạt được sau buổi', s4: 'Cụ thể, phù hợp năng lực, có thể đo lường', s3: 'Phù hợp nhưng khó đo lường', s2: 'Cụ thể nhưng chưa phù hợp năng lực HS', s1: 'Sai mục tiêu hoặc không phù hợp thời lượng' },
-    { criterion: '3. Slide bài giảng', s5: 'Rõ, liên kết, bắt mắt thu hút HS', s4: 'Rõ, thống nhất, hiệu ứng tốt', s3: 'Rõ ràng, trật tự hợp lý', s2: 'Rõ nhưng sắp xếp chưa hợp lý', s1: 'Rối, thiếu liền mạch' },
-    { criterion: '4. Phương tiện & dụng cụ', s5: 'Sáng tạo, thu hút, HS tự giác vận dụng', s4: 'Hợp lý, gây hứng thú', s3: 'Hợp lý, liên hệ được bài học', s2: 'Dùng nhưng chưa hiệu quả', s1: 'Không sử dụng' },
-    { criterion: '5. Kiến thức công cụ', s5: 'Tốt, gợi mở bài cũ, dùng hiệu quả', s4: 'Tốt, dùng hiệu quả trong giảng dạy', s3: 'Tốt nhưng chưa kết hợp hiệu quả', s2: 'Một số kiến thức chưa chuẩn', s1: 'Sơ sài, chưa hiểu rõ' },
+    { criterion: '1. Kế hoạch bài dạy', s5: 'Thiết kế xuất sắc, sáng tạo, cá nhân hóa linh hoạt theo học sinh', s4: 'Chuẩn bị chu đáo, có sự bổ sung nội dung mở rộng phù hợp', s3: 'Tuân thủ đúng giáo án mẫu, chưa có thành tố mở rộng', s2: 'Nắm được cấu trúc cơ bản nhưng chưa làm chủ kịch bản', s1: 'Thiếu sự chuẩn bị, chưa nghiên cứu kỹ kịch bản giảng dạy' },
+    { criterion: '2. Mục tiêu bài học', s5: 'Xác định rõ ràng, đo lường được, 100% học sinh đạt chuẩn đầu ra', s4: 'Cụ thể, bám sát năng lực học sinh, có tiêu chí đánh giá rõ ràng', s3: 'Mục tiêu phù hợp nhưng định lượng kết quả còn chung chung', s2: 'Có mục tiêu định hướng nhưng vượt quá khả năng tiếp thu của học sinh', s1: 'Xác định sai trọng tâm bài học hoặc không khả thi với thời lượng' },
+    { criterion: '3. Thiết kế học liệu (Slide)', s5: 'Bố cục chặt chẽ, thẩm mỹ cao, khai thác tối đa sự chú ý của học sinh', s4: 'Trình bày khoa học, nhất quán, hiệu ứng hình ảnh hỗ trợ tốt', s3: 'Nội dung đầy đủ, sắp xếp bố cục mang tính cơ bản', s2: 'Trình bày nội dung được nhưng logic sắp xếp chưa thực sự tối ưu', s1: 'Slide thiếu tính liên kết, thông tin dàn trải, khó theo dõi' },
+    { criterion: '4. Phương tiện & Thiết bị', s5: 'Vận dụng sáng tạo, truyền cảm hứng để học sinh chủ động khám phá', s4: 'Sử dụng hợp lý, kích thích được sự hứng thú học tập', s3: 'Sử dụng đúng mục đích, liên hệ được với nội dung cốt lõi', s2: 'Có đưa vào tiết học nhưng phương pháp khai thác chưa hiệu quả', s1: 'Bỏ qua việc sử dụng thiết bị/học liệu hỗ trợ' },
+    { criterion: '5. Nền tảng công cụ', s5: 'Làm chủ thao tác, khéo léo kết nối kiến thức cũ, ứng dụng xuất sắc', s4: 'Thao tác chuẩn xác, phục vụ trơn tru cho tiến trình bài giảng', s3: 'Thao tác đúng kỹ thuật nhưng chưa tạo được sự liên kết nhịp nhàng', s2: 'Có sự nhầm lẫn trong một vài kiến thức/thao tác nền tảng', s1: 'Kiến thức công cụ sơ sài, chưa đáp ứng yêu cầu bộ môn' },
 ];
 
 const RUBRIC_B: RubricRow[] = [
-    { criterion: '6. Diễn giải (5W1H)', s5: 'Sinh động, dễ hiểu, gần gũi, đủ 5W1H', s4: 'Rõ ràng, mạch lạc, đủ 5W1H', s3: 'Đủ 5W1H nhưng chưa mạch lạc', s2: 'Phức tạp, chưa đủ 5W1H', s1: 'Sai, rườm rà, vấp nhiều' },
-    { criterion: '7. Mô phỏng công cụ', s5: 'Kết hợp linh hoạt làm mẫu + diễn giải', s4: 'Trực quan, dễ hiểu, làm mẫu chi tiết', s3: 'Trực quan, dễ hiểu', s2: 'Chưa chính xác hoặc khó hiểu', s1: 'Chưa mô phỏng' },
-    { criterion: '8. Câu hỏi kiểm tra KT', s5: 'Đánh giá nhanh, diện rộng toàn lớp', s4: 'Thường xuyên, chưa đánh giá diện rộng', s3: 'Đúng yêu cầu nhưng chưa thường xuyên', s2: 'Chưa đúng loại (đóng/mở)', s1: 'Không có câu hỏi' },
-    { criterion: '9. Tổ chức hoạt động', s5: 'HS học qua trải nghiệm, GV theo dõi chặt', s4: 'Bổ trợ mục tiêu, GV ít theo dõi', s3: 'Bổ trợ mục tiêu nhưng GV không theo dõi', s2: 'Có tổ chức nhưng chưa bổ trợ rõ', s1: 'Chưa tổ chức hoặc sai tính chất' },
-    { criterion: '10. Kết quả hoạt động', s5: '>80% HS đạt, hào hứng, sinh động', s4: '50–80% HS đạt, ít hào hứng', s3: '>50% bổ trợ mục tiêu, ít hào hứng', s2: 'Không đạt kết quả bổ trợ', s1: 'Chưa tổ chức hoặc sai tính chất' },
-    { criterion: '11. Hoạt động thực hành', s5: 'Rõ mục tiêu, độ khó tăng dần, hỗ trợ SP cuối', s4: 'Rõ mục tiêu, tăng dần, chưa hỗ trợ SP cuối', s3: 'Hỗ trợ mục tiêu, SP cuối, chưa tăng dần', s2: 'Chưa rõ mục tiêu, không tăng dần', s1: 'Không có nhiệm vụ hoặc không hỗ trợ' },
-    { criterion: '12. Tổ chức thực hành', s5: 'Linh hoạt, theo dõi, hỗ trợ kịp thời', s4: 'Theo dõi, hỗ trợ kịp thời', s3: 'Theo dõi nhưng hỗ trợ không kịp hoặc làm hộ', s2: 'Theo dõi còn hời hợt', s1: 'Không theo dõi' },
-    { criterion: '13. Kết quả thực hành', s5: 'GV chữa, phân tích tư duy; HS tự sửa đủ', s4: 'GV chiếu kết quả; HS hiểu, tự sửa đủ', s3: 'HS hiểu & sửa một phần', s2: 'GV chiếu nhưng không kiểm tra từng HS', s1: 'Không chữa' },
-    { criterion: '14. Hoạt động game hoá', s5: 'Liên bài, phân hoá độ khó, mọi HS tham gia', s4: 'Liên bài, mọi HS tham gia', s3: 'Liên bài nhưng ít HS hoặc chỉ định', s2: 'Ít liên quan nội dung', s1: 'Chưa tổ chức hoặc sai tính chất' },
-    { criterion: '15. Kết quả game hoá', s5: 'Cạnh tranh, giải trí; GV tổng kết kiến thức', s4: 'HS hào hứng, GV chưa tổng kết', s3: 'Ít cạnh tranh, GV không tổng kết', s2: 'Không cạnh tranh, không giải trí', s1: 'Chưa tổ chức' },
+    { criterion: '6. Năng lực diễn giải', s5: 'Hình tượng hóa sinh động, gần gũi bao quát trọn vẹn mô hình 5W1H', s4: 'Diễn đạt khúc chiết, cấu trúc mạch lạc, truyền tải đủ 5W1H', s3: 'Cung cấp đủ 5W1H nhưng quá trình lập luận chưa thực sự chặt chẽ', s2: 'Diễn giải cồng kềnh, thiếu hệ thống, chưa làm rõ thông điệp 5W1H', s1: 'Truyền đạt sai lệch, dài dòng, lấp lấp trong quá trình trình bày' },
+    { criterion: '7. Kỹ năng làm mẫu', s5: 'Trình diễn trực quan xuất sắc, đồng bộ hoàn hảo giữa thao tác và lời giảng', s4: 'Thao tác minh họa rõ ràng, kết hợp giải thích cặn kẽ từng bước', s3: 'Làm mẫu trực quan, học sinh có thể quan sát và làm theo', s2: 'Minh họa chưa thực sự chuẩn xác hoặc gây khó hiểu cho học sinh', s1: 'Bỏ qua bước làm mẫu công cụ/thiết bị' },
+    { criterion: '8. Kiểm tra đánh giá', s5: 'Hệ thống câu hỏi sắc bén, đánh giá đa chiều năng lực toàn lớp', s4: 'Tần suất hỏi đáp tốt, tuy nhiên màng đánh giá chưa hoàn toàn bao phủ', s3: 'Đáp ứng số lượng câu hỏi tiêu chuẩn nhưng tần suất phân bổ thưa', s2: 'Sử dụng sai mục đích loại câu hỏi (đóng/mở) trong các tình huống', s1: 'Lớp học thụ động, vắng bóng các câu hỏi kiểm tra nhận thức' },
+    { criterion: '9. Tổ chức trải nghiệm', s5: 'Triển khai học tập qua trải nghiệm sâu sắc, giáo viên bám sát tiến độ', s4: 'Hoạt động củng cố tốt mục tiêu, tuy nhiên công tác giám sát chưa sát sao', s3: 'Có tác dụng bổ trợ nhưng buông lỏng việc theo dõi quá trình thực thi', s2: 'Tổ chức mang tính hình thức, hiệu quả cộng hưởng vào bài chưa rõ', s1: 'Bỏ qua hoạt động hoặc triển khai sai lệch bản chất giáo dục' },
+    { criterion: '10. Kết quả hoạt động', s5: 'Tỷ lệ đạt mục tiêu xuất sắc (>80%), không khí lớp bùng nổ năng lượng', s4: 'Đa số hoàn thành (50–80%), mức độ hưởng ứng ở mức khá', s3: 'Hoàn thành cơ bản (>50%), chưa khơi gợi được sự phấn khích tích cực', s2: 'Không đạt được kỳ vọng bổ trợ kiến thức đề ra ban đầu', s1: 'Chưa tiến hành đánh giá hoặc hoạt động đi chệch hướng' },
+    { criterion: '11. Chuỗi bài thực hành', s5: 'Mục tiêu tinh tế, quy hoạch độ khó tịnh tiến, trợ lực hoàn hảo cho dự án', s4: 'Xác lập đích đến rõ ràng, tịnh tiến tốt nhưng kết nối dự án cuối bị hạn chế', s3: 'Hỗ trợ việc hoàn thiện dự án nhưng thiết kế thiếu tính phân cấp độ khó', s2: 'Giao nhiệm vụ dàn trải, thiếu lớp lang và không có mục đích rõ rệt', s1: 'Để trống thời gian thực hành hoặc nhiệm vụ rời rạc vô nghĩa' },
+    { criterion: '12. Quản trị thực hành', s5: 'Bao quát toàn diện, điều phối nhịp nhàng, can thiệp hỗ trợ đúng thời điểm', s4: 'Theo sát tiến độ làm việc, cung cấp hỗ trợ chuyên môn kịp lúc', s3: 'Có quan sát nhưng phản ứng chậm hoặc làm thay phần việc của học sinh', s2: 'Công tác giám sát lỏng lẻo, thiếu chiều sâu tương tác', s1: 'Thả nổi lớp học trong thời lượng thực hành' },
+    { criterion: '13. Đánh giá sản phẩm', s5: 'Chữa bài thấu đáo, phân tích tư duy đảo ngược; 100% học sinh tự nghiệm lý', s4: 'Trình chiếu đáp án chuẩn; học sinh tiếp thu và tự chỉnh sửa hoàn thiện', s3: 'Học sinh nắm bắt được vấn đề cốt lõi và tự khắc phục được một phần', s2: 'Có chữa bài chung nhưng thiếu khâu rà soát, nghiệm thu cá nhân', s1: 'Biết lỗi sai nhưng bỏ qua bước đúc kết và sửa chửa' },
+    { criterion: '14. Trò chơi học tập (Gamification)', s5: 'Hòa quyện vào bài, phân phối độ căng thẳng hợp lý, 100% tập trung', s4: 'Mô phỏng kiến thức tốt, thu hút sự hưởng ứng của toàn bộ học sinh', s3: 'Bám vào bài học nhưng tính phổ quát thấp, chỉ một nhóm nhỏ tham gia', s2: 'Trò chơi mang tính giải trí đơn thuần, rời rạc với kiến thức trọng tâm', s1: 'Không tổ chức game hoá hoặc triển khai sai mục đích sư phạm' },
+    { criterion: '15. Tổng kết Game hoá', s5: 'Tạo động lực cạnh tranh lành mạnh; giáo viên khéo léo đúc kết bài học', s4: 'Khơi dậy được sự hào hứng nhưng khâu chốt kiến thức còn mờ nhạt', s3: 'Thiếu yếu tố kịch tính, giáo viên bỏ quên công đoạn đúc kết hệ thống', s2: 'Game diễn ra khiên cưỡng, nghèo nàn cả về cảm xúc lẫn kiến thức', s1: 'Không có hoạt động tổng kết trò chơi' },
 ];
 
 const RUBRIC_C: RubricRow[] = [
-    { criterion: '16. Diễn đạt', s5: 'Truyền cảm, thu hút, tạo hứng thú', s4: 'Lưu loát, liên kết bài học', s3: 'Dễ hiểu, không ngập ngừng', s2: 'Ngập ngừng, vấp nhiều', s1: 'Khó hiểu, rối' },
-    { criterion: '17. Tác phong sư phạm', s5: 'Tự tin, ngôn ngữ cơ thể hiệu quả', s4: 'Tự tin, có ngôn ngữ cơ thể', s3: 'Tự tin nhưng đôi khi chưa chuẩn', s2: 'Tạm ổn, thiếu tự tin', s1: 'Rụt rè, thiếu tự tin' },
-    { criterion: '18. Phân bổ thời lượng', s5: 'Hợp lý, linh hoạt khi sự cố phát sinh', s4: 'Hợp lý cho các hoạt động', s3: 'Đúng giờ, chưa phân bổ hợp lý từng HĐ', s2: 'Thời gian bị lạm dụng', s1: 'Quá giờ quy định' },
-    { criterion: '19. Hệ thống khen thưởng', s5: 'Tạo động lực, quản lý lớp hiệu quả', s4: 'Hợp lý khi tính điểm, chưa rõ hiệu quả', s3: 'Khen thường xuyên, tính điểm chưa hợp lý', s2: 'Khen nhưng chưa thường xuyên', s1: 'Không dùng' },
-    { criterion: '20. Tham gia & kiểm soát', s5: 'Kiểm soát chặt cả HS tham gia và không tham gia', s4: 'Liên kết chặt giữa 2 nhóm HS', s3: 'Giao nhiệm vụ cho nhóm không tham gia', s2: 'Giao nhiệm vụ nhưng chưa kiểm soát', s1: 'Không kiểm soát nhóm không tham gia' },
-    { criterion: '21. Hệ thống nhóm', s5: 'HS tự phân công vai trò, làm nhóm hiệu quả', s4: 'Phù hợp bối cảnh, mọi HS tham gia hiệu quả', s3: 'Phù hợp nhưng chưa thấy hiệu quả', s2: 'Chưa phù hợp bối cảnh lớp', s1: 'Chưa sử dụng' },
-    { criterion: '22. Hệ thống chú ý', s5: 'Thường xuyên, đồng nhất, hiệu quả rõ', s4: 'Thường xuyên, đồng nhất, phần nào hiệu quả', s3: 'Phù hợp nhưng chưa thường xuyên', s2: 'Dùng nhưng chưa đảm bảo chú ý HS', s1: 'Chưa sử dụng' },
-    { criterion: '23. Xử lý tình huống', s5: 'Kịp thời, khéo léo, tái lập không khí lớp', s4: 'Khéo léo, thuyết phục nhưng chưa kịp thời', s3: 'Xử lý được nhưng chưa khéo', s2: 'Nhận biết nhưng không xử lý được', s1: 'Không xử lý' },
-    { criterion: '24. Quản lý lớp học', s5: 'Liên tục giám sát qua phương tiện không lời', s4: 'Thường xuyên giám sát, xử lý hiệu quả', s3: 'Xác lập tiêu chuẩn, duy trì >50%', s2: 'Tiêu chuẩn có nhưng không duy trì', s1: 'Bị động, không kiểm soát' },
-    { criterion: '25. Môi trường lớp học', s5: 'HS chủ động, vui vẻ, hào hứng liên tục', s4: 'Trơn tru, hiệu quả, vui vẻ', s3: 'Trơn tru, hài hòa', s2: 'Đôi khi trầm, thiếu động lực', s1: 'Lộn xộn, không tổ chức' },
-    { criterion: '26. Kỹ năng giao tiếp', s5: 'Linh hoạt, sâu sắc với HS; chuyên nghiệp với PH', s4: 'Hiệu quả với HS; rõ ràng với PH', s3: 'Giao tiếp được với HS; hạn chế với PH', s2: 'Đơn điệu; khó khăn khi giao tiếp PH', s1: 'Lắp bắp, thiếu tự tin; không biết giao tiếp PH' },
+    { criterion: '16. Năng lực truyền cảm', s5: 'Chất giọng truyền cảm, nhấn nhá thu hút, kiến tạo cảm xúc học tập', s4: 'Diễn đạt lưu loát, tạo được sợ kết nối tự nhiên với nội dung bài học', s3: 'Trình bày dễ hiểu, trôi chảy, không mắc lỗi ngập ngừng', s2: 'Cách nói chuyện ngập ngừng, vấp váp nhiều lần', s1: 'Lối diễn đạt rối rắm, gây khó khăn cho việc tiếp nhận thông tin' },
+    { criterion: '17. Phong thái sư phạm', s5: 'Tỏa sáng tự tin, biên độ ngôn ngữ cơ thể phát huy tác dụng xuất sắc', s4: 'Làm chủ bục giảng, sử dụng phi ngôn ngữ chuẩn mực', s3: 'Thể hiện được sự tự tin nhưng phong thái đôi lúc chưa thực sự chuẩn', s2: 'Duy trì ở mức cơ bản, bộc lộ sự thiếu tự tin nhất định', s1: 'Rụt rè, thu mình, thiếu định hình phong cách người giáo viên' },
+    { criterion: '18. Quản trị thời gian', s5: 'Điều phối thời lượng hoàn hảo, ứng biến nhạy bén trước các sự cố', s4: 'Cân đối hợp lý thời lượng cho từng chuỗi hoạt động', s3: 'Kết thúc đúng giờ nhưng phân bổ cục bộ chưa thực sự mượt mà', s2: 'Vi phạm nguyên tắc thời gian tại nhiều phân đoạn', s1: 'Phá vỡ hoàn toàn khung giới hạn thời lượng quy định' },
+    { criterion: '19. Cơ chế tưởng thưởng', s5: 'Kích hoạt động lực bên trong; bộ máy khen thưởng điều phồi lớp cực tốt', s4: 'Cộng trừ điểm hợp lý nhưng chưa tối ưu được hiệu ứng hành vi', s3: 'Ghi nhận nỗ lực thường xuyên nhưng hệ thống điểm số thiếu chặt chẽ', s2: 'Có ban phát lời khen nhưng tần suất mờ nhạt, thiếu điểm nhấn', s1: 'Tuyệt đối không áp dụng bất kỳ hình thức khích lệ nào' },
+    { criterion: '20. Kiểm soát lớp chéo', s5: 'Siết chặt kỷ luật song song nhóm đang tham gia và nhóm đang quan sát', s4: 'Tạo lập sợi dây liên kết chặt chẽ sự chú ý giữa 2 phổ học sinh', s3: 'Biết cách thiết kế nhiệm vụ phụ cho nhóm đang nằm ngoài hoạt động chính', s2: 'Có giao việc nhưng bỏ ngỏ khâu kiểm duyệt kết quả đầu ra', s1: 'Bỏ mặc hoàn toàn nhóm học sinh không nằm trong luồng hoạt động' },
+    { criterion: '21. Hoạt động nhóm', s5: 'Học sinh phân vai chủ động, cỗ máy làm việc nhóm vận hành trơn tru', s4: 'Logic chia nhóm hợp lý, toàn bộ thành viên đều phát huy được giá trị', s3: 'Sắp xếp ổn thỏa nhưng chưa đẩy được hiệu suất hợp tác lên cao', s2: 'Áp dụng mô hình nhóm sai lệch với đặc điểm thực tế của lớp', s1: 'Không có tư duy tổ chức học tập cộng tác' },
+    { criterion: '22. Hiệu lệnh tập trung', s5: 'Triển khai tín hiệu nhất quán với tần suất hợp lý, thu hồi chú ý lập tức', s4: 'Sử dụng nhịp nhàng, tạo thói quen tốt nhưng hiệu quả chưa đạt 100%', s3: 'Phát hiệu lệnh đúng lúc nhưng chưa duy trì thành nếp thường xuyên', s2: 'Có dùng khẩu lệnh nhưng thất bại trong việc kéo lại sự tập trung', s1: 'Không thiết lập được hệ thống quy tắc thu hút sự chú ý' },
+    { criterion: '23. Phản xạ sư phạm', s5: 'Nhạy bén tháo gỡ vấn đề, khéo léo biến cố thành cơ hội thay đổi bầu không khí', s4: 'Bình tĩnh giải quyết thuyết phục nhưng tốc độ phản ứng hơi chậm', s3: 'Quản trị được rủi ro nhưng cách xử lý còn thiếu độ uyển chuyển', s2: 'Nhận diện được sự cố nhưng bế tắc trong việc tìm hướng giải quyết', s1: 'Đầu hàng trước các diễn biến phát sinh bất ngờ' },
+    { criterion: '24. Mức độ kỷ luật', s5: 'Sử dụng thuần thục ngôn ngữ phi lời nói để duy trì trật tự vô hình', s4: 'Giám sát gắt gao, chặt đứt nhanh gọn các tín hiệu gây rối', s3: 'Áp dụng khung tiêu chuẩn kỷ luật, kiểm soát được >50% lớp', s2: 'Có đặt ra nội quy nhưng buông lỏng công tác giám sát thực thi', s1: 'Mất hoàn toàn khả năng làm chủ trật tự lớp học' },
+    { criterion: '25. Sinh quyển lớp học', s5: 'Xây dựng môi trường lý tưởng: tự chủ, bùng nổ năng lượng tích cực', s4: 'Bảo toàn được nhịp điệu trơn tru, không khí học tập cởi mở, vui vẻ', s3: 'Nhịp độ duy trì ở mức an toàn, thái độ học sinh hòa nhã', s2: 'Nhiệt độ lớp thường xuyên hạ thấp, thiếu vắng sinh khí học tập', s1: 'Khung cảnh hỗn loạn, thiếu thốn định hướng sư phạm' },
+    { criterion: '26. Kết nối Đa chiều', s5: 'Cảm âm tinh tế nguyện vọng của học sinh; tỏa sáng chuyên nghiệp trước phụ huynh', s4: 'Giao tiếp tương tác tốt với học sinh; trao đổi thông tin minh bạch với phụ huynh', s3: 'Duy trì kết nối ổn định với học sinh; còn e ngại trong việc tiếp xúc phụ huynh', s2: 'Hội thoại một chiều xơ cứng; né tránh các tương tác với phụ huynh', s1: 'Rào cản ngôn ngữ trầm trọng; khiếm khuyết hoàn toàn bộ kỹ năng đối ngoại' },
 ];
 
 // ─── Phase Tabs ───────────────────────────────────────────────────────────────
 const PHASES = [
     { id: 'p1', emoji: '①', label: 'Cấp tài khoản', sub: 'Quan sát → Duyệt giảng' },
     { id: 'p2', emoji: '②', label: 'Sau khi có LMS', sub: 'TA → Duyệt giảng LEC' },
-    { id: 'p3', emoji: '③', label: 'LEC → Super Mentor', sub: 'LEC → BGK' },
+    { id: 'p3', emoji: '③', label: 'Phát triển chuyên môn sâu', sub: 'Giảng viên nòng cốt → BGK' },
 ];
 
 // ═════════════════════════════════════════════════════════════════════════════
@@ -302,7 +304,7 @@ export default function Screen11({ onNavigate }: { onNavigate?: (screen: string)
                             {[
                                 { t: '① Giới thiệu', d: 'Cách GV tự giới thiệu bản thân, mời HS giới thiệu để tạo tương tác.' },
                                 { t: '② Dẫn dắt', d: 'Cách GV dựa vào sở thích HS để kết nối vào nội dung bài học.' },
-                                { t: '③ Giảng dạy', d: 'Cách GV dạy theo đúng giáo trình, không bỏ bước nào.' },
+                                { t: '③ Giảng dạy', d: 'Cách giáo viên hướng dẫn hứng thú với giáo trình và theo đúng timeline của giáo trình.' },
                             ].map(item => (
                                 <div key={item.t} className="rounded-xl bg-indigo-900/20 border border-indigo-500/20 p-3">
                                     <p className="text-indigo-300 font-bold text-xs mb-1">{item.t}</p>
@@ -417,7 +419,7 @@ export default function Screen11({ onNavigate }: { onNavigate?: (screen: string)
                                     ]
                                 },
                                 {
-                                    n: '2', t: 'Kiểm tra lịch cơ sở (6h tối mỗi ngày)', d: 'Vào 6h tối xem có ca trực không → vào LMS check giáo trình để chuẩn bị.', cards: [
+                                    n: '2', t: 'Kiểm tra lịch cơ sở (18h mỗi ngày)', d: 'Vào 18h xem có ca trực không → vào LMS check giáo trình để chuẩn bị.', cards: [
                                         { href: 'https://docs.google.com/spreadsheets/d/1qjqo6nrQKegFPzu4t8D4W2Q5-fJ829ghNvTDWjRD1r4/edit', icon: Calendar, label: 'Lịch HCM1', color: 'blue' },
                                         { href: 'https://docs.google.com/spreadsheets/d/1DRASt1UR8drUTLH-WGvguJRWudq3Z02eicwxxmPphek/edit', icon: Calendar, label: 'Lịch HCM4', color: 'blue' },
                                     ]
@@ -450,7 +452,14 @@ export default function Screen11({ onNavigate }: { onNavigate?: (screen: string)
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                             <div className="rounded-xl bg-emerald-900/15 border border-emerald-500/20 p-4">
                                 <p className="font-bold text-emerald-300 mb-1.5">🧑‍💻 Trợ giảng lớp học</p>
-                                <p className="text-slate-400 text-xs leading-relaxed">Hỗ trợ lớp có trên 9 học viên — tuỳ mức handle của GV đứng lớp.</p>
+                                <p className="text-slate-400 text-xs leading-relaxed mb-2">Hỗ trợ lớp có trên 9 học viên — tuỳ mức handle của GV đứng lớp.</p>
+                                <ul className="space-y-1.5 text-xs text-slate-300">
+                                    <li className="flex items-start gap-1.5"><ChevronRight className="w-3 h-3 mt-0.5 text-emerald-500 shrink-0" /> Trao đổi với LEC về tình hình học của lớp để có việc có thể hỗ trợ kịp thời.</li>
+                                    <li className="flex items-start gap-1.5"><ChevronRight className="w-3 h-3 mt-0.5 text-emerald-500 shrink-0" /> Soạn quizz để hỗ trợ giáo viên đứng lớp ôn lại bài tập cho con.</li>
+                                    <li className="flex items-start gap-1.5"><ChevronRight className="w-3 h-3 mt-0.5 text-emerald-500 shrink-0" /> Chuẩn bị kit với LEC để đảm bảo timeline buổi học.</li>
+                                    <li className="flex items-start gap-1.5"><ChevronRight className="w-3 h-3 mt-0.5 text-emerald-500 shrink-0" /> Nhận xét lớp học để đảm luôn nắm tình hình học của các con.</li>
+                                    <li className="flex items-start gap-1.5"><ChevronRight className="w-3 h-3 mt-0.5 text-emerald-500 shrink-0" /> Mềm mỏng giải quyết các vấn đề và trao đổi với giáo viên để đưa ra giải pháp hợp lý.</li>
+                                </ul>
                             </div>
                             <div className="rounded-xl bg-blue-900/15 border border-blue-500/20 p-4">
                                 <p className="font-bold text-blue-300 mb-1.5">🎯 Chạy ca trải nghiệm</p>
@@ -502,16 +511,16 @@ export default function Screen11({ onNavigate }: { onNavigate?: (screen: string)
                         </div>
                     </Step>
 
-                    <Step n={2} title="Vai trò BGK → Trở thành Super Mentor" last>
+                    <Step n={2} title="Vai trò Ban giám khảo → Trở thành Giảng viên nòng cốt" last>
                         {/* Roadmap */}
                         <div className="flex flex-col gap-0">
                             {[
-                                { icon: '🟢', label: 'LEC đứng lớp ổn định' },
-                                { icon: '📚', label: 'Nắm vững giáo trình & bộ môn' },
-                                { icon: '📝', label: 'Đề xuất duyệt giảng Super Mentor với Leader' },
-                                { icon: '🎓', label: 'Đào tạo chuyên sâu & duyệt đạt' },
-                                { icon: '�', label: 'Tham gia vai trò BGK' },
-                                { icon: '⭐', label: 'Super Mentor', highlight: true },
+                                { icon: '🟢', label: 'Bảo chứng năng lực đứng lớp độc lập' },
+                                { icon: '📚', label: 'Nắm vững hệ sinh thái giáo trình bộ môn' },
+                                { icon: '📝', label: 'Đề xuất nâng bậc Giảng viên nòng cốt' },
+                                { icon: '🎓', label: 'Đào tạo chuyên sâu & vượt qua vòng kiểm duyệt' },
+                                { icon: '🎯', label: 'Tham gia hội đồng Ban giám khảo' },
+                                { icon: '⭐', label: 'Giảng viên nòng cốt', highlight: true },
                             ].map((item, i, arr) => (
                                 <div key={i} className="flex items-start gap-3">
                                     <div className="flex flex-col items-center">
@@ -556,18 +565,18 @@ export default function Screen11({ onNavigate }: { onNavigate?: (screen: string)
                             <ResourceCard href="https://docs.google.com/spreadsheets/d/1E4rLWCul0DrBFZv5kvKKgc2h4mhlYWAr/edit" icon={Star} label="Bảng điểm K12" color="blue" />
                         </div>
 
-                        <Callout icon="💡" text="Đề xuất với Leader để có buổi duyệt giảng và đào tạo chuyên sâu — đây là bước cuối để đạt role Super Mentor." />
+                        <Callout icon="💡" text="Bồi đắp chuyên môn sâu & đề xuất Hội đồng chuyên môn đánh giá — đây là chặng cuối để trở thành một Giảng viên nòng cốt thực thụ." />
                     </Step>
                 </div>
             )}
 
             {/* Footer */}
             <div className="mt-12 border-t border-white/10 pt-6">
-                <p className="text-slate-500 text-xs text-center mb-3">Mọi thắc mắc liên hệ Leader hoặc TC</p>
+                <p className="text-slate-500 text-xs text-center mb-3">Thông tin liên hệ Bộ phận Chuyên môn (Leader / Teacher Coordinator)</p>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                    <ResourceCard href="https://cxohok12.gitbook.io/quy-trinh-quy-dinh-danh-cho-giao-vien" icon={BookOpen} label="📖 Quy trình GV" desc="Đọc đầy đủ quy định" color="blue" />
-                    <ResourceCard href="https://apprbt.vercel.app/" icon={Star} label="🔍 AppRBT" desc="Ôn tập câu lệnh RBT" color="violet" />
-                    <ResourceCard href="https://tmsmindx.vercel.app/" icon={DollarSign} label="💰 Deal lương" desc="Xem chỉ số deal" color="emerald" />
+                    <ResourceCard href="https://cxohok12.gitbook.io/quy-trinh-quy-dinh-danh-cho-giao-vien" icon={BookOpen} label="📖 Quy chế & Nghiệp vụ" desc="Hệ thống văn bản hiện hành" color="blue" />
+                    <ResourceCard href="https://apprbt.vercel.app/" icon={Star} label="🔍 Hệ sinh thái RBT" desc="Kho lưu trữ học liệu số" color="violet" />
+                    <ResourceCard href="https://tmsmindx.vercel.app/" icon={DollarSign} label="💰 Chế độ đãi ngộ" desc="Theo dõi định mức lương" color="emerald" />
                 </div>
             </div>
 
