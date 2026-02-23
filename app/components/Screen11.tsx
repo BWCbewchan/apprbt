@@ -476,7 +476,7 @@ export default function Screen11({ onNavigate }: { onNavigate?: (screen: string)
                                     <li className="flex items-start gap-1.5"><ChevronRight className="w-3 h-3 mt-0.5 text-emerald-500 shrink-0" /> Trao đổi với LEC về tình hình học của lớp để có việc có thể hỗ trợ kịp thời.</li>
                                     <li className="flex items-start gap-1.5"><ChevronRight className="w-3 h-3 mt-0.5 text-emerald-500 shrink-0" /> Soạn quizz để hỗ trợ giáo viên đứng lớp ôn lại bài tập cho con.</li>
                                     <li className="flex items-start gap-1.5"><ChevronRight className="w-3 h-3 mt-0.5 text-emerald-500 shrink-0" /> Chuẩn bị kit với LEC để đảm bảo timeline buổi học.</li>
-                                    <li className="flex items-start gap-1.5"><ChevronRight className="w-3 h-3 mt-0.5 text-emerald-500 shrink-0" /> Nhận xét lớp học để đảm luôn nắm tình hình học của các con.</li>
+                                    <li className="flex items-start gap-1.5"><ChevronRight className="w-3 h-3 mt-0.5 text-emerald-500 shrink-0" /> Nhận xét lớp học để đảm bảo luôn nắm tình hình học của các con.</li>
                                     <li className="flex items-start gap-1.5"><ChevronRight className="w-3 h-3 mt-0.5 text-emerald-500 shrink-0" /> Mềm mỏng giải quyết các vấn đề và trao đổi với giáo viên để đưa ra giải pháp hợp lý.</li>
                                 </ul>
                             </div>
