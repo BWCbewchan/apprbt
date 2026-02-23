@@ -10,6 +10,7 @@ import { useCallback, useEffect, useState } from 'react';
 import FeedbackButton from './components/FeedbackButton';
 import Screen1 from './components/Screen1';
 import Screen10 from './components/Screen10';
+import Screen11 from './components/Screen11';
 import Screen2 from './components/Screen2';
 import Screen3 from './components/Screen3';
 import Screen4 from './components/Screen4';
@@ -57,6 +58,22 @@ export default function Home() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const [showTeacherModal, setShowTeacherModal] = useState(false);
   const [loadedScreens, setLoadedScreens] = useState<Set<string>>(() => new Set(['screen1']));
+
+  // Đọc ?screen= query param khi navigate từ /roadmap về
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const screen = params.get('screen');
+    if (screen) {
+      setActiveScreen(screen);
+      setLoadedScreens(prev => {
+        const next = new Set(prev);
+        next.add(screen);
+        return next;
+      });
+      // Xoá query param khỏi URL mà không reload
+      window.history.replaceState({}, '', '/');
+    }
+  }, []);
 
   // Check if teacher code exists
   useEffect(() => {
@@ -122,95 +139,102 @@ export default function Home() {
       )}
 
       <div className="flex min-h-screen bg-gradient-to-br from-[#0f172a] to-[#1e293b]">
-        <Sidebar 
-        activeScreen={activeScreen} 
-        onScreenChange={handleScreenChange}
-        isCollapsed={isSidebarCollapsed}
-        onToggle={toggleSidebar}
-      />
-      <main 
-        className={cn(
-          "flex-1 min-h-screen relative",
-          isSidebarCollapsed ? "ml-0 md:ml-20" : "ml-0 md:ml-64"
-        )}
-        style={{ transition: 'margin-left 0.15s ease-out' }}
-      >
-        <div className={cn("relative h-full", isFullscreen ? "p-0 h-screen" : "p-4 md:p-8")}>
-          {/* Screen 1 */}
-          {loadedScreens.has('screen1') && (
-            <div style={activeScreen === 'screen1' ? visibleStyle : hiddenStyle}>
-              <Screen1 />
-            </div>
+        <Sidebar
+          activeScreen={activeScreen}
+          onScreenChange={handleScreenChange}
+          isCollapsed={isSidebarCollapsed}
+          onToggle={toggleSidebar}
+        />
+        <main
+          className={cn(
+            "flex-1 min-h-screen relative",
+            isSidebarCollapsed ? "ml-0 md:ml-20" : "ml-0 md:ml-64"
           )}
-          
-          {/* Screen 2 */}
-          {loadedScreens.has('screen2') && (
-            <div style={activeScreen === 'screen2' ? visibleStyle : hiddenStyle}>
-              <Screen2 />
-            </div>
-          )}
-          
-          {/* Screen 3 */}
-          {loadedScreens.has('screen3') && (
-            <div style={activeScreen === 'screen3' ? visibleStyle : hiddenStyle}>
-              <Screen3 />
-            </div>
-          )}
+          style={{ transition: 'margin-left 0.15s ease-out' }}
+        >
+          <div className={cn("relative h-full pb-16 md:pb-0", isFullscreen ? "p-0 h-screen" : "p-4 md:p-8")}>
+            {/* Screen 1 */}
+            {loadedScreens.has('screen1') && (
+              <div style={activeScreen === 'screen1' ? visibleStyle : hiddenStyle}>
+                <Screen1 />
+              </div>
+            )}
 
-          {/* Screen 4 */}
-          {loadedScreens.has('screen4') && (
-            <div style={activeScreen === 'screen4' ? visibleStyle : hiddenStyle}>
-              <Screen4 />
-            </div>
-          )}
+            {/* Screen 2 */}
+            {loadedScreens.has('screen2') && (
+              <div style={activeScreen === 'screen2' ? visibleStyle : hiddenStyle}>
+                <Screen2 />
+              </div>
+            )}
 
-          {/* Screen 5 */}
-          {loadedScreens.has('screen5') && (
-            <div style={activeScreen === 'screen5' ? {...visibleStyle, height: '100%'} : hiddenStyle}>
-              <Screen5 />
-            </div>
-          )}
+            {/* Screen 3 */}
+            {loadedScreens.has('screen3') && (
+              <div style={activeScreen === 'screen3' ? visibleStyle : hiddenStyle}>
+                <Screen3 />
+              </div>
+            )}
 
-          {/* Screen 6 */}
-          {loadedScreens.has('screen6') && (
-            <div style={activeScreen === 'screen6' ? {...visibleStyle, height: '100%'} : hiddenStyle}>
-              <Screen6 />
-            </div>
-          )}
+            {/* Screen 4 */}
+            {loadedScreens.has('screen4') && (
+              <div style={activeScreen === 'screen4' ? visibleStyle : hiddenStyle}>
+                <Screen4 />
+              </div>
+            )}
 
-          {/* Screen 7 */}
-          {loadedScreens.has('screen7') && (
-            <div style={activeScreen === 'screen7' ? {...visibleStyle, height: '100%'} : hiddenStyle}>
-              <Screen7 />
-            </div>
-          )}
+            {/* Screen 5 */}
+            {loadedScreens.has('screen5') && (
+              <div style={activeScreen === 'screen5' ? { ...visibleStyle, height: '100%' } : hiddenStyle}>
+                <Screen5 />
+              </div>
+            )}
 
-          {/* Screen 8 */}
-          {loadedScreens.has('screen8') && (
-            <div style={activeScreen === 'screen8' ? visibleStyle : hiddenStyle}>
-              <Screen8 />
-            </div>
-          )}
+            {/* Screen 6 */}
+            {loadedScreens.has('screen6') && (
+              <div style={activeScreen === 'screen6' ? { ...visibleStyle, height: '100%' } : hiddenStyle}>
+                <Screen6 />
+              </div>
+            )}
 
-          {/* Screen 9 */}
-          {loadedScreens.has('screen9') && (
-            <div style={activeScreen === 'screen9' ? {...visibleStyle, height: '100%'} : hiddenStyle}>
-              <Screen9 />
-            </div>
-          )}
+            {/* Screen 7 */}
+            {loadedScreens.has('screen7') && (
+              <div style={activeScreen === 'screen7' ? { ...visibleStyle, height: '100%' } : hiddenStyle}>
+                <Screen7 />
+              </div>
+            )}
 
-          {/* Screen 10 */}
-          {loadedScreens.has('screen10') && (
-            <div style={activeScreen === 'screen10' ? {...visibleStyle, height: '100%'} : hiddenStyle}>
-              <Screen10 />
-            </div>
-          )}
-        </div>
+            {/* Screen 8 */}
+            {loadedScreens.has('screen8') && (
+              <div style={activeScreen === 'screen8' ? visibleStyle : hiddenStyle}>
+                <Screen8 />
+              </div>
+            )}
 
-        {/* Action Buttons - Always visible */}
-        <StatisticsButton />
-        <FeedbackButton currentScreen={activeScreen} />
-      </main>
+            {/* Screen 9 */}
+            {loadedScreens.has('screen9') && (
+              <div style={activeScreen === 'screen9' ? { ...visibleStyle, height: '100%' } : hiddenStyle}>
+                <Screen9 />
+              </div>
+            )}
+
+            {/* Screen 10 */}
+            {loadedScreens.has('screen10') && (
+              <div style={activeScreen === 'screen10' ? { ...visibleStyle, height: '100%' } : hiddenStyle}>
+                <Screen10 />
+              </div>
+            )}
+
+            {/* Screen 11 - Lộ trình ứng viên */}
+            {loadedScreens.has('screen11') && (
+              <div style={activeScreen === 'screen11' ? visibleStyle : hiddenStyle}>
+                <Screen11 onNavigate={handleScreenChange} />
+              </div>
+            )}
+          </div>
+
+          {/* Action Buttons - Always visible */}
+          <StatisticsButton />
+          <FeedbackButton currentScreen={activeScreen} />
+        </main>
       </div>
     </>
   );

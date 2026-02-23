@@ -4,7 +4,6 @@
 
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Outfit, Space_Grotesk } from "next/font/google";
-import TetDecoration from "./components/TetDecoration";
 import VisitorsBadge from "./components/VisitorsBadge";
 import "./globals.css";
 
@@ -59,7 +58,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} ${spaceGrotesk.variable} antialiased`}
         style={{ fontFamily: 'var(--font-outfit)' }}
       >
-        <TetDecoration />
+
         {children}
         <VisitorsBadge />
       </body>

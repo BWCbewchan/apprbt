@@ -1,0 +1,532 @@
+﻿Quá trình phát triển của 1 Ứng viên tới LEC
+1.      Quy trình cấp tài khoản
+- Trong thời gian sắp tới, mình sẽ có 5 buổi quan sát học.
+Ở mỗi buổi, các cô sẽ tham gia trực tiếp vào lớp học cùng giáo viên phụ trách lớp đó. Khi đến lớp, các cô chủ động thông tin với giáo viên là có buổi quan sát, đồng thời có thể tương tác, hỗ trợ và tìm hiểu thêm về hoạt động giảng dạy của bộ môn.
+Sau buổi học, các cô vui lòng điền form quan sát dựa theo hướng dẫn trong tài liệu tại đây:
+https://drive.google.com/file/d/1xTWTOjqB6tZIl4Xc7YBPQaOgLdXbfmbr/view
+Thông tin chi tiết về các lớp thầy Bảo sẽ gửi lên group để các cô tiện theo dõi. Ngoài ra, nếu các cô có mong muốn quan sát thêm các bộ môn khác, cứ chủ động thông tin lên group để thầy sắp xếp và hỗ trợ nhé ạ.
+ Thông tin mã lớp và khung giờ lớp ở cơ sở nào Leader cấp : https://zalo.me/0337061506
+Thông tin về ca trực trải nghiệm có thể tham gia: hcm01: https://docs.google.com/spreadsheets/d/1qjqo6nrQKegFPzu4t8D4W2Q5-fJ829ghNvTDWjRD1r4/edit?gid=0#gid=0
+Hcm04: https://docs.google.com/spreadsheets/d/1DRASt1UR8drUTLH-WGvguJRWudq3Z02eicwxxmPphek/edit?gid=0#gid=0
+Tới mục Observe tham điền lên vào sheet và sao đó thông tin với leader bạn tham gia quan sát ca trực.
+Hcm01[quang trung, phan văn trị, phan xích long, tô ký]
+Hcm04[Trường Chinh, Tây Thạnh, Lũy bán bích, Tên lửa]
+ 
+Trong quá trình quan sát này leader cần đầu ra như sau (sẽ được hỏi khi tham gia duyệt giảng với leader để cấp tài khoản ):
+- đối với việc tham gia lớp học : cách giáo viên quản lý lớp học như thế nào, có phần nội quy trong lớp hay không, cách truyền đạt và tiếp cận của giáo viên như thế nào với học viên, học viên có được lắng nghe và hiểu rõ kiến thức trong lớp học hay không. Và cuối cùng là những góp ý của ứng viên có 1 ý tưởng hay nào trong việc tiếp cận và hướng dẫn mentor không.
+- đối với việc tham gia trải nghiệm:
+Trong buổi trải nghiệm:
+Giáo viên có:
+Giới thiệu: Giáo viên chủ động giới thiệu bản thân với học viên và mời học viên giới thiệu bản thân tạo sự tương tác và dẫn dắt vào nội dung trải nghiệm.
+Dẫn dắt : Dựa trên sở thích và các thông tin cá nhân của học viên để dẫn dắt vào nội dung bài học.
+Giảng dạy: Giảng dạy nội dung theo giáo trình :
+- https://drive.google.com/drive/folders/1bhaEu1lCv-30FloGSFY8tZhEFK1cYFCm
+-        https://docs.google.com/spreadsheets/d/1VxhunGGaUk2schjQzF0vxwquNWdEdR42z6DnDFL2McY/edit?gid=0#gid=0
+Tổng kết nội dung buổi trải nghiệm: Tổng quát nội dung buổi trải nghiệm để học viên nắm được công cụ và kiến thức đã được học. Đồng thời trao đổi với học viên về cảm nhận sau buổi trải nghiệm.
+ Sau buổi trải nghiệm :
+
+Trao đổi vấn đề: Trao đổi trước với tư vấn về tình trạng thái độ và năng lực của học viên, cũng như định hướng môn học phù hợp trước khi trao đổi với phụ huynh
+ Nhận xét học viên : Nhận xét học viên với phụ huynh. (hướng dẫn : https://cxohok12.gitbook.io/quy-trinh-quy-dinh-danh-cho-giao-vien/v.-quy-trinh-van-hanh-buoi-trai-nghiem/quy-trinh-mot-ca-trai-nghiem/huong-dan-nhan-xet-voi-phu-huynh ) 
+Điền kết quả trải nghiệm: Giáo viên điền kết quả trải nghiệm vào phiếu đánh giá năng lực học viên sau trải nghiệm.
+(hướng dẫn : viết phiếu trải nghiệm : https://forms.office.com/pages/responsepage.aspx?id=oAYARH-DxUGWTsVLZQsVNRdxoHOrh4tAlfWX5PKv_NxUQVhJTDFWV1RaV1gwQzBaRklDU1hJQVFHSi4u
+Để check phiếu trải nghiệm vào mục 2: https://apprbt.vercel.app/
+Đánh giá kết quả: Giáo viên cập nhật kết quả trải nghiệm lên hệ thống LMS.(hướng dẫn : https://cxohok12.gitbook.io/quy-trinh-quy-dinh-danh-cho-giao-vien/v.-quy-trinh-van-hanh-buoi-trai-nghiem/quy-trinh-mot-ca-trai-nghiem/huong-dan-danh-gia-ket-qua-trai-nghiem-tren-lms)
+Slide: [QUY TRÌNH TRIAL] https://docs.google.com/presentation/d/1RCD9a3IATcrGwY2AQObbqBxRknhQuIu5/edit?slide=id.p1#slide=id.p1
+ Nội dung khi duyệt giảng với leader :
+Trả lời các câu hỏi sau khi tham gia quan sát lớp học
+Thực hành lại bài trải nghiệm khi duyệt giảng với leader.
+Sự khác nhau giữa các câu lệnh lập trình trong từng khóa rbt mục 1 : https://apprbt.vercel.app/ 
+Lưu ý: chủ động gửi thời gian để leader sắp xếp nhé <3
+
+Năng lực thành phần
+	Yêu cầu đầu ra (LOs)
+	Các mức độ biểu hiện năng lực
+	Chưa thể hiện
+1
+	Thấp
+2
+	Trung Bình
+3
+	Cao
+4
+	Xuất sắc
+5
+	Tác phong
+	Đảm bảo tác phong, giọng nói, ngoại quan trong quá trình giảng dạy
+	Tác phong chưa đạt chỉnh chu, luộm thuộm. Ngôn ngữ xưng hô chưa phù hợp. Thái độ còn lúng túng, thiếu tự tin
+	Tác phong chưa đạt chỉnh chu, luộm thuộm. Ngôn ngữ xưng hô ổn nhưng chưa lưu loát. Thái độ còn lúng túng, thiếu tự tin
+	Tác phong chưa đạt chỉnh chu, luộm thuộm. Ngôn ngữ xưng hô ổn,xưng hô thầy - em/bạn/con. Thái độ nghiêm túc nhưng còn hơi lúng túng
+	Tác phong chỉnh chu.Ngôn ngữ xưng hô ổn,xưng hô thầy - em/bạn/con. Thái độ tốt, tự tin truyền đạt
+	Tác phong chỉnh chu, phù hợp môi trường sư phạm.Ngôn ngữ xưng hô ổn,xưng hô thầy - em/bạn/con. Thái độ tốt, tự tin thuyết giảng. Sử dụng tốt ngôn ngữ cơ thể
+	Đảm bảo tính hiểu biết chuyên môn
+	Nắm được bộ môn giảng dạy, đảm bảo giải thích được vấn đề chuyên môn
+	Chưa nắm được kiến thức chuyên môn khi giảng dạy.Chưa nắm được kiến thức đầu ra.
+	Nắm được kiến thức dạy theo kịch bản, tuy nhiên chưa thể giải thích về các kiến thức khác của bộ môn.Chưa nắm được kiến thức đầu ra.
+	Nắm được kiến thức dạy theo kịch bản, nắm được kiến thức chuyên môn cơ bản và giải thích được khi học viên hỏi.Chưa nắm được kiến thức đầu ra.
+	Có thể linh hoạt áp dụng kiến thức chuyên môn, bổ sung kịch bản dạy để tăng thêm phần thú vị cho bài học. Năm được kiến thức đầu ra tổng quan của môn học.
+	Có thể linh hoạt áp dụng kiến thức chuyên môn, bổ sung kịch bản dạy để tăng thêm phần thú vị cho bài học. Năm được kiến thức đầu ra tổng quan của các lộ trình học. Và yếu tố cốt lõi của các môn học
+	Chuẩn bị kế hoạch giảng dạy
+	Đảm bảo kế hoạch giảng dạy được chuẩn bị kỹ lưỡng, có cấu trúc rõ ràng, phù hợp với nội dung và mục tiêu bài học. Đảm bảo sự linh hoạt trong việc điều chỉnh kế hoạch dựa trên thực tế lớp học và nhu cầu của học viên.
+	Chưa chuẩn bị bài giảng thử, chưa đọc qua kịch bản trải nghiệm/ teacher guide
+	Có xem qua về kịch bản trải nghiệm/teacher guide. Tuy nhiên chưa nhớ bài và nắm bắt bài giảng chưa tốt.
+	Nắm về kịch bản trial/teacher guide. Giảng dạy cố chạy theo giáo án dạy. Chỉ hướng dẫn về những gì để hình thành lên sản phẩm chứ không mở rộng thêm
+	Chuẩn bị kế hoạch giảng dạy kỹ lưỡng, nắm vững cấu trúc và nội dung bài học, có thể bổ sung thêm những yếu tố mới để tạo hứng thú cho học viên. Kế hoạch linh hoạt có thể điều chỉnh khi cần thiết.
+	Chuẩn bị kế hoạch giảng dạy xuất sắc, không chỉ nắm vững nội dung mà còn sáng tạo trong cách truyền đạt. Linh hoạt điều chỉnh giáo án theo nhu cầu học viên và tình hình thực tế, đảm bảo chất lượng giảng dạy cao.
+	Quản lý thời gian
+	Đảm bảo phân bổ đúng thời gian giảng dạy.
+	Không biết cách phân bổ thời gian, quá thời gian quy định hoặc thiếu thời gian cho các hoạt động quan trọng.
+	Có cố gắng phân bổ thời gian, nhưng thiếu linh hoạt, chưa tính toán kỹ, dẫn đến thời gian bị lệch so với kế hoạch.
+	Phân bổ thời gian cho các hoạt động cơ bản, nhưng vẫn gặp khó khăn khi phải điều chỉnh thời gian linh hoạt theo tình huống bất ngờ.
+	Phân bổ thời gian hợp lý, biết điều chỉnh thời gian khi gặp tình huống ngoài dự tính, đảm bảo không bỏ sót nội dung quan trọng.
+	Quản lý thời gian hiệu quả, linh hoạt ứng biến với các tình huống bất ngờ mà vẫn đảm bảo chất lượng giảng dạy và các hoạt động chính.
+	Kỹ năng áp dụng hoạt động giảng dạy
+	Áp dụng được các hoạt động tạo không khí, trò chơi giảng dạy trong quá trình duyệt giảng
+	Không biết cách tổ chức hoạt động, không tạo được không khí học tập, học viên không hứng thú.
+	Áp dụng một vài hoạt động nhưng không hiệu quả, không phù hợp với nội dung bài giảng hoặc độ tuổi của học viên.
+	Áp dụng được các hoạt động cơ bản nhưng chưa linh hoạt, chưa tạo được sự tương tác cao giữa học viên.
+	Áp dụng tốt các hoạt động, phù hợp với nội dung bài giảng và độ tuổi học viên, tạo được không khí học tập sôi nổi.
+	Sáng tạo và linh hoạt trong việc áp dụng các hoạt động, tạo không khí học tập đầy hứng thú, học viên tích cực tham gia và tương tác.
+	Kỹ năng đặt câu hỏi
+	Áp dụng đặt câu hỏi đóng, câu hỏi mở
+	Không sử dụng câu hỏi hoặc câu hỏi không liên quan đến nội dung bài giảng, không kiểm tra được mức độ hiểu biết của học viên. Chỉ bày thao tác
+	Sử dụng ít câu hỏi, phần lớn là câu hỏi đóng, chưa khuyến khích học viên suy nghĩ sâu.
+	Sử dụng một số câu hỏi mở và câu hỏi đóng cơ bản nhưng chưa linh hoạt, đôi khi học viên chưa hiểu rõ mục đích câu hỏi.
+	Sử dụng tốt câu hỏi đóng và mở, khuyến khích học viên tư duy và phản hồi.
+	Kết hợp linh hoạt các loại câu hỏi, khéo léo dẫn dắt học viên suy nghĩ sâu sắc và mở rộng vấn đề.
+	Kỹ năng sử dụng công cụ, thiết bị
+	Biết cách sử dụng thành thạo các công cụ giảng dạy và thiết bị hỗ trợ trong lớp học (máy tính,KIT dạy ,máy chiếu, bảng thông minh, phần mềm giảng dạy, v.v.).
+	Không biết cách sử dụng các công cụ và thiết bị giảng dạy, không thể thao tác thiết bị khi cần.
+	Có khả năng sử dụng một số công cụ, nhưng thao tác chậm chạp, gặp khó khăn khi điều chỉnh thiết bị.
+	Sử dụng được các công cụ, thiết bị cơ bản trong quá trình giảng dạy, nhưng chưa thành thạo hoặc nhanh nhẹn.
+	Sử dụng thành thạo các công cụ, thiết bị giảng dạy, thao tác nhanh chóng và hiệu quả.
+	Linh hoạt sử dụng nhiều công cụ, thiết bị hỗ trợ, kết hợp tốt để nâng cao hiệu quả giảng dạy.
+	Kỹ năng giao tiếp
+	Giao tiếp hiệu quả với học viên và phụ huynh học sinh, đảm bảo truyền đạt rõ ràng, dễ hiểu và tạo dựng sự kết nối tốt.
+	Giao tiếp mờ nhạt, không tạo được sự tương tác với học viên, không biết cách giao tiếp với phụ huynh. Nói năng lắp bắp, thiếu tự tin.
+	Giao tiếp đơn điệu, còn hạn chế trong việc tương tác với học viên, chỉ giao tiếp một chiều, gặp khó khăn khi giao tiếp với phụ huynh.
+	Giao tiếp được với học viên, nhưng chưa sâu sắc; giao tiếp với phụ huynh còn hạn chế.
+	Giao tiếp hiệu quả với học viên, tạo dựng sự tương tác tốt; giao tiếp với phụ huynh tương đối rõ ràng và hợp lý.
+	Giao tiếp linh hoạt, sâu sắc với học viên, tạo dựng sự kết nối chặt chẽ; giao tiếp tốt với phụ huynh, thể hiện được sự chuyên nghiệp.
+	Kỹ năng định hướng
+	Định hướng học tập phù hợp với độ tuổi và nhu cầu của học viên, đảm bảo học viên nắm bắt được kiến thức trọng tâm.
+Xác định đúng độ tuổi để học tập của học sinh đối với các lộ trình học tại nhà trường
+	Không định hướng rõ ràng cho học viên, học viên không hiểu rõ mục tiêu học tập.
+Chưa nắm về độ tuổi học tập từng bộ môn
+	Định hướng còn chung chung, chưa bám sát độ tuổi và trình độ của học viên.
+	Định hướng được mục tiêu học tập nhưng chưa linh hoạt theo nhu cầu cá nhân của học viên.
+	Định hướng rõ ràng, phù hợp với độ tuổi và nhu cầu của học viên, giúp học viên nắm vững mục tiêu học tập.
+	Định hướng chi tiết, linh hoạt điều chỉnh mục tiêu học tập theo từng cá nhân,mong muốn của học sinh, phụ huynh. Giúp học viên phát triển toàn diện.
+	Kỹ năng xử lý tình huống
+	Xử lý các tình huống được đặt ra
+	Không biết cách xử lý tình huống, không thể kiểm soát được tình hình và để lớp học mất trật tự.
+	Xử lý tình huống còn lúng túng, chưa khéo léo, đôi khi gây gián đoạn quá trình giảng dạy. Phải giải quyết rất lâu mới quay lại bài học.
+	Xử lý được các tình huống cơ bản nhưng chưa linh hoạt, đôi khi chưa thuyết phục học viên.
+	Xử lý tốt các tình huống phát sinh, đảm bảo không gián đoạn lớp học, giúp học viên ổn định trở lại.
+	Xử lý tình huống khéo léo, linh hoạt, đảm bảo không chỉ ổn định lớp học mà còn biến tình huống thành cơ hội học tập cho học viên.
+	
+
+ 2. Quy trình sau khi có tài khoản lms.
+Trao đổi thông tin với TC ( Teacher Coordinator) : https://zalo.me/0385914843 về thông tin bạn đã duyệt giảng thành công với leader và có thể tham gia công việc:
+tin nhắn giới thiệu: Tên , mã lms, đang là giáo viên khối rbt thuộc khu vực nào, sau quá trình duyệt giảng với leader em đã nắm quy trình và có thể tham gia trải nghiệm được các level của bộ môn có thể cụ thể ra vd như là pre, arm, semi, kind (4+).
+Để quy trình làm việc trở nên dễ dàng thì : giáo viên cần đảm bảo hoạt động của mình qua trừng tuần: - QUY TRÌNH QUY ĐỊNH DÀNH CHO GIÁO VIÊN: https://cxohok12.gitbook.io/quy-trinh-quy-dinh-danh-cho-giao-vien
+- ĐĂNG KÍ LỊCH LÀM: https://docs.google.com/forms/d/e/1FAIpQLScZuVAlACc1Pnoz7GU85xkwTdcHdJh6vMdbeYJwEIaxeE_q2Q/viewform
+- LỊCH CƠ SỞ (vào lúc 6h tối các bạn có thể vào check thông tin mình có tham gia trực hay không và chuẩn bị ca trực tiếp theo, vào lms check ca trực của mình để chuẩn bị giáo trình thật tốt nhất)
+HCM1: https://docs.google.com/spreadsheets/d/1qjqo6nrQKegFPzu4t8D4W2Q5-fJ829ghNvTDWjRD1r4/edit?gid=0#gid=0
+HCM4: https://docs.google.com/spreadsheets/d/1DRASt1UR8drUTLH-WGvguJRWudq3Z02eicwxxmPphek/edit?gid=0#gid=0
+- FORM FEEDBACK LƯƠNG(trong quá trình thực hiện công việc nếu thiếu công thì vào sheet tới namesheet của tháng đó để điền thông tin để TC làm việc đảm bảo quyền lợi cho các bạn khi tham gia)
+https://docs.google.com/spreadsheets/d/1jow0T_fuAiWRGUOjp22euWRg0Blh5Ix-Y5Z9AiD7Q-s/edit?gid=156481072#gid=156481072
+cách để check công : https://cxohok12.gitbook.io/quy-trinh-quy-dinh-danh-cho-giao-vien/iv.-quy-trinh-quy-dinh-chung/huong-dan-kiem-tra-cong-luong#id-1.-huong-dan-truy-cap-bang-cong
+
+
+-trong quá trình này thì các bạn đang là giáo viên trợ giảng của mindx, đầu việc các bạn có thể tham gia là: 
+- Trợ giảng của 1 lớp học đông học viên có thể trên 9 học viên dựa vào mức hanldle của giáo viên đứng lớp 
+- Tham gia ca trải nghiệm : tài liệu  - 
+slide quy trình:  https://docs.google.com/presentation/d/1RCD9a3IATcrGwY2AQObbqBxRknhQuIu5/edit?slide=id.p14#slide=id.p14
+giáo trình new: 
+https://drive.google.com/drive/folders/1bhaEu1lCv-30FloGSFY8tZhEFK1cYFCm 
+giáo trình old:
+https://docs.google.com/spreadsheets/d/1VxhunGGaUk2schjQzF0vxwquNWdEdR42z6DnDFL2McY/edit?gid=0#gid=0
+Trong quá trình này các đang là role TA, phần quang trọng trong quá trình này cần chuẩn bị các kiến thức thật tốt để tham gia vào quá trình duyệt giảng để lên LEC (giáo viên đứng lớp )
+Group đăng kí duyệt giảng https://zalo.me/g/xqgakm321 
+slide mẫu : k12 : https://drive.google.com/file/d/1At4vzPyq1JZJpbcnBTaulzkMv12moh--/view?usp=drive_link 
+4+ : https://drive.google.com/file/d/11ej6lpoCJ1cJNYhr-TGwUtXgdh1jg5Pq/view?usp=drive_link 
+soạn slide với các tiêu trí:
+
+
+
+	Tiêu chí đánh giá duyệt giảng cho giáo viên giảng dạy
+	Năng lực cần đáp ứng
+	STT
+	Nội dung đánh giá
+	Yêu cầu đầu ra (LOs)
+	Các mức độ biểu hiện năng lực
+	Trial/TA
+	Giáo viên
+	Chưa thể hiện
+1
+	Thấp
+2
+	Trung Bình
+3
+	Cao
+4
+	Xuất sắc
+5
+	ĐÁNH GIÁ SỰ CHUẨN BỊ CỦA GIÁO VIÊN
+	1
+	Chuẩn bị kế hoạch giảng dạy
+	Giáo viên trình bày được các nội dung sau:
+1.Đã chuẩn bị học liệu, học cụ gì?
+2.Đã tham gia dự thính lớp thực tế chưa?
+3.Đã trao đổi và nhận góp ý từ Leader / Fulltime / Trainer về nội dung dạy thử chưa?
+
+
+Đối với chuẩn bị bài giảng:
+1.Học phần: VD: Scratch Basic
+2.Bài học: VD: Thế giới động vật
+3.Kiến thức học : VD: Làm quen với cách tạo nhân vật trên Scratch và tiếng kêu của chúng
+4.Độ tuổi học sinh trong lớp: VD: Lớp 4
+5.Nội dung chọn để dạy thử VD: Cách tạo ra 1 nhân vật kêu với tiếng kêu tương ứng
+6.Cách sắp xếp bài giảng: VD: Bài giảng được diễn ra sau buổi học về cách hoạt động của âm thanh trong Scratch, cách tạo nhân vật, phông nền
+7.Tiêu chí đo lường sau khi dạy (kết quả HS thế nào thì Đạt)
+VD: Học sinh biết được chỗ tạo nhân vật, chọn nhân vật ( Mức Biết - Thang đo Bloom Taxonomy)
+	Chưa có sự chuẩn bị trước buổi dạy
+	Có sự chuẩn bị về học liệu, thiết bị, tuy nhiên chưa đủ các yếu tố cấu thành nên bài học. Chưa biết rõ mình sẽ dạy gì
+	Đã có sự chuẩn bị , triển khai chưa đủ ý với yêu cầu chuẩn bị cho bài giảng. Chưa biết cách đánh giá đầu ra học viên
+	Có sự chuẩn bị tốt, triển khai đủ các ý để tổ chức 1 buổi dạy. Việc đánh giá đầu ra của học viên đạt mức Vận dụng
+	Có sự chuẩn bị tốt, triển khai đủ các ý để tổ chức 1 buổi dạy. Việc đánh giá đầu ra của học viên đạt mức Phân tích, sáng tạo
+	
+
+	
+
+	2
+	Xác định mục tiêu bài giảng
+	Giáo viên biết được nội dung đầu ra của nội dung giảng dạy
+	Xác định sai mục tiêu bài giảng hoặc không phù hợp với thời lượng
+	Mục tiêu được đặt phù hợp với thời lượng, cụ thể nhưng chưa phù hợp với năng lực của học sinh
+	Mục tiêu được đặt phù hợp với thời lượng, phù hợp với năng lực của học sinh nhưng khó đo lường
+	Mục tiêu được đặt phù hợp với thời lượng, cụ thể, phù hợp với năng lực của HS và có thể đo lường
+	Mục tiêu được đặt phù hợp với thời lượng, cụ thể, phù hợp với năng lực của học sinh và có thể đo lường, học sinh đạt được mục tiêu sau buổi học
+	
+
+	
+
+	3
+	Slide bài giảng
+	Chuẩn bị slide giảng dạy trực quan
+	Rối, không có tính thống nhất, liền mạch trong các hoạt động
+	Thông tin rõ ràng nhưng trật tự sắp xếp chưa hợp lý
+	Thông tin rõ ràng, trật tự nội dung hợp lý
+	Thông tin rõ ràng, trật tự nội dung hợp lý, thống nhất, có kết hợp hiệu ứng tốt để tăng hiệu quả bài giảng
+	Thông tin rõ ràng, trật tự nội dung hợp lý, liên kết với nhau, slide bắt mắt, thu hút học sinh
+	
+
+	
+
+	4
+	Sử Dụng Phương Tiện Hỗ Trợ, Dụng Cụ, Sản Phẩm Mẫu
+	Biết cách sử dụng Phương Tiện Hỗ Trợ, Dụng Cụ, Sản Phẩm Mẫu phục vụ cho công tác giảng dạy
+	Không sử dụng bất kỳ phương tiện, dụng cụ, sản phẩm mẫu nào
+	Sử dụng phương tiện hỗ trợ, dụng cụ, sản phẩm mẫu nhưng chưa hiệu quả
+	Sử dụng phương tiện hỗ trợ, dụng cụ, sản phẩm mẫu hợp lý, liên hệ được với bài học
+	Sử dụng phương tiện hỗ trợ, dụng cụ, sản phẩm mẫu hợp lý và gây thu hút, hào hứng nơi học sinh, đạt hiệu quả cho nội dung cần truyền tải
+	Sử dụng phương tiện hỗ trợ, dụng cụ, sp mẫu sáng tạo, hợp lý và gây thu hút, hào hứng nơi học sinh, từ đó học sinh tự giác vận dụng các kiến thức đã học vào sản phẩm
+	
+
+	
+
+	5
+	Kiến Thức Công Cụ
+	Năm được kiến thức các công cụ trong quá trình giảng dạy: VD: Hiểu được công cụ dùng để làm gì? Tại sao học sinh nên học với công cụ đấy
+	Kiến thức công cụ còn sơ sài, chưa hiểu rõ
+	Một số kiến thức chưa chuẩn trong việc sử dụng công cụ
+	Kiến thức tốt về công cụ nhưng chưa kết hợp hiệu quả với việc giảng dạy
+	Kiến thức tốt về công cụ và sử dụng hiệu quả trong việc giảng dạy
+	Kiến thức tốt về công cụ, có sự liên kết, gợi mở với các kiến thức bài cũ và sử dụng hiệu quả trong việc giảng dạy
+	
+
+	
+
+	ĐÁNH GIÁ NĂNG LỰC ÁP DỤNG PHƯƠNG PHÁP GIẢNG DẠY
+	6
+	Giáo Viên Diễn Giải Kiến Thức
+	Giáo viên có thể diễn dãi kiến thức theo mô hình 5W 1H
+1. What
+2. When
+3. Where
+4. Who
+5. Why
+6.How
+	Diễn giải sai kiến thức, cách thức diễn dãi rườm rà, vấp nhiều
+	Diễn giải kiến thức còn phức tạp, chưa đầy đủ theo dạng
+5W1H
+	Diễn giải kiến thức đầy đủ theo dạng 5W1H nhưng còn chưa rõ ràng, mạch lạc
+	Diễn giải kiến thức rõ ràng, mạch lạc đủ dạng 5W1H
+	Diễn giải kiến thức sinh động, dễ hiểu và gần gũi với HS đủ dạng 5W1H
+	
+
+	
+
+	7
+	Giáo Viên Mô Phỏng Kiến Thức Trên Công Cụ
+	Sử dụng linh hoạt các công cụ giảng dạy. Sử dụng để tạo cảm giác trực quan cho học viên trong hoạt động học kiến thức mới
+	Chưa mô phỏng kiến thức trên công cụ học tập
+	Mô phỏng kiến thức trên công cụ chưa chính xác hoặc còn phức tạp, khó hiểu
+	Mô phỏng kiến thức trực quan, dễ hiểu trên công cụ học tập
+	Mô phỏng kiến thức trực quan, dễ hiểu trên công cụ học tập kết hợp làm mẫu chi tiết
+	Kết hợp linh hoạt làm mẫu, mô phỏng kiến thức trực quan trên công cụ học tập với diễn giải kiến thức
+	
+
+	
+
+	8
+	Kỹ Thuật Đặt Câu Hỏi Kiểm Tra Kiến Thức
+	Đặt câu hỏi để kiểm tra kiến thức học viên sau mỗi giai đoạn bài dạy, đảm bảo việc học viên đã hiểu và chú tâm vào bài học.
+	Chưa có câu hỏi để kiểm tra kiến thức
+	Đặt câu hỏi chưa đúng loại
+	Câu hỏi kiểm tra kiến thức đúng yêu cầu nhưng chưa được thực hiện thường xuyên trong lớp học
+	Được thực hiện thường xuyên nhưng chưa có khả năng đánh giá diện rộng
+	Có khả năng đánh giá nhanh, trên diện rộng
+	
+
+	
+
+	9
+	Cách Thức Tổ Chức Hoạt Động Lớp Học
+	Tạo các hoạt động dẫn dắt kiến thức theo mục tiêu trong từng giai đoạn bài học.
+	Chưa được tổ chức hoặc tổ chức sai tính chất mục tiêu bài học
+	Có tổ chức nhưng chưa bổ trợ rõ ràng cho mục tiêu bài học
+	Hoạt động hỗ trợ HS học theo trải nghiệm (chủ yếu), bổ trợ rõ ràng, bao quát mục tiêu bài học. GV không theo dõi quá trình tham gia hoạt động của HS, không đảm bảo được tất cả HS đều tham gia
+	Hoạt động hỗ trợ HS học theo trải nghiệm (chủ yếu), bổ trợ rõ ràng, bao quát mục tiêu bài học. GV ít theo dõi quá trình tham gia hoạt động của HS, không đảm bảo được tất cả HS đều tham gia
+	Hoạt động hỗ trợ HS học theo trải nghiệm (chủ yếu), bổ trợ rõ ràng, bao quát mục tiêu bài học. GV theo dõi quá trình tham gia hoạt động của HS, đảm bảo tất cả HS đều tham gia
+	
+
+	
+
+	10
+	Kết Quả Tổ Chức Hoạt Động Lớp Học
+	Giáo viên nắm được kết quả đầu ra kiến thức sau khi tổ chức hoạt động lớp học
+	Chưa được tổ chức hoặc tổ chức sai tính chất
+	HS không hào hứng tham gia, hoạt động không đạt được kết quả bổ trợ cho mục tiêu bài học
+	HS ít hào hứng tham gia, hoạt động đạt được 1 phần (>50%) kết quả bổ trợ cho mục tiêu bài học
+	HS ít hào hứng tham gia hoạt động, chưa đảm bảo được tất cả HS đạt được hiệu quả học tập qua trải nghiệm (50 - 80%)
+	Tổ chức sinh động, sáng tạo, HS hào hứng tham gia hoạt động, đạt được hiệu quả học tập qua trải nghiệm (>80%)
+	
+
+	
+
+	11
+	Hoạt Động Thực Hành
+	Tạo các nhiệm vụ thực hành cụ thể, áp dụng được phương pháp phân tầng năng lực để vừa thực hành vừa có thể đánh giá năng lực học viên
+	1.Chưa có các nhiệm vụ cụ thể hoặc các hoặc nhiệm vụ không hỗ trợ cho mục tiêu bài học
+	2.Các nhiệm vụ thực hành chưa hỗ trợ rõ ràng cho mục tiêu, chưa có độ khó tăng dần và chưa hỗ trợ cho sản phẩm cuối bài
+	3.Các nhiệm vụ thực hành hỗ trợ rõ ràng cho mục tiêu và hỗ trợ cho sản phẩm cuối bài nhưng chưa có độ khó tăng dần
+	4.Các nhiệm vụ thực hành hỗ trợ rõ ràng cho mục tiêu, có độ khó tăng dần nhưng chưa hỗ trợ cho sản phẩm cuối bài
+	5.Các nhiệm vụ thực hành hỗ trợ rõ ràng cho mục tiêu, có độ khó tăng dần và hỗ trợ cho sản phẩm cuối bài
+	
+
+	
+
+	12
+	Cách Thức Tổ Chức Hoạt Động Thực Hành
+	Bao quát học viên trong giai đoạn thực hành. Có thể phân biệt và hỗ trợ học sinh đang chưa nắm kỹ bài và khuyến khích, tạo động lực cho học viên đã có năng lực
+	1.Không có sự theo dõi HS
+	2.Có sự theo dõi HS nhưng còn hời hợt
+	3.Có sự theo dõi và tương tác với HS nhưng không hỗ trợ kịp thời hoặc hỗ trợ HS không phù hợp (VD: làm hộ, làm mẫu, HS chép theo...)
+	4.Có sự theo dõi, tương tác và hỗ trợ kịp thời cho HS, tạo điều kiện để HS được chủ động thực hành
+	5.Tổ chức linh hoạt hoạt động cá nhân và hoạt động nhóm tùy theo tình hình cụ thể của lớp và nội dung nhiệm vụ. Có sự theo dõi, tương tác và hỗ trợ kịp thời cho HS, tạo điều kiện để HS được chủ động thực hành
+	
+
+	
+
+	13
+	Kết Quả Thực Hành
+	Đánh giá được mức độ hoàn thành, năng lực của học sinh sau hoạt động thực hành.
+	1.GV không chữa kết quả thực hành
+	2.GV trình chiếu kết quả thực hành, không kiểm tra kết quả thực hành HS
+	3.GV trình chiếu kết quả thực hành, 1 số HS hiểu tự sửa được theo hướng dẫn và hoàn thành nhiệm vụ
+	4.GV trình chiếu kết quả thực hành, tất cả HS đều hiểu, tự sửa được theo hướng dẫn và hoàn thành nhiệm vụ
+	5.GV chữa, phân tích cách tư duy, tất cả HS đều tự sửa được theo hướng dẫn và hoàn thành nhiệm vụ
+	
+
+	
+
+	14
+	Hoạt Động Game Hoá
+	Tổ chức mục tiêu học thành 1 trò chơi để học sinh có thể giúp học sinh thoải mái trong cách tiếp cận kiến thức và có tinh thần chủ động trong học tập. Tạo tính cạnh tranh lành mạnh trong môi trường học
+	1.Chưa được tổ chức hoặc tổ chức sai tính chất,lan man, làm mất sự tập trung vào mục tiêu đề ra
+	2.Có tổ chức nhưng ít liên quan đến nội dung học
+	3.Liên quan trực tiếp đến nội dung bài học, chỉ một vài HS tham gia hoặc do GV chỉ định
+	4.Liên quan trực tiếp đến nội dung bài học, đảm bảo tất cả HS đều cùng tham gia
+	5.Liên quan trực tiếp đến nội dung bài học và phân hóa về độ khó, đảm bảo tất cả HS đều cùng tham gia
+	
+
+	
+
+	15
+	Kết Quả Game Hoá
+	
+
+	1.Chưa được tổ chức hoặc tổ chức sai tính chất
+	2.Hoạt động không tạo được tính cạnh tranh, tính giải trí
+	3.Hoạt động ít tạo được tính cạnh tranh, tính giải trí hoặc GV không tổng kết được kiến thức vừa học thông qua game hóa
+	4.Hoạt động tạo được tính cạnh tranh, tính giải trí, HS hào hứng tham gia nhưng GV không tổng kết được kiến thức vừa học thông qua game hóa
+	5.Hoạt động tạo được tính cạnh tranh, tính giải trí. GV tổng kết được kiến thức vừa học thông qua game hóa
+	
+
+	
+
+	ĐÁNH GIÁ KỸ NĂNG SƯ PHẠM CỦA GIÁO VIÊN
+	16
+	Diễn Đạt
+	Cách diễn đạt lưu loát, dễ hiểu, tạo được tinh thần học tập cho học sinh
+	1.Ngập ngừng, khó hiểu, rối
+	2.Dễ hiểu nhưng còn ngập ngừng, vấp nhiều
+	3.Dễ hiểu, rõ ràng, không ngập ngừng
+	4.Dễ hiểu, lưu loát, tạo được tính liên kết và thống nhất của bài học
+	5.Dễ hiểu, lưu loát, ngôn ngữ giàu màu sắc, truyền cảm, thu hút và tạo được hứng thú học tập cho HS Biểu hiện
+	
+
+	
+
+	17
+	Tác Phong Sư Phạm
+	Phong thái truyền đạt, giọng điệu truyền cảm, khí chất nhà giáo
+	1.Rụt rè, thiếu tự tin
+	2.Tác phong tạm ổn, nhưng vẫn còn thiếu tự tin
+	3.Phong cách tự tin, nhưng đôi khi vẫn còn những tác phong chưa đúng chuẩn mực giáo viên
+	4.Phong cách tự tin, có sự kết hợp ngôn ngữ cơ thể nhưng chưa tốt lắm
+	5.Phong cách tự tin, sử dụng ngôn ngữ cơ thể hợp lý, hiệu quả
+	
+
+	
+
+	18
+	Phân Bổ Thời Lượng
+	Phân bổ, kiểm soát được thời gian hoàn thành các giai đoạn buổi học
+	1.Quá giờ quy định
+	2.Thời gian bị lạm dụng, không dành đúng cho mục tiêu bài học
+	3.Đúng thời gian quy định, dành đúng cho mục tiêu bài học, nhưng chưa phân bổ hợp lý thời gian cho các hoạt động
+	4.Phân bổ được thời gian hợp lý cho các hoạt động
+	5.Phân bổ thời gian một cách hợp lý và linh hoạt và có sự kiểm soát tốt khi có các sự cố phát sinh
+	
+
+	
+
+	19
+	Hệ Thống Khen Thưởng
+	Biết cách khuyến khích, động viên học sinh, tạo tinh thần học tập sôi nổi cho lớp học
+	1.Không sử dụng bất kỳ hình thức khen thưởng nào
+	2.Có khen thưởng nhưng chưa thường xuyên
+	3.Có khen thưởng thường xuyên nhưng chưa hợp lý khi tính điểm
+	4.Có sự hợp lý khi tính điểm nhưng chưa thấy được hiệu quả trong việc tạo động lực, quản lý lớp học
+	5.Đạt được hiệu quả trong việc tạo động lực, quản lý lớp học
+	
+
+	
+
+	20
+	Hệ Thống Tham Gia Và Kiểm Soát.
+	Đánh giá, kiểm tra liên tục. Kiểm soát được các rủi ro trong quá trình học tập của học sinh. Linh hoạt tạo điều kiện cho học sinh trong quá trình học tập
+	1.Chưa kiểm soát được nhóm HS không tham gia trực tiếp vào các hoạt động lớp học
+	2.Giao được nhiệm vụ cho nhóm HS không tham gia trực tiếp hoạt động lớp học
+	3.Giao được nhiệm vụ có tính bổ trợ cho nhóm không tham gia trực tiếp vào hoạt động trong lớp học
+	4.Nhiệm vụ được giao có tính liên kết chặt chẽ giữa HS đang tham gia hoạt động lớp học và HS không tham gia trực tiếp
+	5.GV kiểm soát chặt chẽ được hoạt động giữa HS đang tham gia hoạt động và HS không tham gia trực tiếp Biểu hiện
+	
+
+	
+
+	21
+	Hệ Thống Nhóm
+	Đảm bảo các bạn có thể hoạt động cùng nhau. Chia các nhóm thành các dạng
+1. Phân tầng năng lực
+2. Xen kẽ năng lực
+3. Linh hoạt thay đổi
+	1.Chưa sử dụng hệ thống nhóm
+	2.Chưa phù hợp với bối cảnh lớp học
+	3.Phù hợp với bối cảnh lớp học, nhưng chưa thấy được hiệu quả trong hoạt động làm việc nhóm
+	4.Phù hợp với bối cảnh lớp học, tất cả HS đều tham gia một cách hiệu quả trong quá trình làm việc nhóm
+	5.HS đảm bảo làm việc nhóm một cách hiệu quả bằng cách chủ động phân công các vai trò công việc cho các thành viên
+	
+
+	
+
+	22
+	Hệ Thống Chú Ý
+	Đảm bảo học sinh chú ý, theo dõi trong quá trình học tập,phù hợp với bối cảnh học tập
+	1.Chưa sử dụng hệ thống chú ý
+	2.Có sử dụng nhưng chưa đảm bảo được việc chú ý của HS hoặc không phù hợp với bối cảnh lớp học
+	3.Phù hợp với bối cảnh lớp học, nhưng chưa thường xuyên và đồng nhất
+	4.Phù hợp với bối cảnh lớp học, thực hiện thường xuyên, đồng nhất, thể hiện được phần nào tính hiệu quả
+	5.Phù hợp với bối cảnh lớp học, thực hiện thường xuyên, đồng nhất, thể hiện rõ ràng tính hiệu quả sau khi thực hiện
+	
+
+	
+
+	23
+	Xử Lý Tình Huống Sư Phạm
+	Nhận biết, tự chủ xử lý, phòng tránh các rủi ro trong quá trình giảng dạy
+	1.Không xử lý khi có tình huống phát sinh tình huống sư phạm trong lớp học
+	2.Phát sinh tình huống sư phạm, nhận biết được nhưng không xử lý hoặc không xử lý được
+	3.Xử lý được tình huống chưa khéo léo, thuyết phục được HS
+	4.Xử lý được tình huống khéo léo, thuyết phục được HS nhưng chưa kịp thời
+	5.Xử lý tình huống kịp thời, hiệu quả (khéo léo, thuyết phục được HS, tạo lập lại trật tự và không khí lớp học)
+	
+
+	
+
+	24
+	Quản Lý Lớp Học
+	Bao quát, chủ động trong quá trình giảng dạy. Có tính nhất quán và tính quyết đoán trong quá trình quản lý lớp học
+	1.Bị động, chưa kiểm soát được lớp học, không giám sát hành vi HS dẫn đến phát sinh các hành vi sai trái nhưng cũng không có phương pháp giải quyết
+	2.Các tiêu chuẩn được xác lập, tuy nhiên sự cố gắng của GV để duy trì các tiêu chuẩn này chưa được đồng đều dẫn đến phát sinh các hành vi sai trái nhưng cũng không có phương án giải quyết hoặc giải quyết qua loa
+	3.Các tiêu chuẩn được xác lập, GV cố gắng để duy trì các tiêu chuẩn này (đạt hiệu quả > 50%) nhưng cách giải quyết của GV đối với vi phạm của HS chưa được thống nhất
+	4.GV thường giám sát hành vi của HS. Khi cần thiết, GV có cách xử lý hiệu quả với các hành vi sai trái của HS
+	5.Bao quát được lớp học, GV liên tục giám sát các hành vi của HS, được thực hiện chủ yếu qua các phương tiện không lời; hành vi của HS hoàn toàn phù hợp
+	
+
+	
+
+	25
+	Môi Trường Lớp Học
+	Đảm bảo môi trường học tập vui vẻ, sôi nổi nhưng vẫn đảm bảo tính kỷ luật và tuân thủ nội quy học tập
+	1.Lớp học không có tổ chức và lộn xộn
+	2.Lớp học đôi khi chưa được tổ chức tốt hoặc không khí lớp học trầm, không tạo được động lực cho HS
+	3.Lớp học hoạt động trơn tru, không khí lớp học hài hòa
+	4.Lớp học hoạt động trơn tru và hiệu quả, không khí lớp học vui vẻ, hào hứng
+	5.Lớp học hoạt động một cách thống nhất và liên tục, HS chủ động tham gia các hoạt động trong lớp, không khí lớp học vui vẻ, hào hứng
+	
+
+	
+
+	26
+	Kỹ năng giao tiếp
+	Giao tiếp hiệu quả với học viên và phụ huynh học sinh, đảm bảo truyền đạt rõ ràng, dễ hiểu và tạo dựng sự kết nối tốt.
+	Giao tiếp mờ nhạt, không tạo được sự tương tác với học viên, không biết cách giao tiếp với phụ huynh. Nói năng lắp bắp, thiếu tự tin.
+	Giao tiếp đơn điệu, còn hạn chế trong việc tương tác với học viên, chỉ giao tiếp một chiều, gặp khó khăn khi giao tiếp với phụ huynh.
+	Giao tiếp được với học viên, nhưng chưa sâu sắc; giao tiếp với phụ huynh còn hạn chế.
+	Giao tiếp hiệu quả với học viên, tạo dựng sự tương tác tốt; giao tiếp với phụ huynh tương đối rõ ràng và hợp lý.
+	Giao tiếp linh hoạt, sâu sắc với học viên, tạo dựng sự kết nối chặt chẽ; giao tiếp tốt với phụ huynh, thể hiện được sự chuyên nghiệp.
+	
+
+	
+
+	
+
+Kết quả : sau quá trình này bạn có thể tham gia đứng giảng dạy ở lớp và được đi đúng quy trình deal lương qua 6 tháng làm việc, deal lương lần đầu là leader sẽ là người hỗ trợ đánh giá và deal lương vì vậy trong quá trình 6 tháng đầu tiên lên lec cần sự sẵn sàng hỗ trợ các tình huống và không ngừng học hỏi để đưa ra kết quả tốt nhất nhé.
+chi tiết bản lương : https://cxohok12.gitbook.io/quy-trinh-quy-dinh-danh-cho-giao-vien/iv.-quy-trinh-quy-dinh-chung/quy-dinh-danh-gia-luong/chi-tiet-luong 
+điều kiện đánh giá : https://cxohok12.gitbook.io/quy-trinh-quy-dinh-danh-cho-giao-vien/iv.-quy-trinh-quy-dinh-chung/quy-dinh-danh-gia-luong/dieu-kien-danh-gia-luong 
+các tiêu trí chấm điểm : https://cxohok12.gitbook.io/quy-trinh-quy-dinh-danh-cho-giao-vien/iv.-quy-trinh-quy-dinh-chung/quy-dinh-danh-gia-luong/chi-so-danh-gia 
+
+ 3. từ lec trở thành 1 super mentor.
+- từ quy trình này được đặc riêng ở bộ môn, khi các bạn nắm vững bộ môn và nắm vững giáo trình thì là thời điểm các bạn có thể tham gia vào quá trình làm bgk, có trong link chi tiết bảng lương:bgk là người tham gia vào việc đáng giá học viên trong buổi 14 nhầm tìm ra những học viên tốt, top1, 2,3 … từ đó thể hiện được tính công bằng và công nhận các con trong quá trình luyện tập để được ra kế quả.
+bộ câu hỏi bgk mẫu : https://docs.google.com/spreadsheets/d/1WrQyJD3mU7plrikePg01TWuiQB5MTjV_tHEM9isNxjM/edit?gid=0#gid=0
+ngoài ra các bạn có thể tìm ra những câu hỏi hay hơn để phong phú hơn, các câu hỏi liên quan tới phạm vi: sáng tạo, làm việc nhóm, lập trình, phần thuyết trình và câu hỏi gọi mở.
+Mổi bạn tối thiểu là 3 câu hỏi để có thể đưa ra kết quả chính xác nhất.
+Bgk là người quan sát chấm điểm các con trong quá trình lắp ráp, lập trình, thuyết trình. Có thể đi xung quanh để đặt câu hỏi trong quá trình lắp ráp và lập trình luôn. Sau khi con thuyết trình xong thì có thể đặt thêm câu hỏi để dẫn dắt làm rõ nội dung của con đang thuyết trình, nhầm mục đích tìm ra những câu trả lời mà tốt mà con thiếu sót khi chưa nói được.
+bộ barem đánh giá : 
+bảng  điểm 4+ : https://docs.google.com/spreadsheets/d/1UPb8q8rJXWeFfaZNIkxAbUnGcDmAz3uE/edit?usp=drive_link&ouid=112274387185829199840&rtpof=true&sd=true
+bảng điểm k12: https://docs.google.com/spreadsheets/d/1E4rLWCul0DrBFZv5kvKKgc2h4mhlYWAr/edit?gid=380035377#gid=380035377 
+
+để tham gia được vào superMentor bạn đề xuất với leader để có buổi duyệt giảng và đào tạo để có thể khai thác thêm góc nhìn từ phía chuyên môn cũng là bước duyệt để các bạn có thể tham gia tốt ở role super mentor
