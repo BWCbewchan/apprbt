@@ -530,16 +530,16 @@ export default function Screen11({ onNavigate }: { onNavigate?: (screen: string)
                         </div>
                     </Step>
 
-                    <Step n={2} title="Vai trò Ban giám khảo → Trở thành Giảng viên nòng cốt" last>
+                    <Step n={2} title="Vai trò BGK → Trở thành Super Mentor" last>
                         {/* Roadmap */}
                         <div className="flex flex-col gap-0">
                             {[
-                                { icon: '🟢', label: 'Bảo chứng năng lực đứng lớp độc lập' },
-                                { icon: '📚', label: 'Nắm vững hệ sinh thái giáo trình bộ môn' },
-                                { icon: '📝', label: 'Đề xuất nâng bậc Giảng viên nòng cốt' },
-                                { icon: '🎓', label: 'Đào tạo chuyên sâu & vượt qua vòng kiểm duyệt' },
-                                { icon: '🎯', label: 'Tham gia hội đồng Ban giám khảo' },
-                                { icon: '⭐', label: 'Giảng viên nòng cốt', highlight: true },
+                                { icon: '🟢', label: 'LEC đứng lớp ổn định' },
+                                { icon: '📚', label: 'Nắm vững giáo trình & bộ môn' },
+                                { icon: '📝', label: 'Đề xuất duyệt giảng Super Mentor với Leader' },
+                                { icon: '🎓', label: 'Đào tạo chuyên sâu & duyệt đạt' },
+                                { icon: '�', label: 'Tham gia vai trò BGK' },
+                                { icon: '⭐', label: 'Super Mentor', highlight: true },
                             ].map((item, i, arr) => (
                                 <div key={i} className="flex items-start gap-3">
                                     <div className="flex flex-col items-center">
@@ -553,14 +553,14 @@ export default function Screen11({ onNavigate }: { onNavigate?: (screen: string)
 
                         <div className="mt-4 rounded-xl bg-white/[0.03] border border-white/10 p-4">
                             <p className="text-slate-300 text-sm leading-relaxed">
-                                Khi nắm vững bộ môn và giáo trình, bạn tham gia <strong className="text-white">chấm điểm học viên trong buổi thi số 14</strong> nhằm tìm ra Top 1, 2, 3… — đảm bảo tính công bằng và công nhận nỗ lực của các em.
+                                Khi trở thành super mentor, bạn tham gia <strong className="text-white">chấm điểm học viên trong buổi thi số 14</strong> nhằm tìm ra Top 1, 2, 3… — đảm bảo tính công bằng và công nhận nỗ lực của các em.
                             </p>
                         </div>
 
                         <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mt-3">BGK quan sát và chấm trong 3 giai đoạn</p>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                             {[
-                                { ph: '① Lắp ráp', d: 'Đi xung quanh, quan sát và đặt câu hỏi gợi mở trong lúc HS làm.' },
+                                { ph: '① Lắp ráp', d: 'Quan sát và đặt câu hỏi gợi mở trong lúc HS làm.' },
                                 { ph: '② Lập trình', d: 'Quan sát quá trình, đặt thêm câu hỏi để hiểu tư duy của HS.' },
                                 { ph: '③ Thuyết trình', d: 'Sau khi HS trình bày xong, đặt câu hỏi để làm rõ nội dung còn thiếu.' },
                             ].map(item => (
@@ -584,7 +584,7 @@ export default function Screen11({ onNavigate }: { onNavigate?: (screen: string)
                             <ResourceCard href="https://docs.google.com/spreadsheets/d/1E4rLWCul0DrBFZv5kvKKgc2h4mhlYWAr/edit" icon={Star} label="Bảng điểm K12" color="blue" />
                         </div>
 
-                        <Callout icon="💡" text="Bồi đắp chuyên môn sâu & đề xuất Hội đồng chuyên môn đánh giá — đây là chặng cuối để trở thành một Giảng viên nòng cốt thực thụ." />
+                        <Callout icon="💡" text="Đề xuất với Leader để có buổi duyệt giảng và đào tạo chuyên sâu — đây là bước cuối để đạt role Super Mentor." />
                     </Step>
                 </div>
             )}
@@ -592,10 +592,9 @@ export default function Screen11({ onNavigate }: { onNavigate?: (screen: string)
             {/* Footer */}
             <div className="mt-12 border-t border-white/10 pt-6">
                 <p className="text-slate-500 text-xs text-center mb-3">Thông tin liên hệ Bộ phận Chuyên môn (Leader / Teacher Coordinator)</p>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-w-2xl mx-auto">
                     <ResourceCard href="https://cxohok12.gitbook.io/quy-trinh-quy-dinh-danh-cho-giao-vien" icon={BookOpen} label="📖 Quy chế & Nghiệp vụ" desc="Hệ thống văn bản hiện hành" color="blue" />
                     <ResourceCard href="https://apprbt.vercel.app/" icon={Star} label="🔍 Hệ sinh thái RBT" desc="Kho lưu trữ học liệu số" color="violet" />
-                    <ResourceCard href="https://tmsmindx.vercel.app/" icon={DollarSign} label="💰 Chế độ đãi ngộ" desc="Theo dõi định mức lương" color="emerald" />
                 </div>
             </div>
 
