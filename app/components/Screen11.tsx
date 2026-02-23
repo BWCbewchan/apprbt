@@ -481,8 +481,8 @@ export default function Screen11({ onNavigate }: { onNavigate?: (screen: string)
                                 </ul>
                             </div>
                             <div className="rounded-xl bg-blue-900/15 border border-blue-500/20 p-4">
-                                <p className="font-bold text-blue-300 mb-1.5">🎯 Chạy ca trải nghiệm</p>
-                                <p className="text-slate-400 text-xs leading-relaxed mb-2">Dẫn buổi trial cho HS mới theo đúng quy trình đã duyệt.</p>
+                                <p className="font-bold text-blue-300 mb-1.5">🎯 Dạy ca trải nghiệm</p>
+                                <p className="text-slate-400 text-xs leading-relaxed mb-2">Hướng dẫn học sinh trải nghiệm theo đúng giáo trình.</p>
                                 <ResourceCard href="https://docs.google.com/presentation/d/1RCD9a3IATcrGwY2AQObbqBxRknhQuIu5/edit" icon={Video} label="Slide trial" color="blue" />
                             </div>
                         </div>
