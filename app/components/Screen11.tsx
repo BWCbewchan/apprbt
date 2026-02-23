@@ -219,7 +219,7 @@ const RUBRIC_C: RubricRow[] = [
 const PHASES = [
     { id: 'p1', emoji: '①', label: 'Cấp tài khoản', sub: 'Quan sát → Duyệt giảng' },
     { id: 'p2', emoji: '②', label: 'Sau khi có LMS', sub: 'TA → Duyệt giảng LEC' },
-    { id: 'p3', emoji: '③', label: 'Chuẩn hoá chuyên môn', sub: 'Giảng viên nòng cốt → Hội đồng đánh giá' },
+    { id: 'p3', emoji: '③', label: 'LEC → Super Mentor', sub: 'LEC → BGK' },
 ];
 
 // ═════════════════════════════════════════════════════════════════════════════
