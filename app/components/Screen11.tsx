@@ -270,39 +270,39 @@ export default function Screen11({ onNavigate }: { onNavigate?: (screen: string)
             {phase === 'p1' && (
                 <div className="space-y-1">
                     <Step n={1} title="Quan sát lớp học — 5 buổi">
-                        <p className="text-sm text-slate-400 leading-relaxed">
-                            Tham gia trực tiếp vào lớp học cùng GV phụ trách. Quan sát cách dạy, quản lý lớp và tương tác với học viên để hiểu thực tế.
-                        </p>
-                        <ul className="space-y-2">
-                            {[
-                                'Thông báo với GV khi đến: "Hôm nay em có buổi quan sát"',
-                                'Điền form quan sát sau mỗi buổi',
-                            ].map((t, i) => (
-                                <li key={i} className="flex items-start gap-2.5 text-sm text-slate-300">
-                                    <CheckCircle2 className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" />
-                                    <span>{t}</span>
-                                </li>
-                            ))}
+                        <ul className="space-y-2 mb-3">
                             <li className="flex items-start gap-2.5 text-sm text-slate-300">
                                 <CheckCircle2 className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" />
-                                <span>Liên hệ Leader nhận mã lớp &amp; khung giờ: <a href="https://zalo.me/0337061506" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-blue-300 font-medium">Zalo 0337061506</a></span>
+                                <span>Liên hệ Leader nhận mã lớp &amp; khung giờ, ca trial có thể xem lịch và xác nhận với leader là được: <a href="https://zalo.me/0337061506" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-blue-300 font-medium">Zalo 0337061506</a></span>
+                            </li>
+                            <li className="flex items-start gap-2.5 text-sm text-slate-300">
+                                <CheckCircle2 className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" />
+                                <span>Điền form quan sát sau mỗi buổi</span>
+                            </li>
+                            <li className="flex items-start gap-2.5 text-sm text-slate-300">
+                                <CheckCircle2 className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" />
+                                <span>Tham gia trực tiếp vào lớp học cùng GV phụ trách. Quan sát cách dạy, quản lý lớp và tương tác với học viên để hiểu thực tế.</span>
+                            </li>
+                            <li className="flex items-start gap-2.5 text-sm text-slate-300">
+                                <CheckCircle2 className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" />
+                                <span>Thông báo với GV khi đến: "Hôm nay em có buổi quan sát"</span>
                             </li>
                         </ul>
-                        <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mt-3">Tài liệu & lịch lớp</p>
+                        <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mt-3">Tài liệu & lịch trải nghiệm</p>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                             <ResourceCard href="https://drive.google.com/file/d/1xTWTOjqB6tZIl4Xc7YBPQaOgLdXbfmbr/view" icon={ClipboardCheck} label="Form quan sát" desc="Điền sau mỗi buổi" color="blue" />
-                            <ResourceCard href="https://docs.google.com/spreadsheets/d/1qjqo6nrQKegFPzu4t8D4W2Q5-fJ829ghNvTDWjRD1r4/edit" icon={Calendar} label="Lịch lớp HCM1" desc="Xem lịch khu vực HCM1" color="slate" />
-                            <ResourceCard href="https://docs.google.com/spreadsheets/d/1DRASt1UR8drUTLH-WGvguJRWudq3Z02eicwxxmPphek/edit" icon={Calendar} label="Lịch lớp HCM4" desc="Xem lịch khu vực HCM4" color="slate" />
+                            <ResourceCard href="https://docs.google.com/spreadsheets/d/1qjqo6nrQKegFPzu4t8D4W2Q5-fJ829ghNvTDWjRD1r4/edit" icon={Calendar} label="Lịch trải nghiệm HCM1" desc="Qua tab: Observe để điền tên ứng viên" color="slate" />
+                            <ResourceCard href="https://docs.google.com/spreadsheets/d/1DRASt1UR8drUTLH-WGvguJRWudq3Z02eicwxxmPphek/edit" icon={Calendar} label="Lịch trải nghiệm HCM4" desc="Qua tab: Observe để điền tên ứng viên" color="slate" />
                         </div>
                     </Step>
 
                     <Step n={2} title="Tham gia quan sát ca trải nghiệm (Trial)">
-                        <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">3 việc trong buổi trải nghiệm</p>
+                        <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Quan sát GV chính làm 3 việc trong buổi trải nghiệm</p>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                             {[
-                                { t: '① Giới thiệu', d: 'Tự giới thiệu bản thân, mời HS giới thiệu để tạo tương tác.' },
-                                { t: '② Dẫn dắt', d: 'Dựa vào sở thích HS để kết nối vào nội dung bài học.' },
-                                { t: '③ Giảng dạy', d: 'Dạy theo đúng giáo trình, không bỏ bước nào.' },
+                                { t: '① Giới thiệu', d: 'Cách GV tự giới thiệu bản thân, mời HS giới thiệu để tạo tương tác.' },
+                                { t: '② Dẫn dắt', d: 'Cách GV dựa vào sở thích HS để kết nối vào nội dung bài học.' },
+                                { t: '③ Giảng dạy', d: 'Cách GV dạy theo đúng giáo trình, không bỏ bước nào.' },
                             ].map(item => (
                                 <div key={item.t} className="rounded-xl bg-indigo-900/20 border border-indigo-500/20 p-3">
                                     <p className="text-indigo-300 font-bold text-xs mb-1">{item.t}</p>
@@ -311,7 +311,7 @@ export default function Screen11({ onNavigate }: { onNavigate?: (screen: string)
                             ))}
                         </div>
 
-                        <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mt-2">4 bước sau buổi trải nghiệm</p>
+                        <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mt-2">Quan sát GV chính làm 4 bước sau buổi trải nghiệm</p>
                         <div className="space-y-2">
                             {/* ① Trao đổi với Tư vấn */}
                             <div className="flex gap-3 bg-white/[0.03] border border-white/8 rounded-xl p-3.5">
@@ -367,9 +367,9 @@ export default function Screen11({ onNavigate }: { onNavigate?: (screen: string)
 
                         <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mt-3">Tài liệu buổi trải nghiệm</p>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-1">
-                            <ResourceCard href="https://docs.google.com/presentation/d/1RCD9a3IATcrGwY2AQObbqBxRknhQuIu5/edit" icon={Video} label="Slide quy trình Trial" desc="Trình chiếu trong buổi TN" color="violet" />
-                            <ResourceCard href="https://drive.google.com/drive/folders/1bhaEu1lCv-30FloGSFY8tZhEFK1cYFCm" icon={BookOpen} label="Giáo trình mới" desc="New curriculum" color="emerald" />
-                            <ResourceCard href="https://docs.google.com/spreadsheets/d/1VxhunGGaUk2schjQzF0vxwquNWdEdR42z6DnDFL2McY/edit" icon={BookOpen} label="Giáo trình cũ" desc="Old curriculum" color="slate" />
+                            <ResourceCard href="https://docs.google.com/presentation/d/1RCD9a3IATcrGwY2AQObbqBxRknhQuIu5/edit" icon={Video} label="Slide quy trình Trial" desc="Đọc kỹ để nắm rõ quy trình" color="violet" />
+                            <ResourceCard href="https://drive.google.com/drive/folders/1bhaEu1lCv-30FloGSFY8tZhEFK1cYFCm" icon={BookOpen} label="Giáo trình mới" desc="Dùng để trình chiếu trong buổi học" color="emerald" />
+                            <ResourceCard href="https://docs.google.com/spreadsheets/d/1VxhunGGaUk2schjQzF0vxwquNWdEdR42z6DnDFL2McY/edit" icon={BookOpen} label="Giáo trình cũ" desc="Dùng để trình chiếu trong buổi học" color="slate" />
                         </div>
 
                         <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mt-4">Tài liệu thiết bị & kỹ thuật</p>
