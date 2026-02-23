@@ -219,7 +219,7 @@ const RUBRIC_C: RubricRow[] = [
 const PHASES = [
     { id: 'p1', emoji: '①', label: 'Cấp tài khoản', sub: 'Quan sát → Duyệt giảng' },
     { id: 'p2', emoji: '②', label: 'Sau khi có LMS', sub: 'TA → Duyệt giảng LEC' },
-    { id: 'p3', emoji: '③', label: 'Phát triển chuyên môn sâu', sub: 'Giảng viên nòng cốt → BGK' },
+    { id: 'p3', emoji: '③', label: 'Chuẩn hoá chuyên môn', sub: 'Giảng viên nòng cốt → Hội đồng đánh giá' },
 ];
 
 // ═════════════════════════════════════════════════════════════════════════════
@@ -272,24 +272,43 @@ export default function Screen11({ onNavigate }: { onNavigate?: (screen: string)
             {phase === 'p1' && (
                 <div className="space-y-1">
                     <Step n={1} title="Quan sát lớp học — 5 buổi">
-                        <ul className="space-y-2 mb-3">
-                            <li className="flex items-start gap-2.5 text-sm text-slate-300">
-                                <CheckCircle2 className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" />
-                                <span>Liên hệ Leader nhận mã lớp &amp; khung giờ, ca trial có thể xem lịch và xác nhận với leader là được: <a href="https://zalo.me/0337061506" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-blue-300 font-medium">Zalo 0337061506</a></span>
-                            </li>
-                            <li className="flex items-start gap-2.5 text-sm text-slate-300">
-                                <CheckCircle2 className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" />
-                                <span>Điền form quan sát sau mỗi buổi</span>
-                            </li>
-                            <li className="flex items-start gap-2.5 text-sm text-slate-300">
-                                <CheckCircle2 className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" />
-                                <span>Tham gia trực tiếp vào lớp học cùng GV phụ trách. Quan sát cách dạy, quản lý lớp và tương tác với học viên để hiểu thực tế.</span>
-                            </li>
-                            <li className="flex items-start gap-2.5 text-sm text-slate-300">
-                                <CheckCircle2 className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" />
-                                <span>Thông báo với GV khi đến: "Hôm nay em có buổi quan sát"</span>
-                            </li>
-                        </ul>
+                        <div className="space-y-4 mb-4">
+                            {/* Lớp học */}
+                            <div>
+                                <p className="font-bold text-emerald-300 mb-2">📚 Đối với Lớp học (thông thường)</p>
+                                <ul className="space-y-2">
+                                    <li className="flex items-start gap-2.5 text-sm text-slate-300">
+                                        <CheckCircle2 className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" />
+                                        <span>Liên hệ Leader để xin thông tin lớp học (mã lớp &amp; khung giờ) để tham gia quan sát: <a href="https://zalo.me/0337061506" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-blue-300 font-medium">Zalo Leader</a></span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            {/* Lớp Trải Nghiệm */}
+                            <div>
+                                <p className="font-bold text-violet-300 mb-2">🎯 Đối với Ca Trải nghiệm (Trial)</p>
+                                <ul className="space-y-2">
+                                    <li className="flex items-start gap-2.5 text-sm text-slate-300">
+                                        <CheckCircle2 className="w-4 h-4 text-violet-400 mt-0.5 flex-shrink-0" />
+                                        <span>Chủ động xem lịch trải nghiệm ở bên dưới và thông báo xác nhận với Leader là được.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            {/* Quy định chung */}
+                            <div className="pt-2 border-t border-white/5">
+                                <ul className="space-y-2">
+                                    <li className="flex items-start gap-2.5 text-sm text-slate-300">
+                                        <CheckCircle2 className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" />
+                                        <span>Khi đến lớp, chủ động thông báo: <em className="text-white">"Hôm nay em có buổi quan sát"</em> với GV phụ trách.</span>
+                                    </li>
+                                    <li className="flex items-start gap-2.5 text-sm text-slate-300">
+                                        <CheckCircle2 className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" />
+                                        <span>Tham gia trực tiếp, quan sát cách GV dạy, quản lý lớp &amp; tương tác với học viên. Điền form sau mỗi buổi.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                         <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mt-3">Tài liệu & lịch trải nghiệm</p>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                             <ResourceCard href="https://drive.google.com/file/d/1xTWTOjqB6tZIl4Xc7YBPQaOgLdXbfmbr/view" icon={ClipboardCheck} label="Form quan sát" desc="Điền sau mỗi buổi" color="blue" />
