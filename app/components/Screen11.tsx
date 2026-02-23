@@ -537,7 +537,7 @@ export default function Screen11({ onNavigate }: { onNavigate?: (screen: string)
                                 { icon: '🟢', label: 'LEC đứng lớp ổn định' },
                                 { icon: '📚', label: 'Nắm vững giáo trình & bộ môn' },
                                 { icon: '📝', label: 'Đề xuất duyệt giảng Super Mentor với Leader' },
-                                { icon: '🎓', label: 'Đào tạo chuyên sâu & duyệt đạt' },
+                                { icon: '🎓', label: 'Đào tạo chuyên sâu & leader duyệt' },
                                 { icon: '�', label: 'Tham gia vai trò BGK' },
                                 { icon: '⭐', label: 'Super Mentor', highlight: true },
                             ].map((item, i, arr) => (
