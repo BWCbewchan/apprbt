@@ -5,7 +5,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { BookOpen, ExternalLink, FileText, GraduationCap, Rocket } from 'lucide-react';
+import { BookOpen, ExternalLink, FileText, GraduationCap, Rocket, X } from 'lucide-react';
 import { Button } from "./ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 
@@ -97,7 +97,7 @@ const homeworkCategories: HomeworkCategory[] = [
   }
 ];
 
-export default function Screen8() {
+export default function Screen8({ onClose }: { onClose?: () => void }) {
   const openLink = (link: string) => {
     window.open(link, '_blank', 'noopener,noreferrer');
   };
@@ -114,9 +114,23 @@ export default function Screen8() {
           <FileText className="h-10 w-10 md:h-12 md:w-12" />
           Bài Tập Về Nhà
         </h1>
-        <p className="text-[#cbd5e1] text-lg">
-          Truy cập nhanh các bài tập về nhà theo từng khóa học
-        </p>
+        <div className="flex items-start justify-center gap-3">
+          <p className="text-[#cbd5e1] text-lg">
+            Truy cập nhanh các bài tập về nhà theo từng khóa học
+          </p>
+          {onClose && (
+            <Button
+              type="button"
+              variant="ghost"
+              size="icon"
+              aria-label="Đóng bảng bài tập về nhà"
+              className="shrink-0 text-white hover:bg-white/10"
+              onClick={onClose}
+            >
+              <X className="h-5 w-5" />
+            </Button>
+          )}
+        </div>
       </div>
 
       {/* Categories Grid */}
