@@ -39,6 +39,11 @@ const homeworkCategories: HomeworkCategory[] = [
         id: 'rob4a',
         name: 'ROB4A - KIROA',
         link: 'https://drive.google.com/drive/folders/1E-B3r0ZGnw_XV9QcuQDd04aGJxg9Kw4N?usp=drive_link'
+      },
+      {
+        id: 'rob4i',
+        name: 'ROB4I - KIROI',
+        link: 'https://drive.google.com/drive/folders/14peZHQ9f7AAAchT9znHBlCfhywSFDk7m?usp=drive_link'
       }
     ]
   },
@@ -58,6 +63,11 @@ const homeworkCategories: HomeworkCategory[] = [
         id: 'prea',
         name: 'PREA',
         link: 'https://drive.google.com/drive/folders/19uwKfhZv14ycExnsxJfq_sz4Ryd7Wmd_?usp=drive_link'
+      },
+      {
+        id: 'prei',
+        name: 'PREI',
+        link: 'https://drive.google.com/drive/folders/19KwvzstgK-tnTk3L3jo2C29_7c2hhqtk?usp=drive_link'
       }
     ]
   },
@@ -72,6 +82,16 @@ const homeworkCategories: HomeworkCategory[] = [
         id: 'armb',
         name: 'ARMB',
         link: 'https://drive.google.com/drive/folders/1EIPtA-y471-bc1gEDdRt-qs5oR2YCrUW?usp=drive_link'
+      },
+      {
+        id: 'arma',
+        name: 'ARMA',
+        link: 'https://drive.google.com/drive/folders/1ufJpwdT9TwrbliiQ70Cet641McPzFFMa?usp=drive_link'
+      },
+      {
+        id: 'armi',
+        name: 'ARMI',
+        link: 'https://drive.google.com/drive/folders/1Sd_zhwkOs9F9qjTEkpNtJ7GEiYPmjEiR?usp=drive_link'
       }
     ]
   }
