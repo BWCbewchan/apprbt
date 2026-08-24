@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils';
 import { Check, Clipboard, Download, FileText, Link2, Loader2, Settings, X } from 'lucide-react';
 import QRCode from 'qrcode';
 import { useEffect, useRef, useState } from 'react';
+import Screen8 from './Screen8';
 import { Button } from "./ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { Input } from "./ui/input";
@@ -39,6 +40,7 @@ export default function Screen1() {
   const [currentYear, setCurrentYear] = useState(1);
   const [isLoadingLessons, setIsLoadingLessons] = useState(false);
   const [pasteSuccess, setPasteSuccess] = useState(false);
+  const [isHomeworkOpen, setIsHomeworkOpen] = useState(false);
   const [notification, setNotification] = useState<{ message: string; type: 'success' | 'error' | 'info' } | null>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const generateTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -317,7 +319,28 @@ export default function Screen1() {
         <p className="text-[#cbd5e1] text-lg">
           Chuyển đổi link thành mã QR để dễ dàng chia sẻ và truy cập
         </p>
+        <Button
+          onClick={() => setIsHomeworkOpen(true)}
+          className="mt-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-lg hover:from-amber-600 hover:to-orange-700"
+        >
+          <FileText className="h-4 w-4" />
+          Mở bài tập về nhà
+        </Button>
       </div>
+
+      {isHomeworkOpen && (
+        <>
+          <button
+            type="button"
+            aria-label="Đóng bảng bài tập về nhà"
+            className="fixed inset-0 z-40 cursor-default bg-slate-950/60 backdrop-blur-sm"
+            onClick={() => setIsHomeworkOpen(false)}
+          />
+          <aside className="fixed inset-y-0 right-0 z-50 w-full max-w-2xl overflow-y-auto border-l border-white/10 bg-[#0f172a] shadow-2xl">
+            <Screen8 onClose={() => setIsHomeworkOpen(false)} />
+          </aside>
+        </>
+      )}
 
       {/* Input Section */}
       <Card className="glass-card border-white/10">
