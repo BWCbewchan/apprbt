@@ -34,6 +34,8 @@ const KEY_TO_SCREEN: Record<string, string> = {
 // Screens cần full height
 const FULLSCREEN_SCREENS = ['screen5', 'screen6', 'screen7', 'screen9', 'screen10'];
 
+const NATIONAL_DAY_GREETING = 'Chúc mừng 81 năm ngày Quốc khánh 2/9';
+
 // Style cho screen ẩn - dùng visibility để browser skip rendering
 const hiddenStyle: React.CSSProperties = {
   position: 'absolute',
@@ -145,11 +147,11 @@ export default function Home() {
           isCollapsed={isSidebarCollapsed}
           onToggle={toggleSidebar}
         />
-        <main
-          className={cn(
-            "flex-1 min-h-screen relative",
-            isSidebarCollapsed ? "ml-0 md:ml-20" : "ml-0 md:ml-64"
-          )}
+        <main 
+  className={cn( 
+    "flex-1 min-h-screen relative pt-20 md:pt-24", 
+    isSidebarCollapsed ? "ml-0 md:ml-20" : "ml-0 md:ml-64" 
+  )} 
           style={{ transition: 'margin-left 0.15s ease-out' }}
         >
           <div className={cn("relative h-full pb-16 md:pb-0", isFullscreen ? "p-0 h-screen" : "p-4 md:p-8")}>
@@ -231,7 +233,96 @@ export default function Home() {
             )}
           </div>
 
-          {/* Action Buttons - Always visible */}
+         {/* National Day Greeting */}
+<div className="fixed top-6 left-1/2 z-[100] -translate-x-1/2 pointer-events-none ">
+  <div className="relative">
+
+    {/* Glow phía sau */}
+    <div className="absolute -inset-3 rounded-full bg-red-600/50 blur-xl animate-pulse" />
+
+    {/* Viền glow vàng */}
+    <div className="absolute -inset-[2px] rounded-full bg-gradient-to-r from-yellow-300 via-red-500 to-yellow-300 opacity-90 blur-[2px]" />
+
+    {/* Banner */}
+    <div className="
+      relative flex items-center justify-center gap-3
+      rounded-full
+      border-2 border-yellow-300
+      bg-gradient-to-r from-red-950 via-red-700 to-red-950
+      px-5 py-2.5
+      shadow-[0_0_20px_rgba(239,68,68,0.65),inset_0_0_20px_rgba(255,215,0,0.15)]
+      md:px-8 md:py-3
+    ">
+
+      {/* Cờ trái */}
+      <span className="
+        text-xl
+        drop-shadow-[0_0_6px_rgba(255,215,0,0.8)]
+        md:text-2xl
+      ">
+        🇻🇳
+      </span>
+
+      {/* Sao vàng */}
+      <span className="
+        text-yellow-300
+        text-lg
+        drop-shadow-[0_0_8px_rgba(253,224,71,1)]
+        md:text-xl
+      ">
+        ★
+      </span>
+
+      {/* Nội dung */}
+      <div className="flex flex-col items-center leading-tight">
+        <span className="
+          text-[9px]
+          font-bold
+          tracking-[0.25em]
+          text-yellow-200
+          md:text-[11px]
+        ">
+          CHÚC MỪNG
+        </span>
+
+        <span className="
+          whitespace-nowrap
+          text-sm
+          font-black
+          uppercase
+          tracking-wide
+          text-yellow-300
+          drop-shadow-[0_2px_3px_rgba(0,0,0,0.8)]
+          md:text-xl
+        ">
+          81 NĂM NGÀY QUỐC KHÁNH 2/9
+        </span>
+      </div>
+
+      {/* Sao vàng */}
+      <span className="
+        text-yellow-300
+        text-lg
+        drop-shadow-[0_0_8px_rgba(253,224,71,1)]
+        md:text-xl
+      ">
+        ★
+      </span>
+
+      {/* Cờ phải */}
+      <span className="
+        text-xl
+        drop-shadow-[0_0_6px_rgba(255,215,0,0.8)]
+        md:text-2xl
+      ">
+        🇻🇳
+      </span>
+    </div>
+
+    {/* tia sáng nhỏ */}
+    <div className="absolute -top-1 left-1/2 h-1 w-20 -translate-x-1/2 rounded-full bg-yellow-300 blur-sm" />
+  </div>
+</div>
           <StatisticsButton />
           <FeedbackButton currentScreen={activeScreen} />
         </main>
