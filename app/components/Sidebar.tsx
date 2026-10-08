@@ -6,7 +6,7 @@
 
 import { getSessionId, getUserAgent, getUserId, isAppsScriptConfigured, trackLocalPageView, trackPageView } from '@/lib/appscript';
 import { cn } from "@/lib/utils";
-import { BookOpen, ClipboardList, ExternalLink, FileText, Link as LinkIcon, Mail, Menu, MessageSquare, QrCode, Search, Star, TrendingUp, X } from "lucide-react";
+import { BookOpen, ExternalLink, FileText, Link as LinkIcon, Mail, Menu, MessageSquare, QrCode, Search, Star, TrendingUp, X } from "lucide-react";
 import { useEffect, useState } from 'react';
 
 interface SidebarProps {
@@ -18,8 +18,7 @@ interface SidebarProps {
 
 const menuItems = [
   { id: 'screen1', label: 'Giáo trình', icon: QrCode, shortcut: '1' },
-  { id: 'screen2', label: 'Tìm phiếu', icon: Search, shortcut: '2' },
-  { id: 'screen3', label: 'Nhận xét', icon: ClipboardList, shortcut: '3' },
+  { id: 'screen2', label: 'Tìm phiếu', icon: Search, shortcut: '2', href: 'https://www.tpsmindx.com/public/checkout' },
   { id: 'screen4', label: 'Nhận xét Zalo', icon: MessageSquare, shortcut: '4' },
   { id: 'screen5', label: 'Kiểm tra TP', icon: BookOpen, shortcut: '5' },
   { id: 'screen6', label: 'Link Mentor', icon: LinkIcon, shortcut: '6' },
@@ -32,7 +31,7 @@ const menuItems = [
 ];
 
 // Items hiển thị trên mobile bottom nav (tối đa 5)
-const MOBILE_NAV_ITEMS = ['screen1', 'screen2', 'screen3', 'screen9', 'screen11'];
+const MOBILE_NAV_ITEMS = ['screen1', 'screen2', 'screen9', 'screen11'];
 
 export default function Sidebar({ activeScreen, onScreenChange, isCollapsed, onToggle }: SidebarProps) {
   const [dealClicks, setDealClicks] = useState<number>(0);
@@ -236,6 +235,15 @@ export default function Sidebar({ activeScreen, onScreenChange, isCollapsed, onT
         {menuItems.filter(i => MOBILE_NAV_ITEMS.includes(i.id)).map(item => {
           const Icon = item.icon;
           const isActive = activeScreen === item.id;
+          if (item.href) {
+            return (
+              <a key={item.id} href={item.href} target="_blank" rel="noopener noreferrer"
+                className="flex-1 flex flex-col items-center gap-0.5 py-2 px-1 transition-colors text-slate-500 hover:text-slate-300">
+                <Icon className="w-5 h-5" />
+                <span className="text-[10px] font-medium leading-tight truncate max-w-full">{item.label}</span>
+              </a>
+            );
+          }
           return (
             <button key={item.id} onClick={() => { onScreenChange(item.id); setMobileOpen(false); }}
               className={cn("flex-1 flex flex-col items-center gap-0.5 py-2 px-1 transition-colors",
