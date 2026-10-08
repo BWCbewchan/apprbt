@@ -6,7 +6,7 @@
 
 import { getSessionId, getUserAgent, getUserId, isAppsScriptConfigured, trackLocalPageView, trackPageView } from '@/lib/appscript';
 import { cn } from "@/lib/utils";
-import { BookOpen, ExternalLink, FileText, Link as LinkIcon, Mail, Menu, MessageSquare, QrCode, Search, Star, TrendingUp, X } from "lucide-react";
+import { BookOpen, ExternalLink, FileText, Link as LinkIcon, Mail, Menu, MessageSquare, QrCode, Search, TrendingUp, X } from "lucide-react";
 import { useEffect, useState } from 'react';
 
 interface SidebarProps {
@@ -21,17 +21,15 @@ const menuItems = [
   { id: 'screen2', label: 'Tìm phiếu', icon: Search, shortcut: '2', href: 'https://www.tpsmindx.com/public/checkout' },
   { id: 'screen4', label: 'Nhận xét Zalo', icon: MessageSquare, shortcut: '4' },
   { id: 'screen5', label: 'Kiểm tra TP', icon: BookOpen, shortcut: '5' },
-  { id: 'screen6', label: 'Link Mentor', icon: LinkIcon, shortcut: '6' },
-  { id: 'screen7', label: 'Nhận mail chỉ số', icon: Mail, shortcut: '7' },
+  { id: 'screen6', label: 'Links Mentor', icon: LinkIcon, shortcut: '6' },
+  { id: 'screen7', label: 'Nhận email chỉ số', icon: Mail, shortcut: '7' },
   { id: 'screen8', label: 'Bài tập về nhà', icon: FileText, shortcut: '8' },
-  { id: 'screen9', label: 'Đánh giá năng lực', icon: Star, shortcut: '9' },
-  { id: 'screen10', label: 'Đào tạo nâng cao', icon: ExternalLink, shortcut: '0' },
   { id: 'screen11', label: 'Lộ trình ứng viên', icon: TrendingUp, shortcut: 'L', href: '/roadmap' },
-  { id: 'deal', label: 'Chỉ số deal lương', icon: ExternalLink, shortcut: 'D', href: 'https://tmsmindx.vercel.app/' },
+  { id: 'deal', label: 'Chỉ số deal lương', icon: ExternalLink, shortcut: 'D', href: 'https://www.tpsmindx.com' },
 ];
 
 // Items hiển thị trên mobile bottom nav (tối đa 5)
-const MOBILE_NAV_ITEMS = ['screen1', 'screen2', 'screen9', 'screen11'];
+const MOBILE_NAV_ITEMS = ['screen1', 'screen2', 'screen11'];
 
 export default function Sidebar({ activeScreen, onScreenChange, isCollapsed, onToggle }: SidebarProps) {
   const [dealClicks, setDealClicks] = useState<number>(0);
@@ -88,11 +86,12 @@ export default function Sidebar({ activeScreen, onScreenChange, isCollapsed, onT
         <a key={item.id} href={item.href}
           {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
           onClick={() => { if (item.id === 'deal') handleDealClick(); }}
+          style={{ font: 'inherit', textAlign: 'left' }}
           className={cls} title={compact ? `${item.label} (${item.shortcut})` : undefined}>
           <Icon className="h-5 w-5 flex-shrink-0" />
           {!compact && (
             <>
-              <span className="truncate flex-1">{item.label}</span>
+              <span className="truncate flex-1 leading-5 text-center">{item.label}</span>
               <span className={cn("flex items-center justify-center w-6 h-6 rounded text-xs font-semibold",
                 isActive ? "bg-white/20 text-white" : "bg-[rgba(30,41,59,0.6)] text-[#a5b4fc]")}>{item.shortcut}</span>
               {isMounted && item.id === 'deal' && dealClicks > 0 && (
@@ -117,7 +116,7 @@ export default function Sidebar({ activeScreen, onScreenChange, isCollapsed, onT
         <Icon className="h-5 w-5 flex-shrink-0" />
         {!compact && (
           <>
-            <span className="truncate flex-1">{item.label}</span>
+            <span className="truncate flex-1 leading-5 text-center">{item.label}</span>
             <span className={cn("flex items-center justify-center w-6 h-6 rounded text-xs font-semibold",
               isActive ? "bg-white/20 text-white" : "bg-[rgba(30,41,59,0.6)] text-[#a5b4fc]")}>{item.shortcut}</span>
           </>
@@ -238,6 +237,7 @@ export default function Sidebar({ activeScreen, onScreenChange, isCollapsed, onT
           if (item.href) {
             return (
               <a key={item.id} href={item.href} target="_blank" rel="noopener noreferrer"
+                style={{ font: 'inherit', textAlign: 'center' }}
                 className="flex-1 flex flex-col items-center gap-0.5 py-2 px-1 transition-colors text-slate-500 hover:text-slate-300">
                 <Icon className="w-5 h-5" />
                 <span className="text-[10px] font-medium leading-tight truncate max-w-full">{item.label}</span>
